@@ -1,0 +1,44 @@
+# Core dependencies
+alembic>=1.13.0
+annotated-doc>=0.0.3
+annotated-types>=0.7.0
+anthropic>=0.71.0
+anyio>=4.0.0
+asyncpg>=0.30.0
+certifi>=2024.0.0
+click>=8.1.0
+distro>=1.9.0
+docstring_parser>=0.16.0
+greenlet>=3.0.0
+h11>=0.14.0
+httpcore>=1.0.0
+httpx>=0.28.0
+idna>=3.6
+jiter>=0.5.0
+Mako>=1.3.0
+MarkupSafe>=3.0.0
+numpy<2.0
+pydantic>=2.5.0,<3.0.0
+pydantic_core>=2.14.0
+python-dotenv>=1.0.0
+redis>=5.0.0
+sniffio>=1.3.0
+SQLAlchemy>=2.0.0
+fpdf2>=2.7.0
+
+# FastAPI and uvicorn
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+gunicorn>=21.0.0
+
+# ChromaDB for vector storage (optional - comment out if not needed)
+chromadb>=0.5.0
+
+# WebSockets
+websockets>=12.0
+
+# Jinja2 for templates
+jinja2>=3.1.0
+
+# WeasyPrint for PDF generation (optional)
+weasyprint>=62.0

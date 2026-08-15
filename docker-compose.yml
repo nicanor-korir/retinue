@@ -1,0 +1,86 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: Deviant_postgres
+    environment:
+      POSTGRES_DB: ai_company
+      POSTGRES_USER: agent
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-dev_password_change_in_production}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agent -d ai_company"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - Deviant_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: Deviant_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - Deviant_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: Deviant_backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://agent:${DB_PASSWORD:-dev_password_change_in_production}@postgres:5432/ai_company
+      REDIS_URL: redis://redis:6379
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - ./backend/output:/app/output
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - Deviant_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: Deviant_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      NODE_ENV: ${NODE_ENV:-development}
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    command: npm run dev
+    networks:
+      - Deviant_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  Deviant_network:
+    driver: bridge

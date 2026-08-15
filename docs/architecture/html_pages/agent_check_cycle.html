@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Check Cycle</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+        .info-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>⏱️ Agent Check Cycle - Every 15 Minutes</h1>
+        <p class="subtitle">The continuous loop each agent runs to stay synchronized</p>
+        
+        <div class="mermaid">
+graph TB
+    START([🔔 Agent Wakes Up])
+    
+    C1[📥 Check: New Tasks<br/>Assigned to Me]
+    C2[💬 Check: Messages<br/>To Me]
+    C3[✅ Check: Approvals<br/>I'm Waiting On]
+    C4[🔗 Check: Task<br/>Dependencies Status]
+    C5[📚 Check: Knowledge Base<br/>Updates]
+    
+    E1{Any New<br/>Work?}
+    E2{Any<br/>Messages?}
+    E3{Approvals<br/>Received?}
+    E4{Dependencies<br/>Unblocked?}
+    
+    A1[🚀 Start New Task]
+    A2[💬 Process & Respond]
+    A3[▶️ Continue Approved Task]
+    A4[▶️ Resume Blocked Task]
+    A5[📝 Update Task Status]
+    A6[📊 Post Progress Update]
+    A7[🆘 Request Help/Escalate]
+    
+    CH1{Am I Blocked<br/>>2 Hours?}
+    CH2{Task<br/>Complete?}
+    CH3{Need<br/>Approval?}
+    
+    SLEEP([😴 Sleep 15 Minutes])
+    
+    START --> C1
+    START --> C2
+    START --> C3
+    START --> C4
+    START --> C5
+    
+    C1 --> E1
+    C2 --> E2
+    C3 --> E3
+    C4 --> E4
+    
+    E1 -->|Yes| A1
+    E1 -->|No| E2
+    E2 -->|Yes| A2
+    E2 -->|No| E3
+    E3 -->|Yes| A3
+    E3 -->|No| E4
+    E4 -->|Yes| A4
+    E4 -->|No| CH1
+    
+    A1 --> A5
+    A2 --> A5
+    A3 --> A5
+    A4 --> A5
+    
+    A5 --> A6
+    A6 --> CH1
+    
+    CH1 -->|Yes| A7
+    CH1 -->|No| CH2
+    
+    CH2 -->|Yes| CH3
+    CH2 -->|No| SLEEP
+    
+    CH3 -->|Yes| A7
+    CH3 -->|No| SLEEP
+    
+    A7 --> SLEEP
+    
+    SLEEP --> START
+    
+    style START fill:#4ecdc4,stroke:#333,stroke-width:2px
+    style SLEEP fill:#ffe66d,stroke:#333,stroke-width:2px
+    style A7 fill:#ff6b6b,stroke:#333,stroke-width:2px
+    style A1 fill:#95e1d3,stroke:#333,stroke-width:2px
+    style A5 fill:#95e1d3,stroke:#333,stroke-width:2px
+        </div>
+        
+        <div class="info-box">
+            <h3>⚙️ What Happens Every 15 Minutes</h3>
+            <p><strong>Each agent:</strong></p>
+            <ul>
+                <li>🔍 <strong>Checks Database</strong> for new tasks, messages, and updates</li>
+                <li>💭 <strong>Evaluates</strong> what action to take based on current state</li>
+                <li>⚡ <strong>Takes Action</strong> autonomously or requests approval</li>
+                <li>📝 <strong>Updates Status</strong> so others know progress</li>
+                <li>🆘 <strong>Escalates</strong> if blocked >2 hours</li>
+                <li>😴 <strong>Sleeps</strong> and repeats the cycle</li>
+            </ul>
+            <p><em>This ensures all agents stay coordinated without constant communication overhead</em></p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

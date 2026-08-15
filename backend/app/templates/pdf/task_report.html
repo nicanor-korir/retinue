@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} - Task Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: {{ styling.font_family }};
+            font-size: {{ styling.font_size_base }};
+            line-height: {{ styling.line_height }};
+            color: #1f2937;
+            background: white;
+        }
+
+        @page {
+            size: {{ styling.page_size }};
+            margin: {{ styling.margins.top }} {{ styling.margins.right }} {{ styling.margins.bottom }} {{ styling.margins.left }};
+        }
+
+        .header {
+            border-bottom: 3px solid {{ styling.primary_color }};
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: {{ styling.font_size_h1 }};
+            color: {{ styling.primary_color }};
+            margin-bottom: 5px;
+        }
+
+        .generated-info {
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: {{ styling.font_size_h2 }};
+            color: {{ styling.primary_color }};
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid {{ styling.accent_color }};
+            padding-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: {{ styling.font_size_h3 }};
+            color: {{ styling.secondary_color }};
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .metrics-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, {{ styling.primary_color }} 0%, {{ styling.secondary_color }} 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 24pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 10pt;
+            opacity: 0.9;
+        }
+
+        .task-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f9fafb;
+            border-left: 4px solid {{ styling.primary_color }};
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            gap: 15px;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #111827;
+            flex: 1;
+        }
+
+        .task-status-badge {
+            padding: 3px 10px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            font-size: 9pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .status-completed {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .status-in-progress {
+            background: #dbeafe;
+            color: #0c4a6e;
+        }
+
+        .status-pending {
+            background: #fed7aa;
+            color: #78350f;
+        }
+
+        .status-blocked {
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        .task-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            font-size: 10pt;
+            margin: 10px 0;
+        }
+
+        .meta-item {
+            padding: 8px;
+            background: white;
+            border-radius: 3px;
+            border-left: 2px solid {{ styling.accent_color }};
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: {{ styling.secondary_color }};
+            font-size: 9pt;
+            margin-bottom: 2px;
+        }
+
+        .meta-value {
+            color: #111827;
+        }
+
+        .task-description {
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+            margin: 10px 0;
+        }
+
+        .dependencies {
+            background: #f0f9ff;
+            padding: 10px;
+            border-radius: 3px;
+            font-size: 10pt;
+            margin: 10px 0;
+        }
+
+        .dependencies-title {
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 5px;
+        }
+
+        .dependency-tag {
+            display: inline-block;
+            background: #bfdbfe;
+            color: #0c4a6e;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin: 2px;
+            font-size: 9pt;
+        }
+
+        .blockers-section {
+            background: #fee2e2;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #dc2626;
+            margin: 20px 0;
+        }
+
+        .blockers-title {
+            color: #7f1d1d;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .blocker-item {
+            background: white;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 3px;
+            border-left: 3px solid #dc2626;
+            font-size: 10pt;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background: {{ styling.primary_color }};
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 10pt;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 10pt;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .timeline-container {
+            margin: 20px 0;
+            padding-left: 20px;
+            border-left: 3px solid {{ styling.primary_color }};
+        }
+
+        .timeline-item {
+            margin: 15px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: {{ styling.primary_color }};
+            border-radius: 50%;
+            position: absolute;
+            left: -24px;
+            top: 5px;
+        }
+
+        .timeline-date {
+            font-size: 9pt;
+            color: {{ styling.accent_color }};
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: #111827;
+            margin: 3px 0;
+        }
+
+        .completion-percentage {
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+        }
+
+        .progress-bar {
+            background: #e5e7eb;
+            height: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, {{ styling.primary_color }}, {{ styling.accent_color }});
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 9pt;
+            color: {{ styling.secondary_color }};
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>{{ project.name }}</h1>
+        <div class="generated-info">
+            Task Report
+            <br>Generated on {{ generated_at | datetime }}
+        </div>
+    </div>
+
+    <!-- Metrics Summary -->
+    {% if completion_metrics %}
+        <h2>Summary Metrics</h2>
+        <div class="metrics-summary">
+            <div class="metric-card">
+                <div class="metric-value">{{ completion_metrics.total_tasks | default(0) }}</div>
+                <div class="metric-label">Total Tasks</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">{{ completion_metrics.completed_tasks | default(0) }}</div>
+                <div class="metric-label">Completed</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">{{ completion_metrics.in_progress_tasks | default(0) }}</div>
+                <div class="metric-label">In Progress</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">{{ "%.0f" | format(completion_metrics.completion_percentage | default(0)) }}%</div>
+                <div class="metric-label">Completion</div>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Task Details -->
+    {% if tasks %}
+        <h2>Task Details</h2>
+        {% for task in tasks %}
+            <div class="task-item">
+                <div class="task-header">
+                    <div class="task-title">{{ task.title }}</div>
+                    <span class="task-status-badge status-{{ task.status.lower().replace('_', '-') }}">
+                        {{ task.status }}
+                    </span>
+                </div>
+
+                <div class="task-meta">
+                    {% if task.assigned_to %}
+                        <div class="meta-item">
+                            <div class="meta-label">Assigned To</div>
+                            <div class="meta-value">{{ task.assigned_to }}</div>
+                        </div>
+                    {% endif %}
+                    {% if task.estimated_hours %}
+                        <div class="meta-item">
+                            <div class="meta-label">Est. Hours</div>
+                            <div class="meta-value">{{ task.estimated_hours }} hrs</div>
+                        </div>
+                    {% endif %}
+                    {% if task.actual_hours %}
+                        <div class="meta-item">
+                            <div class="meta-label">Actual Hours</div>
+                            <div class="meta-value">{{ task.actual_hours }} hrs</div>
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if task.description %}
+                    <div class="task-description">{{ task.description }}</div>
+                {% endif %}
+
+                {% if task.dependencies %}
+                    <div class="dependencies">
+                        <div class="dependencies-title">Dependencies:</div>
+                        {% for dep in task.dependencies %}
+                            <span class="dependency-tag">{{ dep }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Blockers Section -->
+    {% if blockers %}
+        <h2>Blocked Tasks</h2>
+        <div class="blockers-section">
+            <div class="blockers-title">Tasks requiring attention:</div>
+            {% for blocker in blockers %}
+                <div class="blocker-item">
+                    <strong>{{ blocker.task_title }}</strong>
+                    {% if blocker.blocking_reason %}
+                        <p style="margin-top: 3px; font-size: 9pt;">Reason: {{ blocker.blocking_reason }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Task Timeline -->
+    {% if task_timeline %}
+        <h2>Task Timeline</h2>
+        <div class="timeline-container">
+            {% for task in task_timeline | slice(10) %}
+                <div class="timeline-item">
+                    {% if task.created_at %}
+                        <div class="timeline-date">{{ task.created_at | datetime("%b %d, %Y") }}</div>
+                    {% endif %}
+                    <div class="timeline-title">{{ task.title }}</div>
+                    <div class="completion-percentage">Status: {{ task.status }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Dependencies -->
+    {% if dependencies %}
+        <h2>Task Dependencies</h2>
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Dependencies</th>
+            </tr>
+            {% for dep in dependencies %}
+                <tr>
+                    <td>{{ dep.task_title }}</td>
+                    <td>
+                        {% if dep.dependencies %}
+                            {% for d in dep.dependencies %}
+                                <span style="display: block; font-size: 9pt; margin: 2px 0;">→ {{ d }}</span>
+                            {% endfor %}
+                        {% else %}
+                            No dependencies
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <!-- Escalations -->
+    {% if escalations %}
+        <h2>Escalations</h2>
+        {% for esc in escalations %}
+            <div class="blocker-item" style="border-left-color: #dc2626;">
+                <strong>{{ esc.type }}</strong> - Priority: {{ esc.priority }}
+                <p style="font-size: 9pt; color: #7f1d1d;">Status: {{ esc.status }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>This is an automated export from Deviant Project Management System</p>
+        <p>Project ID: {{ project.id }}</p>
+    </div>
+</body>
+</html>

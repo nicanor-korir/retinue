@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} - Full Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: {{ styling.font_family }};
+            font-size: {{ styling.font_size_base }};
+            line-height: {{ styling.line_height }};
+            color: #1f2937;
+            background: white;
+        }
+
+        @page {
+            size: {{ styling.page_size }};
+            margin: {{ styling.margins.top }} {{ styling.margins.right }} {{ styling.margins.bottom }} {{ styling.margins.left }};
+        }
+
+        .header {
+            border-bottom: 3px solid {{ styling.primary_color }};
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            page-break-after: always;
+        }
+
+        .header h1 {
+            font-size: {{ styling.font_size_h1 }};
+            color: {{ styling.primary_color }};
+            margin-bottom: 5px;
+        }
+
+        .generated-info {
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: {{ styling.font_size_h2 }};
+            color: {{ styling.primary_color }};
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid {{ styling.accent_color }};
+            padding-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: {{ styling.font_size_h3 }};
+            color: {{ styling.secondary_color }};
+            margin-top: 15px;
+            margin-bottom: 10px;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .section-content {
+            margin: 15px 0;
+        }
+
+        .task-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f9fafb;
+            border-left: 4px solid {{ styling.primary_color }};
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 5px;
+        }
+
+        .task-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .task-status {
+            padding: 2px 8px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        .task-description {
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+            margin-top: 8px;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: {{ styling.code_font }};
+            font-size: 9pt;
+            overflow-x: auto;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background: {{ styling.primary_color }};
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 10pt;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 10pt;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .decision-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #fffbeb;
+            border-left: 4px solid {{ styling.accent_color }};
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .decision-question {
+            font-weight: 600;
+            color: #78350f;
+            margin-bottom: 8px;
+        }
+
+        .decision-answer {
+            padding: 10px;
+            background: white;
+            border-radius: 3px;
+            margin: 8px 0;
+            border-left: 2px solid {{ styling.accent_color }};
+        }
+
+        .escalation-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #fee2e2;
+            border-left: 4px solid #dc2626;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .message-thread {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 10pt;
+        }
+
+        .message-item {
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+            border-left: 3px solid {{ styling.secondary_color }};
+        }
+
+        .message-from {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 3px;
+        }
+
+        .message-content {
+            color: {{ styling.secondary_color }};
+            margin-top: 5px;
+        }
+
+        .toc {
+            page-break-after: always;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+        }
+
+        .toc ol {
+            margin-left: 20px;
+        }
+
+        .toc li {
+            margin: 5px 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 9pt;
+            color: {{ styling.secondary_color }};
+            text-align: center;
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>{{ project.name }}</h1>
+        <p>{{ project.description }}</p>
+        <div class="generated-info">
+            Complete Project Documentation
+            <br>Generated on {{ generated_at | datetime }}
+        </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li>Project Overview</li>
+            <li>Tasks & Activities</li>
+            <li>Decisions Made</li>
+            <li>Team Conversations</li>
+            <li>Code & Technical Specs</li>
+            <li>Design Assets</li>
+            <li>Escalations & Issues</li>
+            <li>Testing Reports</li>
+            <li>Deployment Instructions</li>
+        </ol>
+    </div>
+
+    <!-- Project Overview -->
+    <h2>1. Project Overview</h2>
+    <div class="section-content">
+        <p><strong>Status:</strong> {{ project.status }}</p>
+        <p><strong>Priority:</strong> {{ project.priority }}</p>
+        {% if overview %}
+            <p>{{ overview.description }}</p>
+        {% endif %}
+    </div>
+
+    <!-- Tasks -->
+    {% if tasks %}
+        <h2>2. Tasks & Activities</h2>
+        <p>Total tasks: <strong>{{ tasks | length }}</strong></p>
+        {% for task in tasks %}
+            <div class="task-item">
+                <div class="task-title">{{ task.title }}</div>
+                <div class="task-meta">
+                    <span class="task-status">{{ task.status }}</span>
+                    {% if task.assigned_to %}
+                        <span>Assigned to: {{ task.assigned_to }}</span>
+                    {% endif %}
+                    {% if task.estimated_hours %}
+                        <span>Est. Hours: {{ task.estimated_hours }}</span>
+                    {% endif %}
+                </div>
+                {% if task.description %}
+                    <div class="task-description">{{ task.description }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Decisions -->
+    {% if decisions %}
+        <h2>3. Decisions Made</h2>
+        {% for decision in decisions %}
+            <div class="decision-item">
+                <div class="decision-question">{{ decision.question }}</div>
+                <div class="decision-answer">
+                    <strong>Decision:</strong> {{ decision.decision }}
+                    {% if decision.rationale %}
+                        <p style="margin-top: 8px; font-size: 9pt;">{{ decision.rationale }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Conversations -->
+    {% if agent_conversations %}
+        <h2>4. Team Conversations</h2>
+        <p>Total messages: <strong>{{ agent_conversations | length }}</strong></p>
+        <div class="message-thread">
+            {% for msg in agent_conversations | slice(20) %}
+                <div class="message-item">
+                    <div class="message-from">{{ msg.from_agent }} → {{ msg.to_agent }}</div>
+                    <div class="message-content">{{ msg.content }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Code Documentation -->
+    {% if code_documentation %}
+        <h2>5. Code & Technical Documentation</h2>
+        {% for doc in code_documentation | slice(5) %}
+            <div class="section-content">
+                <h3>{{ doc.title }}</h3>
+                <div class="code-block">
+                    <pre>{{ doc.content }}</pre>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Design Assets -->
+    {% if design_assets %}
+        <h2>6. Design Assets</h2>
+        {% for asset in design_assets | slice(10) %}
+            <div class="section-content">
+                <h3>{{ asset.title }}</h3>
+                <p>{{ asset.category }}</p>
+                {% if asset.content %}
+                    <p>{{ asset.content }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Technical Specs -->
+    {% if technical_specs %}
+        <h2>7. Technical Specifications</h2>
+        <div class="section-content">
+            <table>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Framework</td>
+                    <td>{{ technical_specs.framework }}</td>
+                </tr>
+                <tr>
+                    <td>Database</td>
+                    <td>{{ technical_specs.database }}</td>
+                </tr>
+                <tr>
+                    <td>Architecture</td>
+                    <td>{{ technical_specs.architecture }}</td>
+                </tr>
+                {% if technical_specs.key_technologies %}
+                    <tr>
+                        <td>Technologies</td>
+                        <td>{{ technical_specs.key_technologies | join(", ") }}</td>
+                    </tr>
+                {% endif %}
+            </table>
+        </div>
+    {% endif %}
+
+    <!-- Escalations -->
+    {% if escalations %}
+        <h2>8. Escalations & Issues</h2>
+        {% for esc in escalations %}
+            <div class="escalation-item">
+                <strong>{{ esc.type }}</strong> - {{ esc.priority }}
+                <p style="margin-top: 5px; font-size: 10pt;">Status: {{ esc.status }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Testing Reports -->
+    {% if testing_reports %}
+        <h2>9. Testing Reports</h2>
+        <p>Test count: <strong>{{ testing_reports.test_count }}</strong></p>
+        {% for test in testing_reports.tests %}
+            <div class="task-item">
+                <div class="task-title">{{ test.title }}</div>
+                <div class="task-meta">
+                    <span class="task-status">{{ test.status }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Deployment Instructions -->
+    {% if deployment_info %}
+        <h2>10. Deployment Instructions</h2>
+        <div class="section-content">
+            {% if deployment_info.instructions %}
+                <p>{{ deployment_info.instructions }}</p>
+            {% endif %}
+            {% if deployment_info.platforms %}
+                <p><strong>Supported Platforms:</strong> {{ deployment_info.platforms | join(", ") }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>This is an automated export from Deviant Project Management System</p>
+        <p>Project ID: {{ project.id }}</p>
+    </div>
+</body>
+</html>

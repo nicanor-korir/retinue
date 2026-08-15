@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Autonomy</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+        .legend {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .legend h3 {
+            margin-top: 0;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        .color-box {
+            width: 30px;
+            height: 20px;
+            margin-right: 10px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>🤖 Agent Autonomy & Decision Levels</h1>
+        <p class="subtitle">When agents can act independently vs. need approval</p>
+        
+        <div class="mermaid">
+graph TB
+    START([📥 Task Received])
+    
+    Q1{Within My<br/>Expertise?}
+    Q2{Requires Other<br/>Dept Input?}
+    Q3{Routine<br/>Operation?}
+    Q4{Budget<br/>Impact?}
+    Q5{Architectural<br/>Change?}
+    
+    A1[✅ Execute Immediately]
+    A2[🔧 Routine Tasks]
+    A3[🐛 Bug Fixes]
+    A4[📄 Documentation]
+    A5[🎨 Minor Design Tweaks]
+    
+    D1[👨‍💼 Request Dept Head Approval]
+    D2[💻 Technical Decision]
+    D3[📦 Resource Request]
+    D4[⏱️ Timeline Extension]
+    
+    C1[🔄 Route Through PM]
+    C2[🔗 Dependencies]
+    C3[📊 Shared Resources]
+    C4[📤 Deliverable to Another Team]
+    
+    E1[🎯 Strategic Decision]
+    E2[💰 Budget Approval]
+    E3[🏗️ Architecture Change]
+    E4[📋 Major Scope Change]
+    
+    H1[👤 Financial Approval]
+    H2[👤 Strategic Direction]
+    H3[👤 Final Output]
+    
+    START --> Q1
+    
+    Q1 -->|Yes| Q2
+    Q1 -->|No| C1
+    
+    Q2 -->|No| Q3
+    Q2 -->|Yes| C1
+    
+    Q3 -->|Yes| A1
+    Q3 -->|No| Q4
+    
+    Q4 -->|No Budget| Q5
+    Q4 -->|Small| D1
+    Q4 -->|Large| E2
+    Q4 -->|Very Large| H1
+    
+    Q5 -->|No| A1
+    Q5 -->|Minor| D1
+    Q5 -->|Major| E3
+    
+    A1 --> A2
+    A1 --> A3
+    A1 --> A4
+    A1 --> A5
+    
+    D1 --> D2
+    D1 --> D3
+    D1 --> D4
+    
+    C1 --> C2
+    C1 --> C3
+    C1 --> C4
+    
+    E2 --> H1
+    E3 --> H2
+    E4 --> H2
+    
+    style A1 fill:#95e1d3,stroke:#333,stroke-width:2px
+    style A2 fill:#95e1d3,stroke:#333,stroke-width:2px
+    style A3 fill:#95e1d3,stroke:#333,stroke-width:2px
+    style A4 fill:#95e1d3,stroke:#333,stroke-width:2px
+    style A5 fill:#95e1d3,stroke:#333,stroke-width:2px
+    style H1 fill:#ff6b6b,stroke:#333,stroke-width:3px
+    style H2 fill:#ff6b6b,stroke:#333,stroke-width:3px
+    style H3 fill:#ff6b6b,stroke:#333,stroke-width:3px
+    style D1 fill:#ffe66d,stroke:#333,stroke-width:2px
+    style E2 fill:#ffbe76,stroke:#333,stroke-width:2px
+        </div>
+        
+        <div class="legend">
+            <h3>🎨 Decision Level Colors</h3>
+            <div class="legend-item">
+                <div class="color-box" style="background: #95e1d3;"></div>
+                <span><strong>Green:</strong> Autonomous Zone - Agent decides independently</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background: #ffe66d;"></div>
+                <span><strong>Yellow:</strong> Department Approval - Needs dept head sign-off</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background: #ffbe76;"></div>
+                <span><strong>Orange:</strong> Executive Approval - Needs exec team decision</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background: #ff6b6b;"></div>
+                <span><strong>Red:</strong> Human Required - You must approve</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

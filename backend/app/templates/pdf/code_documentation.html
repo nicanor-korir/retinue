@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} - Code Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: {{ styling.font_family }};
+            font-size: {{ styling.font_size_base }};
+            line-height: {{ styling.line_height }};
+            color: #1f2937;
+            background: white;
+        }
+
+        @page {
+            size: {{ styling.page_size }};
+            margin: {{ styling.margins.top }} {{ styling.margins.right }} {{ styling.margins.bottom }} {{ styling.margins.left }};
+        }
+
+        .header {
+            border-bottom: 3px solid {{ styling.primary_color }};
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: {{ styling.font_size_h1 }};
+            color: {{ styling.primary_color }};
+            margin-bottom: 5px;
+        }
+
+        .generated-info {
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: {{ styling.font_size_h2 }};
+            color: {{ styling.primary_color }};
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid {{ styling.accent_color }};
+            padding-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: {{ styling.font_size_h3 }};
+            color: {{ styling.secondary_color }};
+            margin-top: 15px;
+            margin-bottom: 10px;
+            page-break-after: avoid;
+        }
+
+        .code-file {
+            padding: 15px;
+            margin: 15px 0;
+            background: #f9fafb;
+            border-left: 4px solid {{ styling.primary_color }};
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .code-file-name {
+            font-weight: 600;
+            color: #111827;
+            font-family: {{ styling.code_font }};
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: {{ styling.code_font }};
+            font-size: 9pt;
+            overflow-x: auto;
+            margin: 10px 0;
+            page-break-inside: avoid;
+        }
+
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .structure-tree {
+            background: #f9fafb;
+            padding: 15px;
+            border-left: 4px solid {{ styling.accent_color }};
+            border-radius: 4px;
+            font-family: {{ styling.code_font }};
+            font-size: 10pt;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        .structure-tree pre {
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background: {{ styling.primary_color }};
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 10pt;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 10pt;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .spec-section {
+            padding: 15px;
+            margin: 15px 0;
+            background: #f0f9ff;
+            border-left: 4px solid #0c4a6e;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .spec-title {
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 10px;
+        }
+
+        .spec-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 3px;
+            font-size: 10pt;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: {{ styling.secondary_color }};
+        }
+
+        .tag {
+            display: inline-block;
+            background: {{ styling.primary_color }};
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 9pt;
+            margin: 2px 5px 2px 0;
+        }
+
+        .dependency-list {
+            background: #f5f3ff;
+            padding: 15px;
+            border-left: 4px solid #7c3aed;
+            border-radius: 4px;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        .dependency-title {
+            font-weight: 600;
+            color: #6d28d9;
+            margin-bottom: 10px;
+        }
+
+        .dependency-item {
+            padding: 5px 10px;
+            margin: 3px 0;
+            background: white;
+            border-left: 2px solid #7c3aed;
+            border-radius: 2px;
+            font-size: 10pt;
+        }
+
+        .instruction-step {
+            padding: 12px;
+            margin: 10px 0;
+            background: #fffbeb;
+            border-left: 4px solid {{ styling.accent_color }};
+            border-radius: 4px;
+            font-size: 10pt;
+        }
+
+        .step-number {
+            font-weight: 600;
+            color: {{ styling.accent_color }};
+            margin-bottom: 5px;
+        }
+
+        .api-endpoint {
+            background: #f0f9ff;
+            padding: 12px;
+            margin: 10px 0;
+            border-left: 4px solid #0284c7;
+            border-radius: 4px;
+            font-family: {{ styling.code_font }};
+            font-size: 9pt;
+            page-break-inside: avoid;
+        }
+
+        .endpoint-method {
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 9pt;
+            color: {{ styling.secondary_color }};
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>{{ project.name }}</h1>
+        <div class="generated-info">
+            Code & Technical Documentation
+            <br>Generated on {{ generated_at | datetime }}
+        </div>
+    </div>
+
+    <!-- Project Structure -->
+    {% if project_structure %}
+        <h2>Project Structure</h2>
+        <div class="structure-tree">
+            <pre>{{ project_structure.root | default("project") }}/
+{% for dir, files in project_structure.structure.items() %}
+├── {{ dir }}/
+{% for file in files %}
+│   ├── {{ file }}
+{% endfor %}
+{% endfor %}</pre>
+        </div>
+    {% endif %}
+
+    <!-- Configuration -->
+    {% if configuration %}
+        <h2>Configuration</h2>
+        <div class="spec-section">
+            <div class="spec-title">Project Configuration</div>
+            {% for key, value in configuration.items() %}
+                <div class="spec-item">
+                    <span class="spec-label">{{ key }}:</span> {{ value }}
+                </div>
+            {% else %}
+                <p>No configuration data available</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Technical Specifications -->
+    {% if technical_specs %}
+        <h2>Technical Specifications</h2>
+        <div class="spec-section">
+            <div class="spec-title">Stack Information</div>
+            <div class="spec-item">
+                <span class="spec-label">Framework:</span> {{ technical_specs.framework }}
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Database:</span> {{ technical_specs.database }}
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Architecture:</span> {{ technical_specs.architecture }}
+            </div>
+            {% if technical_specs.key_technologies %}
+                <div class="spec-item">
+                    <span class="spec-label">Technologies:</span>
+                    <br>
+                    {% for tech in technical_specs.key_technologies %}
+                        <span class="tag">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <!-- Dependencies -->
+    {% if dependencies %}
+        <h2>Dependencies</h2>
+        <div class="dependency-list">
+            <div class="dependency-title">Project Dependencies</div>
+            {% for dep in dependencies %}
+                <div class="dependency-item">{{ dep }}</div>
+            {% else %}
+                <p>No dependencies listed</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Code Files -->
+    {% if code_files %}
+        <h2>Code Files</h2>
+        {% for file in code_files %}
+            <div class="code-file">
+                <div class="code-file-name">{{ file.title }}</div>
+                {% if file.language %}
+                    <p style="font-size: 9pt; color: {{ styling.secondary_color }}; margin-bottom: 10px;">
+                        Language: <span class="tag">{{ file.language }}</span>
+                    </p>
+                {% endif %}
+                {% if file.content %}
+                    <div class="code-block">
+                        <pre>{{ file.content }}</pre>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- API Documentation -->
+    {% if api_documentation %}
+        <h2>API Documentation</h2>
+
+        {% if api_documentation.authentication %}
+            <div class="spec-section">
+                <div class="spec-title">Authentication</div>
+                <p>{{ api_documentation.authentication }}</p>
+            </div>
+        {% endif %}
+
+        {% if api_documentation.endpoints %}
+            <h3>Endpoints</h3>
+            {% for endpoint in api_documentation.endpoints %}
+                <div class="api-endpoint">
+                    <div class="endpoint-method">{{ endpoint.method | default("GET") }} {{ endpoint.path | default("/") }}</div>
+                    {% if endpoint.description %}
+                        <p style="margin-top: 5px;">{{ endpoint.description }}</p>
+                    {% endif %}
+                </div>
+            {% else %}
+                <p>No endpoints documented</p>
+            {% endfor %}
+        {% endif %}
+
+        {% if api_documentation.models %}
+            <h3>Data Models</h3>
+            {% for model in api_documentation.models %}
+                <div class="spec-item">
+                    <span class="spec-label">{{ model }}</span>
+                </div>
+            {% else %}
+                <p>No models documented</p>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    <!-- Database Schema -->
+    {% if database_schema %}
+        <h2>Database Schema</h2>
+        <div class="spec-section">
+            <div class="spec-title">Database Information</div>
+            <p><strong>Database:</strong> {{ database_schema.database | default("PostgreSQL") }}</p>
+
+            {% if database_schema.tables %}
+                <h3>Tables</h3>
+                <ul style="margin-left: 20px;">
+                    {% for table in database_schema.tables %}
+                        <li>{{ table }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if database_schema.relationships %}
+                <h3>Relationships</h3>
+                <ul style="margin-left: 20px;">
+                    {% for rel in database_schema.relationships %}
+                        <li>{{ rel }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <!-- Setup Instructions -->
+    {% if setup_instructions %}
+        <h2>Setup Instructions</h2>
+        <div style="white-space: pre-wrap; font-family: {{ styling.code_font }}; font-size: 10pt; background: #f9fafb; padding: 15px; border-radius: 4px;">
+            {{ setup_instructions }}
+        </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>This is an automated export from Deviant Project Management System</p>
+        <p>Project ID: {{ project.id }}</p>
+    </div>
+</body>
+</html>

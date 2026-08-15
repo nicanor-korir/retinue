@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 MVP</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+        .info-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>🚀 Phase 1 MVP - Simplified Structure</h1>
+        <p class="subtitle">Start with 7 agents: CEO, CTO, 3 Engineers, PM, HR</p>
+        
+        <div class="mermaid">
+graph TB
+    H[👤 You - Founder]
+    
+    CEO[🎯 CEO Agent<br/>Strategic Orchestrator]
+    CTO[💻 CTO Agent<br/>Technical Oversight]
+    
+    BE[⚙️ Senior Backend<br/>Engineer]
+    FE[🎨 Senior Frontend<br/>Engineer]
+    DES[✏️ Product Designer]
+    
+    PM[📋 Project Manager<br/>Coordinator]
+    HR[🆘 HR Agent<br/>Monitor & Intervene]
+    
+    DB[("🗄️ PostgreSQL<br/>Source of Truth")]
+    REDIS[("⚡ Redis<br/>Fast Reads")]
+    QUEUE[📨 Message Queue]
+    
+    H -->|"Input: Build Todo App"| CEO
+    CEO <-->|Strategy Discussion| CTO
+    CEO --> PM
+    CTO --> PM
+    
+    PM -->|Creates Project| DB
+    PM -->|Breaks Down Tasks| DB
+    PM -->|Assigns Work| BE
+    PM -->|Assigns Work| FE
+    PM -->|Assigns Work| DES
+    
+    DES -->|UI Mockups| DB
+    DES -.->|Needs Review| CTO
+    
+    BE -->|Writes Code| DB
+    FE -->|Writes Code| DB
+    
+    BE <-.->|Peer Review| FE
+    
+    BE -->|Updates Status| REDIS
+    FE -->|Updates Status| REDIS
+    DES -->|Updates Status| REDIS
+    
+    PM -.->|Monitors Progress| REDIS
+    PM -.->|Flags Blockers| CTO
+    
+    HR -.->|Monitors All Agents| REDIS
+    HR -.->|Intervenes if Stuck| PM
+    
+    CTO -->|Reviews Product| DB
+    CEO -->|Final Review| DB
+    CEO -->|Presents Output| H
+    
+    DB <--> QUEUE
+    REDIS <--> QUEUE
+    
+    style H fill:#ff6b6b,stroke:#333,stroke-width:3px
+    style CEO fill:#4ecdc4,stroke:#333,stroke-width:2px
+    style DB fill:#ffe66d,stroke:#333,stroke-width:2px
+    style PM fill:#95e1d3,stroke:#333,stroke-width:2px
+    style HR fill:#ff9ff3,stroke:#333,stroke-width:2px
+        </div>
+        
+        <div class="info-box">
+            <h3>📝 Phase 1 Test Project: Build a Todo App</h3>
+            <p><strong>Goal:</strong> Complete in 8-12 real hours (8-12 agent days)</p>
+            <p><strong>Success Criteria:</strong></p>
+            <ul>
+                <li>✅ No infinite loops or deadlocks</li>
+                <li>✅ Clear audit trail in database</li>
+                <li>✅ Proper escalations happen automatically</li>
+                <li>✅ Working code that functions correctly</li>
+                <li>✅ Less than 3 human interventions needed</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escalation Matrix</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .diagram-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        .matrix-table th {
+            background: #495057;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .matrix-table td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .matrix-table tr:hover {
+            background: #f8f9fa;
+        }
+        .level-1 {
+            background: #d4edda;
+        }
+        .level-2 {
+            background: #fff3cd;
+        }
+        .level-3 {
+            background: #f8d7da;
+        }
+        .priority-high {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .priority-medium {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .priority-low {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>🎯 Escalation Matrix</h1>
+        <p class="subtitle">Clear paths for routing issues through the organization</p>
+        
+        <div class="mermaid">
+graph TB
+    subgraph "🔴 Critical Issues"
+        I3[💰 Budget > Threshold]
+        I4[🎯 Strategic Direction]
+        I5[🆘 Agent Malfunction]
+    end
+    
+    subgraph "🟡 Medium Priority"
+        I2[📦 Resource Allocation]
+        I6[⚔️ Cross-Dept Conflict]
+        I7[⚠️ Deadline Risk]
+    end
+    
+    subgraph "🟢 Low Priority"
+        I1[💻 Technical Decision]
+        I8[📝 Scope Change]
+    end
+    
+    subgraph "Level 1: Department"
+        L1A[CTO]
+        L1B[PM]
+        L1C[CFO]
+        L1D[CEO]
+        L1E[HR]
+        L1F[Dept Head]
+    end
+    
+    subgraph "Level 2: Executive"
+        L2A[CEO]
+        L2B[COO]
+        L2C[Exec Team]
+    end
+    
+    subgraph "Level 3: Human"
+        L3[👤 Human Decision]
+    end
+    
+    I1 --> L1A
+    L1A -.-> L2A
+    L2A -.-> L3
+    
+    I2 --> L1B
+    L1B --> L2B
+    L2B --> L2A
+    
+    I3 --> L1C
+    L1C --> L2A
+    L2A --> L3
+    
+    I4 --> L1D
+    L1D --> L3
+    
+    I5 --> L1E
+    L1E --> L2B
+    L2B --> L3
+    
+    I6 --> L1B
+    L1B --> L2C
+    L2C --> L2A
+    
+    I7 --> L1F
+    L1F --> L1B
+    L1B --> L2C
+    
+    I8 --> L1B
+    L1B --> L2C
+    L2C --> L2A
+    
+    style I3 fill:#f8d7da,stroke:#333,stroke-width:2px
+    style I4 fill:#f8d7da,stroke:#333,stroke-width:2px
+    style I5 fill:#f8d7da,stroke:#333,stroke-width:2px
+    style I2 fill:#fff3cd,stroke:#333,stroke-width:2px
+    style I6 fill:#fff3cd,stroke:#333,stroke-width:2px
+    style I7 fill:#fff3cd,stroke:#333,stroke-width:2px
+    style I1 fill:#d4edda,stroke:#333,stroke-width:2px
+    style I8 fill:#d4edda,stroke:#333,stroke-width:2px
+    style L3 fill:#ff6b6b,stroke:#333,stroke-width:3px
+        </div>
+        
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>Issue Type</th>
+                    <th>Priority</th>
+                    <th>Level 1 (Dept)</th>
+                    <th>Level 2 (Exec)</th>
+                    <th>Level 3 (Human)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>💻 Technical Decision</td>
+                    <td class="priority-low">Low</td>
+                    <td class="level-1">CTO</td>
+                    <td class="level-2">CEO (if unresolved)</td>
+                    <td class="level-3">Strategic only</td>
+                </tr>
+                <tr>
+                    <td>📦 Resource Allocation</td>
+                    <td class="priority-medium">Medium</td>
+                    <td class="level-1">PM</td>
+                    <td class="level-2">COO → CEO</td>
+                    <td class="level-3">Critical only</td>
+                </tr>
+                <tr>
+                    <td>💰 Budget > Threshold</td>
+                    <td class="priority-high">High</td>
+                    <td class="level-1">CFO</td>
+                    <td class="level-2">CEO</td>
+                    <td class="level-3">✅ Always</td>
+                </tr>
+                <tr>
+                    <td>🎯 Strategic Direction</td>
+                    <td class="priority-high">High</td>
+                    <td class="level-1">CEO</td>
+                    <td class="level-2">-</td>
+                    <td class="level-3">✅ Always</td>
+                </tr>
+                <tr>
+                    <td>🆘 Agent Malfunction</td>
+                    <td class="priority-high">High</td>
+                    <td class="level-1">HR</td>
+                    <td class="level-2">COO</td>
+                    <td class="level-3">If critical</td>
+                </tr>
+                <tr>
+                    <td>⚔️ Cross-Dept Conflict</td>
+                    <td class="priority-medium">Medium</td>
+                    <td class="level-1">PM</td>
+                    <td class="level-2">Exec Team → CEO</td>
+                    <td class="level-3">If deadlock</td>
+                </tr>
+                <tr>
+                    <td>⚠️ Deadline Risk</td>
+                    <td class="priority-medium">Medium</td>
+                    <td class="level-1">Dept Head → PM</td>
+                    <td class="level-2">Exec Team</td>
+                    <td class="level-3">Major only</td>
+                </tr>
+                <tr>
+                    <td>📝 Scope Change</td>
+                    <td class="priority-low">Low</td>
+                    <td class="level-1">PM</td>
+                    <td class="level-2">Exec Team (if major)</td>
+                    <td class="level-3">Strategic only</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div style="background: #e7f3ff; padding: 20px; border-radius: 8px; margin-top: 30px;">
+            <h3 style="margin-top: 0;">📋 Escalation Rules</h3>
+            <ul>
+                <li><strong>Automatic escalation</strong> if issue unresolved >2 agent days</li>
+                <li><strong>Skip levels</strong> for critical issues (budget, strategic, malfunction)</li>
+                <li><strong>Document all decisions</strong> in the database for audit trail</li>
+                <li><strong>Notify all stakeholders</strong> when escalation occurs</li>
+                <li><strong>Human gets final say</strong> on all major decisions</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>

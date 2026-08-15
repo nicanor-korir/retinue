@@ -1,0 +1,81 @@
+# Render.com deployment configuration
+# Render offers free tier for PostgreSQL and web services
+
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: Deviant-postgres
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./deploy/postgres.Dockerfile
+    envVars:
+      - key: POSTGRES_DB
+        value: ai_company
+      - key: POSTGRES_USER
+        value: agent
+      - key: POSTGRES_PASSWORD
+        generateValue: true
+    disk:
+      name: postgres-data
+      mountPath: /var/lib/postgresql/data
+      sizeGB: 1
+
+  # Redis
+  - type: pserv
+    name: Deviant-redis
+    env: docker
+    plan: free
+    region: oregon
+    image:
+      url: redis:7-alpine
+    envVars:
+      - key: REDIS_ARGS
+        value: "--appendonly yes"
+    disk:
+      name: redis-data
+      mountPath: /data
+      sizeGB: 1
+
+  # Backend API
+  - type: web
+    name: Deviant-backend
+    env: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./backend/Dockerfile.prod
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: pserv
+          name: Deviant-postgres
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: pserv
+          name: Deviant-redis
+          property: connectionString
+      - key: ANTHROPIC_API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: ENVIRONMENT
+        value: production
+      - key: PORT
+        value: 8000
+    healthCheckPath: /health
+
+  # Frontend Dashboard
+  - type: web
+    name: Deviant-frontend
+    env: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./frontend/Dockerfile.prod
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: Deviant-backend
+          property: host
+      - key: PORT
+        value: 3000
+    healthCheckPath: /

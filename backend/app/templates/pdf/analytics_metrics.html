@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} - Analytics & Metrics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: {{ styling.font_family }};
+            font-size: {{ styling.font_size_base }};
+            line-height: {{ styling.line_height }};
+            color: #1f2937;
+            background: white;
+        }
+
+        @page {
+            size: {{ styling.page_size }};
+            margin: {{ styling.margins.top }} {{ styling.margins.right }} {{ styling.margins.bottom }} {{ styling.margins.left }};
+        }
+
+        .header {
+            border-bottom: 3px solid {{ styling.primary_color }};
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: {{ styling.font_size_h1 }};
+            color: {{ styling.primary_color }};
+            margin-bottom: 5px;
+        }
+
+        .generated-info {
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: {{ styling.font_size_h2 }};
+            color: {{ styling.primary_color }};
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid {{ styling.accent_color }};
+            padding-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: {{ styling.font_size_h3 }};
+            color: {{ styling.secondary_color }};
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, {{ styling.primary_color }} 0%, {{ styling.secondary_color }} 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .metric-value {
+            font-size: 24pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 10pt;
+            opacity: 0.9;
+        }
+
+        .section-card {
+            padding: 15px;
+            margin: 15px 0;
+            background: #f9fafb;
+            border-left: 4px solid {{ styling.primary_color }};
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .stat-item {
+            padding: 12px;
+            background: white;
+            border-radius: 4px;
+            border-left: 3px solid {{ styling.accent_color }};
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: {{ styling.secondary_color }};
+            font-size: 9pt;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            color: #111827;
+            font-weight: 600;
+            font-size: 12pt;
+        }
+
+        .progress-bar {
+            background: #e5e7eb;
+            height: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, {{ styling.primary_color }}, {{ styling.accent_color }});
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background: {{ styling.primary_color }};
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 10pt;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 10pt;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .trend-item {
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+            border-left: 3px solid {{ styling.accent_color }};
+            border-radius: 3px;
+            font-size: 10pt;
+        }
+
+        .trend-positive {
+            border-left-color: #10b981;
+            color: #10b981;
+        }
+
+        .trend-negative {
+            border-left-color: #ef4444;
+            color: #ef4444;
+        }
+
+        .trend-neutral {
+            border-left-color: {{ styling.secondary_color }};
+            color: {{ styling.secondary_color }};
+        }
+
+        .chart-placeholder {
+            background: #f0f9ff;
+            padding: 30px;
+            border: 2px dashed #0c4a6e;
+            border-radius: 6px;
+            text-align: center;
+            color: #0c4a6e;
+            font-size: 10pt;
+            margin: 15px 0;
+        }
+
+        .agent-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 3px;
+            border-left: 3px solid {{ styling.primary_color }};
+            font-size: 10pt;
+        }
+
+        .agent-name {
+            font-weight: 600;
+        }
+
+        .agent-utilization {
+            text-align: right;
+        }
+
+        .escalation-card {
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-left: 3px solid #dc2626;
+            border-radius: 3px;
+            font-size: 10pt;
+        }
+
+        .escalation-open {
+            border-left-color: #dc2626;
+            background: #fef2f2;
+        }
+
+        .escalation-resolved {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .quality-section {
+            background: #f5f3ff;
+            padding: 15px;
+            border-left: 4px solid #7c3aed;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .quality-title {
+            color: #6d28d9;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 9pt;
+            color: {{ styling.secondary_color }};
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>{{ project.name }}</h1>
+        <div class="generated-info">
+            Analytics & Performance Metrics Report
+            <br>Generated on {{ generated_at | datetime }}
+        </div>
+    </div>
+
+    <!-- Key Metrics -->
+    <h2>Executive Summary</h2>
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-value">{{ "%.0f" | format(timeline_visualization | length | default(0)) }}</div>
+            <div class="metric-label">Timeline Events</div>
+        </div>
+        {% if budget_tracking %}
+            <div class="metric-card">
+                <div class="metric-value">${{ "%.2f" | format(budget_tracking.actual_cost | default(0)) }}</div>
+                <div class="metric-label">Total Cost</div>
+            </div>
+        {% endif %}
+        {% if escalation_metrics %}
+            <div class="metric-card">
+                <div class="metric-value">{{ escalation_metrics.total_escalations | default(0) }}</div>
+                <div class="metric-label">Escalations</div>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Velocity Metrics -->
+    {% if velocity_metrics %}
+        <h2>Velocity & Progress</h2>
+        <div class="section-card">
+            {% if velocity_metrics.velocity %}
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-label">Total Tasks</div>
+                        <div class="stat-value">{{ velocity_metrics.velocity.total_tasks | default(0) }}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Completed Tasks</div>
+                        <div class="stat-value">{{ velocity_metrics.velocity.completed_tasks | default(0) }}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">In Progress</div>
+                        <div class="stat-value">{{ velocity_metrics.velocity.in_progress_tasks | default(0) }}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Completion Rate</div>
+                        <div class="stat-value">{{ "%.1f" | format(velocity_metrics.velocity.completion_percentage | default(0)) }}%</div>
+                    </div>
+                </div>
+
+                {% if velocity_metrics.velocity.completion_percentage %}
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{ velocity_metrics.velocity.completion_percentage }}%;">
+                            {{ "%.0f" | format(velocity_metrics.velocity.completion_percentage) }}%
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if velocity_metrics.trend %}
+                    <p style="margin-top: 10px; font-size: 10pt;">
+                        <strong>Trend:</strong> <span class="trend-{{ velocity_metrics.trend.lower() }}">{{ velocity_metrics.trend }}</span>
+                    </p>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <!-- Task Completion Trends -->
+    {% if task_completion_trends %}
+        <h2>Task Completion Trends</h2>
+        <div class="chart-placeholder">
+            Completion trend visualization would appear here
+        </div>
+        {% if task_completion_trends | length > 0 %}
+            {% for trend in task_completion_trends | slice(5) %}
+                <div class="trend-item trend-{{ trend.direction | default('neutral') }}">
+                    {{ trend.date | default('N/A') }}: {{ trend.value | default(0) }} tasks
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    <!-- Budget Tracking -->
+    {% if budget_tracking %}
+        <h2>Budget & Cost Analysis</h2>
+        <div class="section-card">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Estimated Cost</div>
+                    <div class="stat-value">${{ "%.2f" | format(budget_tracking.estimated_cost | default(0)) }}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Actual Cost</div>
+                    <div class="stat-value">${{ "%.2f" | format(budget_tracking.actual_cost | default(0)) }}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Variance</div>
+                    <div class="stat-value">${{ "%.2f" | format(budget_tracking.variance | default(0)) }}</div>
+                </div>
+                {% if budget_tracking.estimated_cost > 0 %}
+                    <div class="stat-item">
+                        <div class="stat-label">Variance %</div>
+                        {% set var_percent = (budget_tracking.variance / budget_tracking.estimated_cost * 100) | default(0) %}
+                        <div class="stat-value">{{ "%.1f" | format(var_percent) }}%</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Agent Utilization -->
+    {% if agent_utilization %}
+        <h2>Agent Utilization</h2>
+        <div class="section-card">
+            {% if agent_utilization.agents %}
+                {% for agent in agent_utilization.agents | slice(10) %}
+                    <div class="agent-row">
+                        <span class="agent-name">{{ agent.agent_name }}</span>
+                        <span class="agent-utilization">{{ agent.tasks_assigned }} tasks</span>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No agent utilization data available</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <!-- Quality Metrics -->
+    {% if quality_metrics %}
+        <h2>Quality Metrics</h2>
+        <div class="quality-section">
+            <div class="quality-title">Code & Process Quality</div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Test Coverage</div>
+                    <div class="stat-value">{{ quality_metrics.test_coverage | default(0) }}%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Bugs Found</div>
+                    <div class="stat-value">{{ quality_metrics.bugs_found | default(0) }}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Defect Rate</div>
+                    <div class="stat-value">{{ "%.2f" | format(quality_metrics.defect_rate | default(0)) }}%</div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Escalation Metrics -->
+    {% if escalation_metrics %}
+        <h2>Escalations Summary</h2>
+        <div class="section-card">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Total Escalations</div>
+                    <div class="stat-value">{{ escalation_metrics.total_escalations | default(0) }}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Open</div>
+                    <div class="stat-value">{{ escalation_metrics.open_escalations | default(0) }}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Resolved</div>
+                    <div class="stat-value">{{ escalation_metrics.resolved_escalations | default(0) }}</div>
+                </div>
+                {% if escalation_metrics.total_escalations > 0 %}
+                    <div class="stat-item">
+                        <div class="stat-label">Resolution Rate</div>
+                        {% set res_rate = (escalation_metrics.resolved_escalations / escalation_metrics.total_escalations * 100) | default(0) %}
+                        <div class="stat-value">{{ "%.1f" | format(res_rate) }}%</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Timeline Visualization -->
+    {% if timeline_visualization %}
+        <h2>Project Timeline</h2>
+        <div class="chart-placeholder">
+            {{ timeline_visualization | length }} events recorded
+        </div>
+        {% for event in timeline_visualization | slice(5) %}
+            <div class="trend-item">
+                {{ event.timestamp | datetime("%b %d") | default('N/A') }}: {{ event.title | default('Event') }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Summary -->
+    <h2>Key Insights</h2>
+    <div class="section-card">
+        <p><strong>Project Status:</strong> Tracking and analysis complete</p>
+        <p style="margin-top: 10px;">This report provides a comprehensive overview of project metrics, performance, and analytics. Review the sections above for detailed insights into project velocity, budget tracking, agent utilization, and quality metrics.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>This is an automated export from Deviant Project Management System</p>
+        <p>Project ID: {{ project.id }}</p>
+    </div>
+</body>
+</html>

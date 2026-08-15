@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} - Agent Activity Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: {{ styling.font_family }};
+            font-size: {{ styling.font_size_base }};
+            line-height: {{ styling.line_height }};
+            color: #1f2937;
+            background: white;
+        }
+
+        @page {
+            size: {{ styling.page_size }};
+            margin: {{ styling.margins.top }} {{ styling.margins.right }} {{ styling.margins.bottom }} {{ styling.margins.left }};
+        }
+
+        .header {
+            border-bottom: 3px solid {{ styling.primary_color }};
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: {{ styling.font_size_h1 }};
+            color: {{ styling.primary_color }};
+            margin-bottom: 5px;
+        }
+
+        .generated-info {
+            font-size: 10pt;
+            color: {{ styling.secondary_color }};
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-size: {{ styling.font_size_h2 }};
+            color: {{ styling.primary_color }};
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid {{ styling.accent_color }};
+            padding-bottom: 8px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: {{ styling.font_size_h3 }};
+            color: {{ styling.secondary_color }};
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, {{ styling.primary_color }} 0%, {{ styling.secondary_color }} 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 24pt;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 10pt;
+            opacity: 0.9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        th {
+            background: {{ styling.primary_color }};
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 10pt;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 10pt;
+        }
+
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .agent-card {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f9fafb;
+            border-left: 4px solid {{ styling.primary_color }};
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .agent-name {
+            font-weight: 600;
+            font-size: 12pt;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .agent-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .stat-item {
+            padding: 8px;
+            background: white;
+            border-radius: 3px;
+            font-size: 10pt;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: {{ styling.secondary_color }};
+            font-size: 9pt;
+            margin-bottom: 2px;
+        }
+
+        .stat-value {
+            color: #111827;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            background: #e5e7eb;
+            height: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, {{ styling.primary_color }}, {{ styling.accent_color }});
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        .activity-timeline {
+            margin: 15px 0;
+            padding-left: 20px;
+            border-left: 3px solid {{ styling.primary_color }};
+        }
+
+        .activity-item {
+            margin: 10px 0;
+            padding-left: 15px;
+            position: relative;
+            font-size: 10pt;
+        }
+
+        .activity-item::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: {{ styling.primary_color }};
+            border-radius: 50%;
+            position: absolute;
+            left: -20px;
+            top: 4px;
+        }
+
+        .activity-type {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .activity-progress {
+            color: {{ styling.secondary_color }};
+            font-size: 9pt;
+            margin-top: 2px;
+        }
+
+        .llm-stats {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #0c4a6e;
+            margin: 15px 0;
+        }
+
+        .llm-title {
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 10px;
+        }
+
+        .llm-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .llm-item {
+            padding: 10px;
+            background: white;
+            border-radius: 3px;
+            font-size: 10pt;
+            border-left: 2px solid #0c4a6e;
+        }
+
+        .collaboration-section {
+            background: #faf5ff;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #7c3aed;
+            margin: 15px 0;
+        }
+
+        .collaboration-title {
+            font-weight: 600;
+            color: #6d28d9;
+            margin-bottom: 10px;
+        }
+
+        .pair-item {
+            padding: 8px;
+            background: white;
+            margin: 5px 0;
+            border-radius: 3px;
+            font-size: 10pt;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 9pt;
+            color: {{ styling.secondary_color }};
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>{{ project.name }}</h1>
+        <div class="generated-info">
+            Agent Activity & Performance Report
+            <br>Generated on {{ generated_at | datetime }}
+        </div>
+    </div>
+
+    <!-- Overall Metrics -->
+    {% if agent_metrics %}
+        <h2>Agent Metrics Overview</h2>
+        {% set total_completed = agent_metrics | map(attribute='tasks_completed') | sum | default(0) %}
+        {% set avg_success = agent_metrics | map(attribute='success_rate') | list | average | default(0) %}
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">{{ agent_metrics | length }}</div>
+                <div class="metric-label">Total Agents</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">{{ total_completed }}</div>
+                <div class="metric-label">Total Tasks Completed</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">{{ "%.0f" | format(avg_success) }}%</div>
+                <div class="metric-label">Avg Success Rate</div>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Agent Details -->
+    {% if agent_metrics %}
+        <h2>Individual Agent Performance</h2>
+        {% for metric in agent_metrics %}
+            <div class="agent-card">
+                <div class="agent-name">Agent {{ metric.agent_id }}</div>
+
+                <div class="agent-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Tasks Completed</div>
+                        <div class="stat-value">{{ metric.tasks_completed | default(0) }}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Success Rate</div>
+                        <div class="stat-value">{{ "%.1f" | format(metric.success_rate | default(0)) }}%</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Active Time</div>
+                        <div class="stat-value">{{ metric.active_time_minutes | default(0) }} min</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Idle Time</div>
+                        <div class="stat-value">{{ metric.idle_time_minutes | default(0) }} min</div>
+                    </div>
+                </div>
+
+                {% if metric.success_rate %}
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{ metric.success_rate }}%;">
+                            {{ "%.0f" | format(metric.success_rate) }}%
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div class="agent-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Tokens Used</div>
+                        <div class="stat-value">{{ metric.total_tokens | default(0) }}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Total Cost</div>
+                        <div class="stat-value">${{ "%.2f" | format(metric.total_cost | default(0)) }}</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- LLM Usage -->
+    {% if llm_usage %}
+        <h2>LLM API Usage</h2>
+        <div class="llm-stats">
+            <div class="llm-title">API Call Summary</div>
+            <div class="llm-grid">
+                <div class="llm-item">
+                    <div class="stat-label">Total API Calls</div>
+                    <div class="stat-value">{{ llm_usage.total_calls | default(0) }}</div>
+                </div>
+                <div class="llm-item">
+                    <div class="stat-label">Total Tokens</div>
+                    <div class="stat-value">{{ llm_usage.total_tokens | default(0) }}</div>
+                </div>
+                <div class="llm-item">
+                    <div class="stat-label">Prompt Tokens</div>
+                    <div class="stat-value">{{ llm_usage.total_prompt_tokens | default(0) }}</div>
+                </div>
+                <div class="llm-item">
+                    <div class="stat-label">Completion Tokens</div>
+                    <div class="stat-value">{{ llm_usage.total_completion_tokens | default(0) }}</div>
+                </div>
+            </div>
+            {% if llm_usage.models_used %}
+                <p style="margin-top: 10px; font-size: 10pt;">
+                    <strong>Models Used:</strong> {{ llm_usage.models_used | join(", ") }}
+                </p>
+            {% endif %}
+            <p style="margin-top: 10px; font-size: 10pt; color: {{ styling.primary_color }};">
+                <strong>Total Cost:</strong> ${{ "%.2f" | format(llm_usage.total_cost | default(0)) }}
+            </p>
+        </div>
+    {% endif %}
+
+    <!-- Activity Timeline -->
+    {% if agent_timeline %}
+        <h2>Agent Activity Timeline</h2>
+        <div class="activity-timeline">
+            {% for activity in agent_timeline | slice(15) %}
+                <div class="activity-item">
+                    <div class="activity-type">{{ activity.activity_type }}</div>
+                    <div class="activity-progress">
+                        Progress: {{ activity.progress }}%
+                        {% if activity.completed_at %}
+                            | Completed: {{ activity.completed_at | datetime("%b %d") }}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Message Statistics -->
+    {% if message_statistics %}
+        <h2>Communication Statistics</h2>
+        <div class="agent-card">
+            <p><strong>Total Messages:</strong> {{ message_statistics.total_messages | default(0) }}</p>
+            <p><strong>Average per Agent:</strong> {{ "%.1f" | format(message_statistics.average_per_agent | default(0)) }}</p>
+
+            {% if message_statistics.by_type %}
+                <h3>Messages by Type</h3>
+                <table>
+                    <tr>
+                        <th>Message Type</th>
+                        <th>Count</th>
+                    </tr>
+                    {% for msg_type, count in message_statistics.by_type.items() %}
+                        <tr>
+                            <td>{{ msg_type }}</td>
+                            <td>{{ count }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <!-- Task Breakdown -->
+    {% if task_breakdown %}
+        <h2>Tasks by Agent</h2>
+        <table>
+            <tr>
+                <th>Agent ID</th>
+                <th>Tasks Assigned</th>
+            </tr>
+            {% for agent_id, count in task_breakdown.items() %}
+                <tr>
+                    <td>{{ agent_id }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <!-- Collaboration Patterns -->
+    {% if collaboration_patterns %}
+        <h2>Collaboration Patterns</h2>
+        <div class="collaboration-section">
+            <div class="collaboration-title">Inter-Agent Communication</div>
+            {% if collaboration_patterns.most_active_pairs %}
+                {% for pair in collaboration_patterns.most_active_pairs | slice(5) %}
+                    <div class="pair-item">
+                        {{ pair.agent_1 }} ↔ {{ pair.agent_2 }}: {{ pair.interactions }} interactions
+                    </div>
+                {% else %}
+                    <p style="font-size: 10pt;">Communication data being collected...</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <!-- Performance Metrics -->
+    {% if performance_metrics %}
+        <h2>Overall Performance Summary</h2>
+        {% if performance_metrics.project_metrics %}
+            <div class="agent-card">
+                <p><strong>Project Status:</strong> {{ performance_metrics.project_metrics.completion_percentage | round(1) }}% Complete</p>
+                <p><strong>Total Tasks:</strong> {{ performance_metrics.project_metrics.total_tasks }}</p>
+                <p><strong>Completed:</strong> {{ performance_metrics.project_metrics.completed_tasks }}</p>
+                <p><strong>In Progress:</strong> {{ performance_metrics.project_metrics.in_progress_tasks }}</p>
+                <p><strong>Blocked:</strong> {{ performance_metrics.project_metrics.blocked_tasks }}</p>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>This is an automated export from Deviant Project Management System</p>
+        <p>Project ID: {{ project.id }}</p>
+    </div>
+</body>
+</html>

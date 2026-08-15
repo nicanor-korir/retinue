@@ -1,0 +1,25 @@
+{
+  "project_name": "E-commerce Platform",
+  "project_id": "proj_abc123",
+  "exported_at": "2025-01-28T10:30:00Z",
+  "exported_by": "user@example.com",
+  "Deviant_version": "1.0.0",
+  "tech_stack": {
+    "frontend": "React + TypeScript",
+    "backend": "Node.js + Express",
+    "database": "PostgreSQL",
+    "hosting": "Vercel"
+  },
+  "agents_involved": [
+    {"name": "CEO Agent", "contribution": "Executive management"},
+    {"name": "CTO Agent", "contribution": "Engineering Decisions"},
+    {"name": "PM Agent", "contribution": "Project Management"},
+    {"name": "Frontend Engineer", "contribution": "React components"},
+    {"name": "Backend Engineer", "contribution": "API development"},
+    {"name": "Designer Agent", "contribution": "UI/UX"}
+  ],
+  "total_files": 127,
+  "lines_of_code": 8453,
+  "project_duration": "2 hours 15 minutes",
+  "tasks_completed": 23
+}
