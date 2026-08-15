@@ -31,7 +31,7 @@ Your project needs to track:
 
 Dump all of that into a single prompt, and you hit limits. Summarize it, and you lose critical details. The model starts making decisions that contradict earlier choices. Code references functions that don't exist. The project spirals.
 
-**The Deviant solution**: Specialized agents with scoped context.
+**The Retinue solution**: Specialized agents with scoped context.
 
 The Backend Engineer doesn't need to know about the UI color palette. The Designer doesn't need the database schema. Each agent maintains only the context relevant to their role—and a coordination layer ensures they're aligned without context overload.
 
@@ -55,7 +55,7 @@ graph LR
     style E fill:#FF6347
 ```
 
-**The Deviant solution**: Built-in review and approval.
+**The Retinue solution**: Built-in review and approval.
 
 The CTO Agent reviews all code before it's accepted. The CEO Agent evaluates projects against original requirements. The PM Agent checks that completed tasks actually satisfy their specifications. Multiple checkpoints prevent drift.
 
@@ -65,7 +65,7 @@ When you have one agent doing everything, and it gets confused—you're stuck. T
 
 Autonomous systems need redundancy. They need peer review. They need the ability to catch and correct mistakes before they compound.
 
-**The Deviant solution**: Distributed intelligence with oversight.
+**The Retinue solution**: Distributed intelligence with oversight.
 
 If the Backend Engineer generates broken code, the CTO catches it in review. If a project is unclear, the CEO asks clarifying questions before approving. If an agent gets stuck, HR detects it and escalates. No single point of failure.
 
@@ -136,7 +136,7 @@ Event-driven systems are different. When something happens, interested parties a
 | 5-min polling | ~5 min | 1-2 hours |
 | Event-driven | <100ms | 10-30 minutes |
 
-Deviant uses event-driven coordination. When the Backend Engineer finishes a task, the CTO is notified in milliseconds. Review starts immediately. Dependencies unblock instantly.
+Retinue uses event-driven coordination. When the Backend Engineer finishes a task, the CTO is notified in milliseconds. Review starts immediately. Dependencies unblock instantly.
 
 ---
 
@@ -190,7 +190,7 @@ Current AI agents fail at complex work because they're trying to be one superint
 
 The solution isn't smarter models (though those help). The solution is smarter organization. Multiple agents. Clear roles. Structured coordination. Built-in oversight.
 
-That's what Deviant provides. Not just agents—but a complete system for autonomous, coordinated AI work.
+That's what Retinue provides. Not just agents—but a complete system for autonomous, coordinated AI work.
 
 ---
 
@@ -198,4 +198,4 @@ That's what Deviant provides. Not just agents—but a complete system for autono
 
 ---
 
-*Nicanor Korir has broken every AI agent framework he's touched. Deviant is what emerged from the wreckage.*
+*Nicanor Korir has broken every AI agent framework he's touched. Retinue is what emerged from the wreckage.*

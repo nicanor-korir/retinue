@@ -1,280 +1,134 @@
-# Deviant Documentation
+# Retinue Documentation
 
-**Complete documentation for the AI Agent Company Platform**
+Everything written about Retinue lives here. This page is the map — it tells you which document answers which question, so you don't have to open six files to find one answer.
 
----
-
-## 🚀 Quick Start
-
-**New to Deviant?** Start here:
-
-1. **[GETTING-STARTED.md](GETTING-STARTED.md)** - Complete setup guide (15 minutes)
-2. **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Commands and quick tips
-3. **[PROJECT_STATUS.md](PROJECT_STATUS.md)** - What's built and working
+**New to the project?** Read the [root README](../README.md) first for what Retinue is and how to get it running. Come back here when you want depth.
 
 ---
 
-## 📚 Documentation Structure
+## Start here: three onboarding paths
 
-### Getting Started
-- **[GETTING-STARTED.md](GETTING-STARTED.md)** - Step-by-step setup for backend and frontend
-- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - One-page command reference
+Pick the one that matches why you're here.
 
-### Core Documentation
-- **[PROJECT_STATUS.md](PROJECT_STATUS.md)** - Current project status and capabilities
-- **[BUSINESS_PLAN.md](BUSINESS_PLAN.md)** - Vision, strategy, and roadmap
-- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - Production deployment to various platforms
+### Path A — "I want to run it and see it work" (~30 min)
 
-### Technical Documentation
-- **[REAL_TIME_EVENTS_README.md](REAL_TIME_EVENTS_README.md)** - Real-time event system
-- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Event-driven implementation
-- **[REAL_TIME_EXECUTION_IMPLEMENTATION.md](REAL_TIME_EXECUTION_IMPLEMENTATION.md)** - Execution architecture
-- **[MIGRATION_GUIDE_EVENT_DRIVEN.md](MIGRATION_GUIDE_EVENT_DRIVEN.md)** - Migration to event-driven mode
-- **[AGENT_EVENT_INTEGRATION_GUIDE.md](AGENT_EVENT_INTEGRATION_GUIDE.md)** - Agent integration guide
+1. [Root README → Quick start](../README.md#quick-start) — get it running
+2. [GETTING-STARTED.md](GETTING-STARTED.md) — the same setup with more detail and verification at each step
+3. [Root README → Your first project](../README.md#your-first-project) — create something and watch agents work
+4. http://localhost:8000/docs — poke at the API while it's running
 
-### Reference Materials
-- **[reference/](reference/)** - Original specifications and design documents
-  - [IMPLEMENTATION.md](reference/IMPLEMENTATION.md) - Original technical specification
-  - [PROMPT.md](reference/PROMPT.md) - Original requirements
-  - [MESSAGES_REDESIGN.md](reference/MESSAGES_REDESIGN.md) - Messages system design
+### Path B — "I'm going to work on the code" (~2 hours)
 
-### Historical Archive
-- **[archive/](archive/)** - Historical development snapshots
-  - Stage completion summaries (STAGE_1, STAGE_2, STAGE_3)
-  - Individual feature documentation
-  - Outdated setup guides
+1. Finish Path A. Nothing below makes sense until you've watched a project run.
+2. [Root README → Core concepts](../README.md#core-concepts) — agent, project, task, escalation, knowledge base
+3. [ARCHITECTURE.md](ARCHITECTURE.md) — the full system design
+4. Read code in this order:
+   `backend/app/main.py` → `backend/app/api/projects.py` → `backend/app/agents/base_agent.py` → `backend/app/agents/ceo_agent.py`
+5. [articles/2-architecture/](articles/2-architecture/) — the reasoning behind the design choices you just read
+6. [ProductRoadmap/](../ProductRoadmap/) — the spec for whichever feature you're touching
+
+### Path C — "I need to understand the product, not the code" (~1 hour)
+
+1. [articles/1-urgent-introduction/01-what-is-retinue.md](articles/1-urgent-introduction/01-what-is-retinue.md) — the pitch
+2. [BUSINESS_PLAN.md](BUSINESS_PLAN.md) — vision, market, strategy
+3. [articles/3-use-cases/](articles/3-use-cases/) — ten industry-specific walkthroughs
+4. [PROJECT_STATUS.md](PROJECT_STATUS.md) — what actually works today
 
 ---
 
-## 🎯 Common Tasks
+## The full map
 
-### I want to...
+### Setup and operations
 
-**Get started quickly**
-→ See [GETTING-STARTED.md](GETTING-STARTED.md)
+| Document | What it answers |
+|---|---|
+| [GETTING-STARTED.md](GETTING-STARTED.md) | How do I set up backend and frontend, step by step? |
+| [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) | How do I deploy to production? |
+| [PROJECT_STATUS.md](PROJECT_STATUS.md) | What's built, what's in progress, what's planned? |
 
-**Find a specific command**
-→ See [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
+### Architecture and design
 
-**Deploy to production**
-→ See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
+| Document | What it answers |
+|---|---|
+| [ARCHITECTURE.md](ARCHITECTURE.md) | How is the whole system put together? |
+| [architecture/mermaid_chart/general.md](architecture/mermaid_chart/general.md) | Can I see it as diagrams? |
+| [architecture/mermaid_chart/phase_1_MVP.md](architecture/mermaid_chart/phase_1_MVP.md) | What did the MVP scope look like? |
+| [AGENT_INTELLIGENCE_IMPLEMENTATION_PLAN.md](AGENT_INTELLIGENCE_IMPLEMENTATION_PLAN.md) | How are agents being made smarter over time? |
+| [CONSOLIDATION_ANALYSIS.md](CONSOLIDATION_ANALYSIS.md) | Why is the codebase organized the way it is? |
 
-**Understand the architecture**
-→ See [REAL_TIME_EVENTS_README.md](REAL_TIME_EVENTS_README.md) and [reference/IMPLEMENTATION.md](reference/IMPLEMENTATION.md)
+### The knowledge base and RAG layer
 
-**Migrate to event-driven mode**
-→ See [MIGRATION_GUIDE_EVENT_DRIVEN.md](MIGRATION_GUIDE_EVENT_DRIVEN.md)
+| Document | What it answers |
+|---|---|
+| [v2/RAG_QUICKSTART.md](v2/RAG_QUICKSTART.md) | Fastest path to a working RAG setup |
+| [v2/README_RAG.md](v2/README_RAG.md) | How does retrieval work in depth? |
+| [v2/RAG_CLAUDE_SETUP.md](v2/RAG_CLAUDE_SETUP.md) | How do I wire RAG to Claude? |
+| [v2/CLAUDE_SETUP_SUMMARY.md](v2/CLAUDE_SETUP_SUMMARY.md) | Condensed version of the above |
+| [v2/TASKS_REDESIGN_V2.md](v2/TASKS_REDESIGN_V2.md) | How was the task system redesigned? |
 
-**Check current project status**
-→ See [PROJECT_STATUS.md](PROJECT_STATUS.md)
+### Product and business
 
-**Understand the business strategy**
-→ See [BUSINESS_PLAN.md](BUSINESS_PLAN.md)
+| Document | What it answers |
+|---|---|
+| [BUSINESS_PLAN.md](BUSINESS_PLAN.md) | Vision, market, competition, strategy |
+| [../ProductRoadmap/](../ProductRoadmap/) | Detailed spec for each feature |
+| [articles/](articles/) | 33 long-form pieces — see below |
 
----
+### Original specifications
 
-## 📖 What is Deviant?
+Historical records. Useful for understanding *why* a decision was made; not always current on *what* the code does now.
 
-Deviant is an **autonomous multi-agent AI system** that operates like a real company, with:
-
-- **7 AI Agents**: CEO, CTO, PM, HR, Backend Engineer, Frontend Engineer, Designer
-- **Event-Driven Architecture**: <100ms response times (10-30x faster than polling)
-- **Autonomous Collaboration**: Agents work together to build software projects
-- **Human Oversight**: Strategic decisions require human approval
-- **Complete Audit Trail**: Every action and decision is logged
-- **Intelligent Knowledge Base**: AI-powered knowledge extraction and retrieval
-- **Multi-Agent Chat**: Dynamic agent collaboration in conversations
-
-### The 7 Agents
-
-| Agent | Role | Responsibilities |
-|-------|------|------------------|
-| **CEO** | Chief Executive Officer | Evaluates projects, makes strategic decisions |
-| **CTO** | Chief Technology Officer | Technical guidance, code review, architecture |
-| **PM** | Project Manager | Breaks down projects, assigns tasks, tracks progress |
-| **HR** | Human Resources | Monitors agent health, intervenes when stuck |
-| **Backend** | Senior Backend Engineer | Generates Python/FastAPI code |
-| **Frontend** | Senior Frontend Engineer | Generates React/Next.js code |
-| **Designer** | Product Designer | Creates UI/UX specifications |
+| Document | What it answers |
+|---|---|
+| [reference/IMPLEMENTATION.md](reference/IMPLEMENTATION.md) | The original technical specification |
+| [reference/PROMPT.md](reference/PROMPT.md) | The original requirements |
+| [reference/MESSAGES_REDESIGN.md](reference/MESSAGES_REDESIGN.md) | How the messaging system was redesigned |
 
 ---
 
-## 🏗️ Architecture Overview
+## The articles
 
-```
-┌─────────────────────────────────────────────────────┐
-│                    User Interface                     │
-│              (Web Dashboard / API Calls)              │
-└────────────────────┬────────────────────────────────┘
-                     │
-         ┌───────────┴───────────┐
-         │                       │
-    ┌────▼─────┐          ┌─────▼─────┐
-    │ Frontend │          │  Backend  │
-    │ Next.js  │◄────────►│  FastAPI  │
-    │          │   API    │           │
-    └──────────┘          └─────┬─────┘
-                                │
-                    ┌───────────┼───────────┐
-                    │           │           │
-              ┌─────▼──┐  ┌────▼────┐ ┌───▼──────┐
-              │Postgres│  │  Redis  │ │ Anthropic│
-              │        │  │         │ │  Claude  │
-              └────────┘  └─────────┘ └──────────┘
-                    │
-         ┌──────────┴──────────┐
-         │    7 AI Agents       │
-         │  Autonomous Work     │
-         │  Event-Driven        │
-         └─────────────────────┘
-```
+Thirty-three long-form pieces in [articles/](articles/), organized into six sets. These explain *thinking*, not mechanics — read them when you want to know why something is built a particular way.
 
-### Key Technologies
+| Set | Contents | Read it when |
+|---|---|---|
+| [1 — Introduction](articles/1-urgent-introduction/) | 5 articles: what Retinue is, why it exists, the market gap | You're new, or explaining the project to someone |
+| [2 — Architecture](articles/2-architecture/) | 4 articles: event-driven design, the agent org, real-time coordination, knowledge | You're about to change the architecture |
+| [3 — Use cases](articles/3-use-cases/) | 10 articles: founders, agencies, startups, enterprise, marketing, finance, manufacturing, ecommerce, education, healthcare | You're evaluating fit for a specific industry |
+| [4 — Design patterns](articles/4-design-patterns/) | 3 articles: orchestration, hybrid polling/events, goal-aware execution | You're implementing something similar |
+| [5 — Challenges](articles/5-challenges/) | 3 articles: stuck agents, cost of intelligence, trust and oversight | You've hit one of these problems |
+| [6 — Future plans](articles/6-future-plans/) | 4 articles: consultant model, user control, marketplace, the vision | You're planning roadmap work |
 
-- **Backend**: Python 3.11+, FastAPI, SQLAlchemy 2.0
-- **Frontend**: Next.js 14, React 18, TailwindCSS
-- **Database**: PostgreSQL 15, Redis 7
-- **AI**: Anthropic Claude 3.5 Sonnet
-- **Infrastructure**: Docker, Docker Compose
+See [articles/README.md](articles/README.md) for a per-article index.
 
 ---
 
-## ⚡ Performance
+## Quick answers
 
-### Event-Driven Mode (Current)
-- **Agent Response**: <100ms (vs 0-15 minutes with polling)
-- **Simple Project**: 10-15 minutes (vs ~4.5 hours)
-- **Medium Project**: 30-45 minutes (vs ~8.5 hours)
+**How do I run this?** → [Root README → Quick start](../README.md#quick-start)
 
-**10-30x faster than polling mode!**
+**Something's broken.** → [Root README → Troubleshooting](../README.md#troubleshooting), then [GETTING-STARTED.md](GETTING-STARTED.md#troubleshooting)
 
----
+**What endpoints exist?** → Run the backend and open http://localhost:8000/docs. That's generated from the code, so it's never stale.
 
-## 📦 What's Included
+**How do I add a new agent?** → Register it in `backend/app/agents/agent_registry.py`, then implement its class alongside the existing agents. [ARCHITECTURE.md](ARCHITECTURE.md) covers the contract.
 
-### Backend
-- 7 fully implemented AI agents
-- Complete REST API (30+ endpoints)
-- Event-driven execution system
-- Real-time agent communication
-- Database schema (30+ tables)
-- Migration system
-- Health monitoring
-- **Intelligent Knowledge Base** with hybrid search (vector + full-text)
-- **Multi-Agent Chat** with dynamic agent invitations
-- **Agent Discovery** with expertise-based matching
+**How do I change the database schema?** → Edit the models in `backend/app/db/`, then `alembic revision --autogenerate -m "..."` and `alembic upgrade head`.
 
-### Frontend (Optional)
-- Modern Next.js dashboard
-- Real-time status updates
-- Agent monitoring
-- Task tracking
-- Dark mode support
-- Fully responsive
-- **Chat Widget** with markdown rendering
-- **Agent Suggestions Panel** with AI-powered recommendations
-- **Participant List** with real-time presence indicators
+**What's actually finished?** → [PROJECT_STATUS.md](PROJECT_STATUS.md)
 
 ---
 
-## 🎓 Learning Path
+## While the system is running
 
-### Beginner
-1. Read [GETTING-STARTED.md](GETTING-STARTED.md)
-2. Follow setup instructions
-3. Create your first project
-4. Watch agents collaborate
-
-### Intermediate
-1. Read [PROJECT_STATUS.md](PROJECT_STATUS.md)
-2. Explore [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
-3. Review [REAL_TIME_EVENTS_README.md](REAL_TIME_EVENTS_README.md)
-4. Experiment with different project types
-
-### Advanced
-1. Study [reference/IMPLEMENTATION.md](reference/IMPLEMENTATION.md)
-2. Review [MIGRATION_GUIDE_EVENT_DRIVEN.md](MIGRATION_GUIDE_EVENT_DRIVEN.md)
-3. Read [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
-4. Deploy to production
+| Resource | URL |
+|---|---|
+| Dashboard | http://localhost:3000 |
+| Interactive API docs | http://localhost:8000/docs |
+| Health check | http://localhost:8000/health |
 
 ---
 
-## 🚀 Status: Production Ready
+## A note on accuracy
 
-✅ **Phase 1 MVP Complete**
-- All 7 agents operational
-- Complete REST API
-- Event-driven execution
-- Real-time monitoring
-- Production deployment ready
-
-✅ **Intelligent Knowledge Base**
-- Automatic knowledge extraction from conversations
-- Hybrid search (vector + full-text + exact matching)
-- User profiles and preferences
-- Predictive agent involvement
-
-✅ **Multi-Agent Chat**
-- Dynamic agent invitations in conversations
-- Auto-join for highly relevant agents (>90%)
-- Real-time presence indicators
-- Context briefings for joining agents
-
-For current status, see [PROJECT_STATUS.md](PROJECT_STATUS.md)
-
----
-
-## 🤝 Support & Resources
-
-### Documentation
-- **Setup Help**: [GETTING-STARTED.md](GETTING-STARTED.md)
-- **Quick Commands**: [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
-- **Technical Details**: [REAL_TIME_EVENTS_README.md](REAL_TIME_EVENTS_README.md)
-- **Deployment**: [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
-
-### While Running
-- **API Docs**: http://localhost:8000/docs (interactive)
-- **Health Check**: http://localhost:8000/health
-- **Dashboard**: http://localhost:3000 (if frontend running)
-
-### Troubleshooting
-See [QUICK_REFERENCE.md](QUICK_REFERENCE.md#troubleshooting-quick-fixes) for common issues and solutions.
-
----
-
-## 📝 Recent Updates
-
-**November 28, 2025** - Knowledge Base & Multi-Agent Chat
-- Added Intelligent Knowledge Base with AI-powered extraction
-- Implemented Multi-Agent Chat with dynamic collaboration
-- Added agent discovery and expertise matching
-- Enhanced chat with markdown rendering
-- Added real-time presence indicators
-
-**October 30, 2025** - Documentation consolidation
-- Reorganized documentation structure
-- Created clear entry points
-- Archived historical documents
-- Consolidated redundant content
-- Improved navigation
-
----
-
-## 🔗 Quick Links
-
-| Resource | Link |
-|----------|------|
-| **Quick Start** | [GETTING-STARTED.md](GETTING-STARTED.md) |
-| **Commands** | [QUICK_REFERENCE.md](QUICK_REFERENCE.md) |
-| **Status** | [PROJECT_STATUS.md](PROJECT_STATUS.md) |
-| **Deploy** | [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) |
-| **Business** | [BUSINESS_PLAN.md](BUSINESS_PLAN.md) |
-| **Technical** | [REAL_TIME_EVENTS_README.md](REAL_TIME_EVENTS_README.md) |
-| **Reference** | [reference/](reference/) |
-| **Archive** | [archive/](archive/) |
-
----
-
-**Ready to get started?** → [GETTING-STARTED.md](GETTING-STARTED.md)
-
-**🎉 Your AI agent company is ready to build software for you!**
+Some documents here were written at different stages of the project and describe intentions as much as current behavior. When a document and the code disagree, **the code is right**. The most reliable sources are the interactive API docs at `/docs` (generated from code), the Alembic migrations in `backend/alembic/versions/` (the real schema history), and [PROJECT_STATUS.md](PROJECT_STATUS.md).

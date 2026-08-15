@@ -1,13 +1,26 @@
-# Deviant - Project Status
+# Retinue - Project Status
 
-**Date**: October 17, 2025
-**Status**: ✅ **PHASE 1 MVP COMPLETE**
+**Originally written**: October 17, 2025
+**Status**: Phase 1 MVP complete; active development continuing
+
+> **Note on accuracy.** Sections below were written at the Phase 1 MVP milestone and some counts have since been overtaken by the code. Figures marked *(verified)* were checked against the codebase; the rest are historical. When this document and the code disagree, the code is right — the most reliable sources are http://localhost:8000/docs and the migrations in `backend/alembic/versions/`.
 
 ---
 
 ## Executive Summary
 
-Deviant is a **fully functional AI Agent Company Platform** where 7 autonomous AI agents collaborate to build software projects. The Phase 1 MVP is complete and ready for testing and deployment.
+Retinue is an AI Agent Company Platform where autonomous AI agents collaborate to deliver project work. Seven core agents are fully implemented; a further 18 are registered in the `AgentRegistry` with metadata and capabilities but are still gaining specialized execution logic.
+
+**Current shape of the codebase** *(verified)*:
+
+| | Count |
+|---|---|
+| Agents registered (9 departments) | 25 |
+| Agents fully implemented | 7 |
+| API route modules | 25 |
+| Database tables | 78 |
+| Frontend pages | 14 |
+| Frontend components | 113 |
 
 ---
 
@@ -46,17 +59,20 @@ Complete backend infrastructure with REST API and agent coordination:
 
 **Total**: ~1,800 lines of backend code
 
-### ⏳ Stage 3: Frontend Dashboard (OPTIONAL - NOT STARTED)
+### ✅ Stage 3: Frontend Dashboard (COMPLETE)
 
-Next.js dashboard for visual monitoring (documented but not required for MVP):
+The Next.js dashboard is built and is the primary way to use the system — 14 pages and 113 components *(verified)*.
 
-- [ ] Real-time project monitoring
-- [ ] Agent health visualization
-- [ ] Task board interface
-- [ ] Interactive project creation
-- [ ] Message feed viewer
+- [x] Real-time project monitoring
+- [x] Agent health visualization
+- [x] Task board interface
+- [x] Interactive project creation
+- [x] Message feed viewer
+- [x] Escalation review and response
+- [x] Knowledge base and multi-agent chat
+- [x] Export dialog (ZIP, PDF, and other formats)
 
-**Estimated Time**: 2-3 hours (if desired)
+Run it with `npm run dev` from `frontend/` — see [GETTING-STARTED.md](GETTING-STARTED.md).
 
 ---
 
@@ -92,16 +108,16 @@ Next.js dashboard for visual monitoring (documented but not required for MVP):
 - `backend/alembic.ini` - Migration configuration
 - `backend/alembic/env.py` - Migration environment
 
-### Documentation (8 files)
+### Documentation
 
-- `README.md` - Complete project overview
-- `QUICK_START.md` - 5-minute setup guide ⭐ **START HERE**
-- `SETUP_INSTRUCTIONS.md` - Detailed Windows setup
-- `TESTING_GUIDE.md` - Comprehensive test scenarios
-- `FINAL_SUMMARY.md` - Achievement summary
-- `STAGE_1_COMPLETE.md` - Agent implementation details
-- `STAGE_2_COMPLETE.md` - API documentation
-- `IMPLEMENTATION_STATUS.md` - Development tracker
+- [`../README.md`](../README.md) - Project overview, core concepts, quick start ⭐ **START HERE**
+- [`README.md`](README.md) - Documentation map with three onboarding paths
+- [`GETTING-STARTED.md`](GETTING-STARTED.md) - Detailed setup for backend and frontend
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) - System architecture
+- [`DEPLOYMENT_GUIDE.md`](DEPLOYMENT_GUIDE.md) - Production deployment
+- [`BUSINESS_PLAN.md`](BUSINESS_PLAN.md) - Vision and strategy
+- [`articles/`](articles/) - 33 long-form articles on design and use cases
+- [`reference/`](reference/) - Original specifications
 
 ### Configuration (3 files)
 
@@ -117,7 +133,9 @@ Next.js dashboard for visual monitoring (documented but not required for MVP):
 
 ## Technical Architecture
 
-### Database Schema (10 Tables)
+### Database Schema — Phase 1 core tables
+
+These were the original 10. The schema has since grown to **78 tables** *(verified)* covering exports, escalations, conversations, knowledge, and analytics. See `backend/alembic/versions/` for the authoritative history.
 
 1. **agents** - Agent definitions and configuration
 2. **agent_status** - Real-time agent availability and health
@@ -130,7 +148,9 @@ Next.js dashboard for visual monitoring (documented but not required for MVP):
 9. **audit_log** - Complete action history
 10. **human_interactions** - Human approval requests
 
-### API Endpoints (15+)
+### API Endpoints — Phase 1 core routes
+
+A representative subset. The API now spans **25 route modules** *(verified)*; browse the complete, always-current list at http://localhost:8000/docs.
 
 **Projects**:
 - `POST /api/v1/projects` - Create project
@@ -198,9 +218,11 @@ CEO Agent (Evaluates projects)
 - Docker & Docker Compose
 - uvicorn (ASGI server)
 
-**Frontend** (Stage 3, optional):
-- Next.js 14
+**Frontend**:
+- Next.js 14 (App Router)
 - React 18
+- TypeScript
+- TanStack Query
 - TailwindCSS
 
 ---
@@ -315,12 +337,12 @@ CEO Agent (Evaluates projects)
 
 ```powershell
 # Navigate to project
-cd "C:\Users\Nic - Babe\Documents\Projects\nicanor\Shoman-Group\Domains\02-shoman-saas-domain\apps\Deviant"
+cd "C:\Users\Nic - Babe\Documents\Projects\nicanor\Shoman-Group\Domains\02-shoman-saas-domain\apps\Retinue"
 
 # Run automated setup
 .\quick-setup.ps1
 
-# OR see QUICK_START.md for step-by-step manual setup
+# OR see ../README.md (Quick start) or GETTING-STARTED.md for manual setup
 ```
 
 ### Create First Project
@@ -388,7 +410,7 @@ Invoke-RestMethod -Uri "http://localhost:8000/api/v1/agents/status"
 
 ### Option 1: Test the System ⭐ **RECOMMENDED**
 
-Follow [TESTING_GUIDE.md](TESTING_GUIDE.md) to:
+Follow [../README.md → Your first project](../README.md#your-first-project) to:
 1. Create test projects
 2. Monitor agent behavior
 3. Verify output quality
@@ -426,11 +448,11 @@ Add advanced features:
 
 | File | Purpose |
 |------|---------|
-| **[QUICK_START.md](QUICK_START.md)** | ⭐ **START HERE** - 5-minute setup |
-| [README.md](README.md) | Complete overview |
-| [SETUP_INSTRUCTIONS.md](SETUP_INSTRUCTIONS.md) | Detailed setup walkthrough |
-| [TESTING_GUIDE.md](TESTING_GUIDE.md) | Test scenarios with scripts |
-| [FINAL_SUMMARY.md](FINAL_SUMMARY.md) | Achievement summary |
+| **[../README.md](../README.md)** | ⭐ **START HERE** - overview + quick start |
+| [README.md](README.md) | Documentation map |
+| [GETTING-STARTED.md](GETTING-STARTED.md) | Detailed setup walkthrough |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | System architecture |
+| [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) | Production deployment |
 
 ### While Running
 
@@ -440,7 +462,7 @@ Add advanced features:
 
 ### Troubleshooting
 
-See [QUICK_START.md](QUICK_START.md#troubleshooting) for common issues and solutions.
+See [../README.md → Troubleshooting](../README.md#troubleshooting) for common issues and solutions.
 
 ---
 
@@ -483,7 +505,7 @@ The Phase 1 MVP is:
 
 ### Time to Test!
 
-**Recommended next action**: Follow [QUICK_START.md](QUICK_START.md) to set up and test your first project.
+**Recommended next action**: Follow the [root README quick start](../README.md#quick-start) to set up and test your first project.
 
 ---
 

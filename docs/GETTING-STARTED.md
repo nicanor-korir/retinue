@@ -1,8 +1,8 @@
-# Deviant - Complete Setup Guide
+# Retinue - Complete Setup Guide
 
 **Get your AI Agent Company running in 15 minutes!**
 
-This guide covers both backend and frontend setup for the complete Deviant platform.
+This guide covers both backend and frontend setup for the complete Retinue platform.
 
 ---
 
@@ -27,37 +27,45 @@ Before starting, ensure you have:
 
 ---
 
+> **Cost warning.** Agents make real Claude API calls, and a small project typically costs a few dollars. Start small and watch your usage the first time through.
+
+> **Don't run `docker-compose up` on its own.** The compose file declares `backend` and `frontend` services, but `frontend/Dockerfile` doesn't exist yet and the containers skip database setup. Start only `postgres` and `redis` from Docker, as this guide does, and run the applications natively.
+
+---
+
 ## Quick Setup (Recommended)
 
-### Option A: Automated Setup
+### Option A: Automated Setup (Windows only)
+
+From the repository root:
 
 ```powershell
-cd "Domains\02-shoman-saas-domain\apps\Deviant"
 .\quick-setup.ps1
 ```
 
-This will set up the backend. Then continue with the frontend setup below.
+This sets up the backend only. Continue with the frontend setup below afterward.
 
-### Option B: Manual Setup (Detailed Below)
+### Option B: Manual Setup
 
-Follow the step-by-step instructions for full control.
+Follow the step-by-step instructions below. This works on every platform and is worth doing once even on Windows, so you know what the script did.
 
 ---
 
 ## Part 1: Backend Setup
 
+All commands assume you start from the repository root.
+
 ### Step 1: Configure Environment
 
-```powershell
-# Navigate to project
-cd "Domains\02-shoman-saas-domain\apps\Deviant"
+```bash
+# macOS / Linux
+cp .env.example .env
 
-# Create .env file
+# Windows PowerShell
 Copy-Item .env.example .env
-
-# Edit with your API key
-notepad .env
 ```
+
+Then open `.env` in any editor.
 
 Add your Anthropic API key:
 ```env
@@ -67,32 +75,36 @@ DB_PASSWORD=your_secure_password
 
 ### Step 2: Start Docker Services
 
-```powershell
-# Start PostgreSQL and Redis
+```bash
+# Start PostgreSQL and Redis (not the other services — see the note above)
 docker-compose up -d postgres redis
 
-# Wait for services to be ready (~30 seconds)
-Start-Sleep -Seconds 30
-
-# Verify they're running
+# Wait ~30 seconds for health checks, then verify
 docker-compose ps
 ```
 
-You should see both services as "healthy".
+You should see both services as "healthy". If they aren't, give them another 30 seconds — Postgres initializes its data directory on first run.
 
 ### Step 3: Setup Python Environment
 
-```powershell
-# Navigate to backend
+```bash
 cd backend
-
-# Create virtual environment
 python -m venv venv
+```
 
-# Activate it
+Activate it:
+
+```bash
+# macOS / Linux
+source venv/bin/activate
+
+# Windows PowerShell
 .\venv\Scripts\Activate.ps1
+```
 
-# Install dependencies
+Your prompt should now show `(venv)`. Then install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
@@ -138,7 +150,7 @@ Open a **new terminal window**.
 ### Step 6: Navigate to Frontend
 
 ```powershell
-cd "Domains\02-shoman-saas-domain\apps\Deviant\frontend"
+cd "Domains\02-shoman-saas-domain\apps\Retinue\frontend"
 ```
 
 ### Step 7: Install Dependencies
@@ -325,9 +337,9 @@ docker-compose down -v
 
 ### Backend
 
-```powershell
+```bash
 cd backend
-.\venv\Scripts\Activate.ps1
+source venv/bin/activate        # Windows: .\venv\Scripts\Activate.ps1
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
@@ -368,9 +380,9 @@ docker-compose up -d postgres redis
 docker-compose exec postgres psql -U agent -d ai_company -c "SELECT agent_id, name FROM agents;"
 ```
 3. Re-initialize if needed:
-```powershell
+```bash
 cd backend
-.\venv\Scripts\Activate.ps1
+source venv/bin/activate        # Windows: .\venv\Scripts\Activate.ps1
 python -m app.scripts.init_agents
 ```
 
@@ -429,12 +441,12 @@ npm start
 
 ### Learn More
 
-- [README.md](README.md) - Complete project documentation
-- [TESTING_GUIDE.md](TESTING_GUIDE.md) - Comprehensive test scenarios
-- [STAGE_1_COMPLETE.md](STAGE_1_COMPLETE.md) - Agent details
-- [STAGE_2_COMPLETE.md](STAGE_2_COMPLETE.md) - API documentation
-- [STAGE_3_COMPLETE.md](STAGE_3_COMPLETE.md) - Frontend details
-- [frontend/README.md](frontend/README.md) - Frontend-specific docs
+- [Root README](../README.md) — what Retinue is, core concepts, project structure
+- [docs/README.md](README.md) — the documentation map, with three onboarding paths
+- [ARCHITECTURE.md](ARCHITECTURE.md) — full system architecture
+- [PROJECT_STATUS.md](PROJECT_STATUS.md) — what's built and what's in progress
+- [../frontend/README.md](../frontend/README.md) — frontend-specific docs
+- **http://localhost:8000/docs** — interactive API reference, generated from the code
 
 ### Explore Features
 
@@ -449,12 +461,7 @@ npm start
 
 ### Deploy
 
-Ready to deploy? See deployment guides for:
-- **Vercel** (frontend)
-- **Heroku** (backend)
-- **AWS** (full stack)
-- **Azure** (full stack)
-- **Google Cloud** (full stack)
+Ready to deploy? See **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**, which covers Vercel (frontend), Heroku (backend), and full-stack deployment to AWS, Azure, and Google Cloud.
 
 ---
 

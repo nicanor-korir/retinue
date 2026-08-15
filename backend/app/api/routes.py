@@ -1,4 +1,4 @@
-"""API routes for the Deviant platform."""
+"""API routes for the Retinue platform."""
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, update

@@ -1,4 +1,4 @@
-# Deviant - Comprehensive Deployment Guide
+# Retinue - Comprehensive Deployment Guide
 
 **Deploy your AI Agent Company to production on free/cheap platforms**
 
@@ -15,7 +15,7 @@ This guide covers deployment to multiple platforms with free tiers or trials.
    - [Option 2: Railway.app (Great DX, $5 Free Trial)](#option-2-railwayapp-great-dx-5-free-trial)
    - [Option 3: Fly.io (Global CDN, Free Tier)](#option-3-flyio-global-cdn-free-tier)
    - [Option 4: Vercel + Separate Backend (Best for Frontend)](#option-4-vercel--separate-backend)
-   - [Option 5: Docker Compose (Self-Hosted)](#option-5-docker-compose-self-hosted)
+   - [Option 5: Docker Compose on a shared VPS (Hetzner, self-hosted)](#option-5-docker-compose-on-a-shared-vps-hetzner-self-hosted)
 4. [Post-Deployment Setup](#post-deployment-setup)
 5. [Monitoring & Maintenance](#monitoring--maintenance)
 6. [Troubleshooting](#troubleshooting)
@@ -77,13 +77,13 @@ Before deploying, ensure you have:
 
 1. Create account at https://render.com
 2. Connect your GitHub account
-3. Fork/push Deviant to your GitHub repo
+3. Fork/push Retinue to your GitHub repo
 
 ### Step 2: Deploy PostgreSQL
 
 1. In Render Dashboard, click **New +** → **PostgreSQL**
 2. Configure:
-   - **Name**: `Deviant-postgres`
+   - **Name**: `Retinue-postgres`
    - **Database**: `ai_company`
    - **User**: `agent`
    - **Region**: Choose closest to you
@@ -95,7 +95,7 @@ Before deploying, ensure you have:
 
 1. Click **New +** → **Redis**
 2. Configure:
-   - **Name**: `Deviant-redis`
+   - **Name**: `Retinue-redis`
    - **Region**: Same as PostgreSQL
    - **Plan**: Free
 3. Click **Create Redis**
@@ -106,7 +106,7 @@ Before deploying, ensure you have:
 1. Click **New +** → **Web Service**
 2. Connect your GitHub repository
 3. Configure:
-   - **Name**: `Deviant-backend`
+   - **Name**: `Retinue-backend`
    - **Environment**: Docker
    - **Region**: Same as database
    - **Branch**: main
@@ -130,7 +130,7 @@ Once backend is running:
 
 ```powershell
 # Get shell access to your backend service
-# In Render Dashboard: Deviant-backend → Shell
+# In Render Dashboard: Retinue-backend → Shell
 
 # Run migrations
 alembic upgrade head
@@ -144,7 +144,7 @@ python -m app.scripts.init_agents
 1. Click **New +** → **Web Service**
 2. Same repository
 3. Configure:
-   - **Name**: `Deviant-frontend`
+   - **Name**: `Retinue-frontend`
    - **Environment**: Docker
    - **Region**: Same as others
    - **Branch**: main
@@ -155,13 +155,13 @@ python -m app.scripts.init_agents
    NEXT_PUBLIC_API_URL=[Your Backend URL]
    PORT=3000
    ```
-   Example: `NEXT_PUBLIC_API_URL=https://Deviant-backend.onrender.com`
+   Example: `NEXT_PUBLIC_API_URL=https://Retinue-backend.onrender.com`
 
 5. Click **Create Web Service**
 
 ### Step 7: Verify Deployment
 
-Visit your frontend URL (e.g., `https://Deviant-frontend.onrender.com`)
+Visit your frontend URL (e.g., `https://Retinue-frontend.onrender.com`)
 
 You should see the dashboard!
 
@@ -189,7 +189,7 @@ You should see the dashboard!
 
 ```powershell
 # Navigate to project
-cd Deviant
+cd Retinue
 
 # Create new Railway project
 railway init
@@ -294,23 +294,23 @@ fly version
 ### Step 2: Create Apps
 
 ```powershell
-cd Deviant
+cd Retinue
 
 # Create backend app
-fly apps create Deviant-backend
+fly apps create Retinue-backend
 
 # Create frontend app
-fly apps create Deviant-frontend
+fly apps create Retinue-frontend
 ```
 
 ### Step 3: Create PostgreSQL
 
 ```powershell
 # Create PostgreSQL cluster
-fly postgres create --name Deviant-postgres --region ord
+fly postgres create --name Retinue-postgres --region ord
 
 # Attach to backend
-fly postgres attach Deviant-postgres --app Deviant-backend
+fly postgres attach Retinue-postgres --app Retinue-backend
 ```
 
 This automatically sets `DATABASE_URL`.
@@ -325,25 +325,25 @@ Since Fly.io doesn't have built-in Redis:
 
 ```powershell
 # Set Redis URL
-fly secrets set REDIS_URL=your-upstash-redis-url --app Deviant-backend
+fly secrets set REDIS_URL=your-upstash-redis-url --app Retinue-backend
 ```
 
 ### Step 5: Deploy Backend
 
 ```powershell
 # Set secrets
-fly secrets set ANTHROPIC_API_KEY=your-key-here --app Deviant-backend
-fly secrets set ENVIRONMENT=production --app Deviant-backend
+fly secrets set ANTHROPIC_API_KEY=your-key-here --app Retinue-backend
+fly secrets set ENVIRONMENT=production --app Retinue-backend
 
 # Deploy using fly.backend.toml
-fly deploy --config fly.backend.toml --app Deviant-backend
+fly deploy --config fly.backend.toml --app Retinue-backend
 ```
 
 ### Step 6: Initialize Database
 
 ```powershell
 # SSH into backend
-fly ssh console --app Deviant-backend
+fly ssh console --app Retinue-backend
 
 # Run migrations
 alembic upgrade head
@@ -355,10 +355,10 @@ exit
 
 ```powershell
 # Set backend URL
-fly secrets set NEXT_PUBLIC_API_URL=https://Deviant-backend.fly.dev --app Deviant-frontend
+fly secrets set NEXT_PUBLIC_API_URL=https://Retinue-backend.fly.dev --app Retinue-frontend
 
 # Deploy
-fly deploy --config fly.frontend.toml --app Deviant-frontend
+fly deploy --config fly.frontend.toml --app Retinue-frontend
 ```
 
 ### Step 8: Configure Regions (Optional)
@@ -370,7 +370,7 @@ fly regions add syd  # Sydney
 fly regions add fra  # Frankfurt
 ```
 
-**Done!** Access at `https://Deviant-frontend.fly.dev`
+**Done!** Access at `https://Retinue-frontend.fly.dev`
 
 ---
 
@@ -409,142 +409,259 @@ Then update Vercel environment variable with backend URL.
 
 ---
 
-## Option 5: Docker Compose (Self-Hosted)
+## Option 5: Docker Compose on a shared VPS (Hetzner, self-hosted)
 
-**Best for**: Full control, private servers
+**Best for**: full control, predictable cost, and running alongside services you already host.
 
-### Prerequisites
+This is the reference self-hosted setup. It assumes you already have a VPS running other things, and deliberately reuses what's there rather than duplicating it:
 
-- VPS with Docker installed (DigitalOcean, Linode, AWS EC2, etc.)
-- Domain name pointed to server IP
-- SSH access
+| Concern | Approach |
+|---|---|
+| Reverse proxy + TLS | **Your existing Caddy** — Retinue adds two site blocks |
+| Database | **Your existing PostgreSQL** — Retinue gets its own database and role |
+| Image builds | **GitHub Actions → GHCR** — the server only pulls, never builds |
+| Retinue's own services | `backend`, `frontend`, `redis` |
 
-### Step 1: Server Setup
+Steady-state cost is roughly **350–550 MB of RAM**, which fits comfortably on a 4 GB server alongside other workloads.
 
-```bash
-# SSH into server
-ssh user@your-server-ip
+The worked example uses `retinue.nicanor.xyz` (frontend) and `api.retinue.nicanor.xyz` (backend). Substitute your own.
 
-# Install Docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
+### Why not build on the server
 
-# Install Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+`next build` peaks at **1.5–2.5 GB**. On a box already running other services that will OOM — and worse, it can take *those* services down with it. Building in CI removes the spike entirely, makes deploys a fast `pull`, and means a broken build can never affect what's already running.
 
-# Verify
-docker --version
-docker-compose --version
+### What it looks like
+
+```
+                     Internet
+                        │
+              ┌─────────┴──────────┐
+              │  YOUR existing     │  ← already owns :80/:443
+              │  Caddy             │
+              └─────────┬──────────┘
+           ┌────────────┴────────────┐
+   retinue.nicanor.xyz      api.retinue.nicanor.xyz
+           │                         │
+    ┌──────▼──────┐          ┌───────▼──────┐
+    │  frontend   │          │   backend    │
+    │   :3000     │          │    :8000     │
+    └─────────────┘          └──────┬───────┘
+                            ┌───────┴────────┐
+                     ┌──────▼─────┐   ┌──────▼──────────┐
+                     │   redis    │   │ YOUR existing   │
+                     │  (Retinue) │   │  PostgreSQL     │
+                     └────────────┘   └─────────────────┘
 ```
 
-### Step 2: Clone Repository
+Nothing Retinue runs binds to a host port. Everything is reached through your Caddy.
+
+---
+
+### Step 1: DNS
+
+Certificates cannot be issued until DNS resolves, so do this **before** reloading Caddy:
+
+| Type | Name | Value |
+|---|---|---|
+| A | `retinue` | your server's IPv4 |
+| A | `api.retinue` | your server's IPv4 |
+| AAAA | `retinue` | your server's IPv6 (optional) |
+| AAAA | `api.retinue` | your server's IPv6 (optional) |
 
 ```bash
-# Clone your repo
-git clone https://github.com/yourusername/Deviant.git
-cd Deviant
+dig +short retinue.nicanor.xyz
+dig +short api.retinue.nicanor.xyz
 ```
 
-### Step 3: Configure Environment
+Both must return your server's IP before continuing.
+
+### Step 2: Publish images from CI
+
+`.github/workflows/ci-cd.yml` already tests, builds, and pushes both images to GHCR on every push to `main`.
+
+The frontend bakes its API URLs in at build time, so set these as **repository variables** (Settings → Secrets and variables → Actions → **Variables** — they're public URLs, not secrets):
+
+| Variable | Value |
+|---|---|
+| `NEXT_PUBLIC_API_URL` | `https://api.retinue.nicanor.xyz` |
+| `NEXT_PUBLIC_WS_URL` | `wss://api.retinue.nicanor.xyz` |
+
+Also add `ANTHROPIC_API_KEY` as a repository **secret** — the backend test job needs it.
+
+Push to `main`, then confirm both packages appear under your repo's Packages tab. If the repo is private, the server needs a read token:
 
 ```bash
-# Copy production env template
+echo <github-pat-with-read:packages> | docker login ghcr.io -u <your-github-username> --password-stdin
+```
+
+### Step 3: Provision the database
+
+Retinue gets its own database and role inside your existing PostgreSQL, so it stays isolated from your other apps.
+
+Edit the password in `deploy/postgres-setup.sql`, then:
+
+```bash
+# Postgres on the host
+psql -U postgres -f deploy/postgres-setup.sql
+
+# Postgres in a container
+docker exec -i <postgres-container> psql -U postgres < deploy/postgres-setup.sql
+```
+
+**If PostgreSQL runs on the host**, it must accept connections from the Docker bridge — the most common first-deploy failure. In `postgresql.conf`:
+
+```
+listen_addresses = 'localhost,172.17.0.1'
+```
+
+In `pg_hba.conf`, scoped to just this database and role:
+
+```
+host    retinue    retinue    172.16.0.0/12    scram-sha-256
+```
+
+Then `sudo systemctl reload postgresql`. Confirm your bridge address with `ip addr show docker0`.
+
+> Keep port 5432 closed in the Hetzner Cloud Firewall. Only local containers should reach Postgres.
+
+### Step 4: Connect the proxy network
+
+Your Caddy needs to resolve `frontend` and `backend` by name:
+
+```bash
+docker network create proxy                        # once, if it doesn't exist
+docker network connect proxy <your-caddy-container>
+```
+
+If your Caddy runs on the host rather than in a container, keep the bundled proxy approach instead — or publish the two services on localhost-only ports (`127.0.0.1:3000:3000`) and point Caddy at those.
+
+### Step 5: Configure
+
+```bash
+git clone https://github.com/yourusername/retinue.git
+cd retinue
 cp .env.production.example .env.production
-
-# Edit with your values
 nano .env.production
 ```
 
-Add:
+Fill in the image names, `DATABASE_URL` (matching the password from Step 3), `ANTHROPIC_API_KEY`, and `JWT_SECRET` (`openssl rand -hex 32`).
+
+### Step 6: Deploy
+
+```bash
+C="docker compose -f docker-compose.prod.yml --env-file .env.production"
+
+$C pull
+$C up -d
+$C ps
+```
+
+Migrations run in a dedicated `migrate` service that must exit successfully before the backend starts, so the API never comes up against a stale schema.
+
+### Step 7: Seed the agents
+
+```bash
+$C exec backend python -m app.scripts.init_agents
+$C exec backend python -m app.scripts.seed_agent_expertise
+$C exec backend python -m app.scripts.init_knowledge_system   # optional
+$C exec backend python -m app.scripts.verify_database
+```
+
+### Step 8: Add the Caddy site blocks
+
+Append the two blocks from **`deploy/Caddyfile.snippet`** to your existing Caddyfile, then reload:
+
+```bash
+docker exec <your-caddy-container> caddy reload --config /etc/caddy/Caddyfile
+# or, for host-installed Caddy:
+sudo systemctl reload caddy
+```
+
+### Step 9: Verify
+
+```bash
+curl https://api.retinue.nicanor.xyz/health
+curl https://api.retinue.nicanor.xyz/api/v1/agents/status
+```
+
+Then open `https://retinue.nicanor.xyz` and check:
+
+- Valid certificates on **both** hostnames
+- The dashboard loads data (CORS is right)
+- A task's activity stream connects (WebSockets are proxying)
+- Your **other sites still work** (`docker ps`, and load one of them)
+
+---
+
+### Where the database lives
+
+In **your existing PostgreSQL instance**, in a dedicated `retinue` database owned by a dedicated `retinue` role. It shares your existing backup routine — but confirm that routine actually covers all databases, not just the one you set it up for:
+
+```bash
+# per-database dump
+pg_dump -U postgres retinue | gzip > retinue-$(date +%F).sql.gz
+
+# or cluster-wide
+pg_dumpall -U postgres | gzip > all-$(date +%F).sql.gz
+```
+
+Restore:
+
+```bash
+gunzip -c retinue-2026-08-15.sql.gz | psql -U postgres -d retinue
+```
+
+**Redis** stays in its own container with the `redis_data` volume. It holds cache and the event bus, not durable state, so it doesn't need backing up — a cold start rebuilds it.
+
+### Resource limits
+
+The compose file caps each service (`backend` 768 MB, `frontend` 384 MB, `redis` 320 MB) so a runaway Retinue process can't starve your other workloads. Watch actual usage with:
+
+```bash
+docker stats --no-stream
+```
+
+If the backend is regularly near its ceiling, raise the limit rather than removing it — an unbounded container on a shared box is what takes neighbours down.
+
+### Updating
+
+```bash
+git pull                 # only needed if compose/env changed
+$C pull && $C up -d
+```
+
+CI rebuilds images on push to `main`; the server just pulls. Migrations reapply automatically.
+
+**Changing either domain requires a CI rebuild**, not just a restart — update the repository variables from Step 2 and push, because the frontend bakes those URLs into its bundle.
+
+### Rollback
+
+Images are tagged with the commit SHA, so pin a known-good one in `.env.production`:
+
 ```env
-DB_PASSWORD=your_secure_password
-ANTHROPIC_API_KEY=your_key_here
-NEXT_PUBLIC_API_URL=https://api.yourdomain.com
+BACKEND_IMAGE=ghcr.io/owner/repo/backend:main-a1b2c3d
+FRONTEND_IMAGE=ghcr.io/owner/repo/frontend:main-a1b2c3d
 ```
 
-### Step 4: Deploy with Docker Compose
+Then `$C up -d`. Note that migrations do not auto-revert — roll the schema back deliberately with `alembic downgrade` if a release changed it.
+
+### Troubleshooting
+
+**`connection refused` to Postgres.** The host instance isn't listening on the Docker bridge, or `pg_hba.conf` doesn't allow it. Re-check Step 3, then test from inside a container:
 
 ```bash
-# Build and start services
-docker-compose -f docker-compose.prod.yml up -d
-
-# Check status
-docker-compose -f docker-compose.prod.yml ps
-
-# View logs
-docker-compose -f docker-compose.prod.yml logs -f
+$C exec backend python -c "import socket;print(socket.create_connection(('host.docker.internal',5432),5))"
 ```
 
-### Step 5: Initialize Database
+**Caddy returns 502.** It can't resolve the container names — confirm your Caddy is attached to the `proxy` network (`docker network inspect proxy`) and that both containers are running.
 
-```bash
-# Run migrations
-docker-compose -f docker-compose.prod.yml exec backend alembic upgrade head
+**Certificate issuance fails.** DNS or firewall. Both names must resolve to this server and ports 80/443 must be open. Let's Encrypt rate-limits failures, so fix DNS before retrying.
 
-# Initialize agents
-docker-compose -f docker-compose.prod.yml exec backend python -m app.scripts.init_agents
-```
+**Frontend loads but shows no data.** CORS or a wrong baked-in API URL. Check `$C exec backend env | grep CORS`, and confirm the repository variables from Step 2 matched at build time.
 
-### Step 6: Setup Nginx Reverse Proxy
+**Live activity streams never connect.** The image was built with `ws://` instead of `wss://`. Fix `NEXT_PUBLIC_WS_URL` and rebuild.
 
-```bash
-# Install Nginx
-sudo apt update
-sudo apt install nginx
-
-# Create config
-sudo nano /etc/nginx/sites-available/Deviant
-```
-
-Add:
-```nginx
-# Backend
-server {
-    listen 80;
-    server_name api.yourdomain.com;
-
-    location / {
-        proxy_pass http://localhost:8000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-
-# Frontend
-server {
-    listen 80;
-    server_name yourdomain.com;
-
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
-```bash
-# Enable site
-sudo ln -s /etc/nginx/sites-available/Deviant /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl restart nginx
-```
-
-### Step 7: Setup SSL with Let's Encrypt
-
-```bash
-# Install Certbot
-sudo apt install certbot python3-certbot-nginx
-
-# Get certificates
-sudo certbot --nginx -d yourdomain.com -d api.yourdomain.com
-
-# Auto-renewal is configured automatically
-```
-
-**Done!** Access at `https://yourdomain.com`
-
+**Your other services slowed down after deploying.** Check `docker stats`. Retinue's limits cap it, but the Claude API calls are I/O-heavy and Postgres now serves an extra database — consider raising `shared_buffers` if the instance is under pressure.
 ---
 
 ## Post-Deployment Setup
@@ -617,8 +734,8 @@ railway logs
 
 **Fly.io**:
 ```powershell
-fly logs --app Deviant-backend
-fly logs --app Deviant-frontend
+fly logs --app Retinue-backend
+fly logs --app Retinue-frontend
 ```
 
 **Docker Compose**:
@@ -639,8 +756,8 @@ railway run pg_dump > backup.sql
 
 **Fly.io**:
 ```powershell
-fly postgres backup list --app Deviant-postgres
-fly postgres backup create --app Deviant-postgres
+fly postgres backup list --app Retinue-postgres
+fly postgres backup create --app Retinue-postgres
 ```
 
 **Self-Hosted**:
@@ -665,7 +782,7 @@ railway scale --replicas 2
 
 **Fly.io**:
 ```powershell
-fly scale count 2 --app Deviant-backend
+fly scale count 2 --app Retinue-backend
 ```
 
 **Vertical Scaling** (More resources):
@@ -687,7 +804,7 @@ Upgrade to paid plans for more RAM/CPU.
 ```powershell
 # Render/Railway: Check dashboard
 # Fly.io:
-fly status --app Deviant-postgres
+fly status --app Retinue-postgres
 
 # Self-hosted:
 docker-compose ps
@@ -708,7 +825,7 @@ docker-compose ps
 railway run python -m app.scripts.init_agents
 
 # Fly.io:
-fly ssh console --app Deviant-backend
+fly ssh console --app Retinue-backend
 python -m app.scripts.init_agents
 ```
 

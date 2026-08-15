@@ -7,14 +7,14 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const faqs = [
   {
-    question: "How is Deviant different from ChatGPT or other AI tools?",
+    question: "How is Retinue different from ChatGPT or other AI tools?",
     answer:
-      "ChatGPT is a single AI assistant. Deviant is a complete company of specialized AI agents that work together with hierarchy, collaboration, and role-specific expertise. Think of it as the difference between hiring a consultant versus hiring an entire department.",
+      "ChatGPT is a single AI assistant. Retinue is a complete company of specialized AI agents that work together with hierarchy, collaboration, and role-specific expertise. Think of it as the difference between hiring a consultant versus hiring an entire department.",
   },
   {
-    question: "What kind of work can Deviant actually do?",
+    question: "What kind of work can Retinue actually do?",
     answer:
-      "Deviant can handle any knowledge work: software development (backend, frontend, infrastructure), marketing (strategy, content, SEO), sales (outreach, qualification, proposals), operations, finance, research, and more. If a human team can do it, Deviant can too.",
+      "Retinue can handle any knowledge work: software development (backend, frontend, infrastructure), marketing (strategy, content, SEO), sales (outreach, qualification, proposals), operations, finance, research, and more. If a human team can do it, Retinue can too.",
   },
   {
     question: "How much control do I have?",
@@ -52,9 +52,9 @@ const faqs = [
       "We're finalizing pricing tiers. Waitlist members get up to 50% off for the first 6 months as early adopters.",
   },
   {
-    question: "Can Deviant replace my entire team?",
+    question: "Can Retinue replace my entire team?",
     answer:
-      "Deviant is designed to augment and accelerate your team, not replace it. Think of it as 10x leverage - you make strategic decisions, agents handle execution. Many solo founders use it to achieve team-level output.",
+      "Retinue is designed to augment and accelerate your team, not replace it. Think of it as 10x leverage - you make strategic decisions, agents handle execution. Many solo founders use it to achieve team-level output.",
   },
 ]
 
@@ -76,7 +76,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-[var(--body)] max-w-3xl mx-auto">
-            Everything you need to know about Deviant
+            Everything you need to know about Retinue
           </p>
         </motion.div>
 

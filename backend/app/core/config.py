@@ -1,4 +1,4 @@
-"""Configuration management for the Deviant platform."""
+"""Configuration management for the Retinue platform."""
 from pydantic_settings import BaseSettings
 from typing import Optional
 import os
@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
     # Application
-    APP_NAME: str = "Deviant - AI Agent Company Platform"
+    APP_NAME: str = "Retinue - AI Agent Company Platform"
     APP_VERSION: str = "1.0.0-phase1"
     ENVIRONMENT: str = "development"
     LOG_LEVEL: str = "INFO"
@@ -29,7 +29,15 @@ class Settings(BaseSettings):
 
     # Security
     JWT_SECRET: str = "dev-secret-change-in-production"
-    CORS_ORIGINS: list[str] = ["*"]
+
+    # Explicit origins only. A wildcard is invalid alongside allow_credentials=True
+    # (browsers reject it), so production must list real origins. Override with the
+    # CORS_ORIGINS env var, e.g.
+    #   CORS_ORIGINS=["https://retinue.nicanor.xyz"]
+    CORS_ORIGINS: list[str] = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
 
     # Agent Configuration - Event-Driven Mode
     AGENT_EXECUTION_MODE: str = "event_driven"  # Options: "event_driven", "hybrid", "polling"

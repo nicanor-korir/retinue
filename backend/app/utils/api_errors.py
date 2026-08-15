@@ -7,7 +7,7 @@ from typing import Optional, Dict, Any
 from functools import wraps
 
 from app.exceptions import (
-    DeviantException,
+    RetinueException,
     ValidationError,
     DatabaseError,
     NotFoundError,
@@ -20,15 +20,15 @@ logger = logging.getLogger(__name__)
 def handle_api_errors(func):
     """
     Decorator to handle errors in API routes and convert them to proper responses.
-    Catches database errors and converts them to Deviant exceptions.
+    Catches database errors and converts them to Retinue exceptions.
     """
 
     @wraps(func)
     async def wrapper(*args, **kwargs):
         try:
             return await func(*args, **kwargs)
-        except DeviantException:
-            # Already a formatted Deviant error, re-raise
+        except RetinueException:
+            # Already a formatted Retinue error, re-raise
             raise
         except Exception as e:
             logger.error(f"Error in {func.__name__}: {e}", exc_info=True)
@@ -44,8 +44,8 @@ def handle_api_errors(func):
             )
 
             if isinstance(e, (IntegrityError, DBAPIError, DisconnectionError, OperationalError, DataError, ProgrammingError)):
-                Deviant_error = handle_database_error(e, func.__name__)
-                raise Deviant_error from e
+                retinue_error = handle_database_error(e, func.__name__)
+                raise retinue_error from e
 
             # For other exceptions, convert to generic internal error
             from app.exceptions import InternalError

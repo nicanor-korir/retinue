@@ -72,9 +72,9 @@ class ZIPGenerationService:
                 if zip_options.get("include_source_code", True):
                     await self._add_project_files(zip_file, project)
 
-                # Add Deviant metadata
-                if zip_options.get("include_Deviant_metadata", True):
-                    await self._add_Deviant_metadata(zip_file, project)
+                # Add Retinue metadata
+                if zip_options.get("include_retinue_metadata", True):
+                    await self._add_retinue_metadata(zip_file, project)
 
             zip_buffer.seek(0)
             filename = self._generate_zip_filename(project)
@@ -192,20 +192,20 @@ class ZIPGenerationService:
             # Don't fail the entire export if file adding fails
             pass
 
-    async def _add_Deviant_metadata(
+    async def _add_retinue_metadata(
         self,
         zip_file: zipfile.ZipFile,
         project: Project,
     ) -> None:
-        """Add Deviant metadata files to ZIP.
+        """Add Retinue metadata files to ZIP.
 
         Args:
             zip_file: ZIP file object to add files to
             project: Project data
         """
         try:
-            # Create Deviant directory
-            metadata_dir = "Deviant"
+            # Create Retinue directory
+            metadata_dir = "Retinue"
 
             # Add project info
             project_info = {
@@ -250,10 +250,10 @@ class ZIPGenerationService:
                 json.dumps(tasks_info, indent=2),
             )
 
-            logger.info(f"Added Deviant metadata to ZIP: {len(tasks)} tasks")
+            logger.info(f"Added Retinue metadata to ZIP: {len(tasks)} tasks")
 
         except Exception as e:
-            logger.error(f"Error adding Deviant metadata to ZIP: {e}")
+            logger.error(f"Error adding Retinue metadata to ZIP: {e}")
             # Don't fail the entire export if metadata adding fails
             pass
 

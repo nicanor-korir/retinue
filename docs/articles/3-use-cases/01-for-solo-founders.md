@@ -1,4 +1,4 @@
-# Deviant for Solo Founders: Build Products at Enterprise Speed
+# Retinue for Solo Founders: Build Products at Enterprise Speed
 
 *How one person can ship like a team of ten—without burning out.*
 
@@ -19,15 +19,15 @@ The math is brutal. You have maybe 40 hours of deep work per week. A real produc
 
 I lived this for years. Great ideas. No bandwidth.
 
-Then I built Deviant, and the math changed.
+Then I built Retinue, and the math changed.
 
 ---
 
-## What Changes with Deviant
+## What Changes with Retinue
 
 Here's a real example from my own workflow:
 
-**Before Deviant:**
+**Before Retinue:**
 I wanted to build a client portal for my consulting work. Estimated effort: 3-4 weeks of focused work.
 - Week 1: Design and architecture
 - Week 2: Backend API
@@ -36,7 +36,7 @@ I wanted to build a client portal for my consulting work. Estimated effort: 3-4 
 
 I never started. Too much other work. The idea sat for 8 months.
 
-**With Deviant:**
+**With Retinue:**
 I wrote a one-page brief on Monday morning. By Monday afternoon, I had:
 - Complete UI/UX specifications from the Designer
 - Database schema from the Backend Engineer
@@ -58,7 +58,7 @@ gantt
     Frontend        :a3, after a2, 40h
     Polish          :a4, after a3, 20h
 
-    section With Deviant (1 day)
+    section With Retinue (1 day)
     Brief Writing   :b1, 00:00, 2h
     AI Execution    :b2, after b1, 4h
     Review          :b3, after b2, 1h
@@ -68,7 +68,7 @@ gantt
 
 ## The Solo Founder Workflow
 
-Here's how I use Deviant day-to-day:
+Here's how I use Retinue day-to-day:
 
 ### Morning: Strategy Mode
 
@@ -81,7 +81,7 @@ This is work no AI can replace. It requires my understanding of the market, my c
 
 ### Submit and Forget
 
-I write briefs for projects and submit them to Deviant.
+I write briefs for projects and submit them to Retinue.
 
 ```
 Project: Customer Feedback Widget
@@ -107,7 +107,7 @@ The stuff that makes a business, not just a product.
 
 ### Evening: Review and Refine
 
-Deviant notifies me when work is ready. I review:
+Retinue notifies me when work is ready. I review:
 - Does the design spec match my vision?
 - Is the code architecture sound?
 - Are there any gaps?
@@ -123,7 +123,7 @@ I leave comments. The agents iterate. Usually one round of feedback gets it prod
 **Brief:**
 > Build a landing page generator. User inputs business name, tagline, and key features. AI generates complete HTML/CSS for a professional landing page. Should have 3-4 different templates.
 
-**Deviant output in 3 hours:**
+**Retinue output in 3 hours:**
 - Template system design (Designer)
 - Generation API with OpenAI integration (Backend)
 - Preview interface with live editing (Frontend)
@@ -137,7 +137,7 @@ I leave comments. The agents iterate. Usually one round of feedback gets it prod
 **Brief:**
 > Create invoice generator from project data. Pull project info from database, generate professional PDF invoices, email to clients. Track payment status.
 
-**Deviant output in 4 hours:**
+**Retinue output in 4 hours:**
 - Database schema for invoices and payments (Backend)
 - PDF generation service (Backend)
 - Email integration spec (Backend)
@@ -151,7 +151,7 @@ I leave comments. The agents iterate. Usually one round of feedback gets it prod
 **Brief:**
 > Build an interactive API documentation site. Should read OpenAPI specs and generate browsable documentation with try-it-out functionality.
 
-**Deviant output in 2 hours:**
+**Retinue output in 2 hours:**
 - OpenAPI parser implementation (Backend)
 - Documentation templates (Designer)
 - Interactive request builder (Frontend)
@@ -183,13 +183,13 @@ Let's be honest about costs and benefits.
 
 The math is absurd. $15 in API costs for $3,000 in development value.
 
-Even if Deviant only works 50% as well as the examples above, you're still getting 10x+ ROI.
+Even if Retinue only works 50% as well as the examples above, you're still getting 10x+ ROI.
 
 ---
 
 ## When It Works Best
 
-Deviant shines for:
+Retinue shines for:
 
 **Standard MVPs**
 Todo apps, dashboards, CRUD interfaces, landing pages. Common patterns that AI knows well.
@@ -207,7 +207,7 @@ Even if you write the code yourself, having detailed specs and designs saves hou
 
 ## When to Be Careful
 
-Deviant struggles with:
+Retinue struggles with:
 
 **Novel Algorithms**
 If you're inventing new approaches, AI doesn't have training data to draw from.
@@ -221,7 +221,7 @@ Where every millisecond matters and micro-optimizations are needed.
 **Highly Regulated Domains**
 Healthcare, finance, legal—where domain expertise is legally required.
 
-For these, use Deviant for the 80% that's standard, then apply human expertise to the 20% that's special.
+For these, use Retinue for the 80% that's standard, then apply human expertise to the 20% that's special.
 
 ---
 
@@ -229,7 +229,7 @@ For these, use Deviant for the 80% that's standard, then apply human expertise t
 
 ### Week 1: Observe
 
-Run Deviant on a project you've already completed. Compare its output to yours. Understand how it thinks, where it's strong, where it needs guidance.
+Run Retinue on a project you've already completed. Compare its output to yours. Understand how it thinks, where it's strong, where it needs guidance.
 
 ### Week 2: Delegate Simple Work
 
@@ -237,7 +237,7 @@ Give it your internal tools. Admin panels. Documentation. Things that need to ex
 
 ### Week 3: Prototype Ideas
 
-Got a backlog of "someday" ideas? Run them through Deviant. Get full specs and code in hours. Decide which are worth pursuing.
+Got a backlog of "someday" ideas? Run them through Retinue. Get full specs and code in hours. Decide which are worth pursuing.
 
 ### Week 4: Production Integration
 
@@ -255,18 +255,18 @@ Your value isn't in writing code. It's in knowing what to build. In understandin
 
 The code is a commodity. Your judgment is the differentiator.
 
-Deviant doesn't replace you. It frees you to do the work that actually matters.
+Retinue doesn't replace you. It frees you to do the work that actually matters.
 
 ```mermaid
 flowchart LR
-    subgraph "Before Deviant"
+    subgraph "Before Retinue"
         A[You: Strategist] --> B[You: Designer]
         B --> C[You: Engineer]
         C --> D[You: Tester]
         D --> E[You: Deployer]
     end
 
-    subgraph "With Deviant"
+    subgraph "With Retinue"
         F[You: Strategist + Director]
         G[AI: Design + Engineering + Testing]
         F --> G
@@ -280,14 +280,14 @@ flowchart LR
 
 As a solo founder, your scarcest resource is your attention. Every hour spent on implementation is an hour not spent on strategy, customers, or growth.
 
-Deviant lets you reclaim that time. Not by cutting corners—by delegating to a competent AI team.
+Retinue lets you reclaim that time. Not by cutting corners—by delegating to a competent AI team.
 
 The result: more ideas explored, faster validation, quicker shipping, and the mental space to actually grow a business instead of just building features.
 
 ---
 
-**Next**: [Deviant for Agencies: Scale Your Delivery Capacity →](./02-for-agencies.md)
+**Next**: [Retinue for Agencies: Scale Your Delivery Capacity →](./02-for-agencies.md)
 
 ---
 
-*Nicanor Korir has been a solo founder longer than he'd like to admit. Deviant is the team he wished he'd had from the start.*
+*Nicanor Korir has been a solo founder longer than he'd like to admit. Retinue is the team he wished he'd had from the start.*

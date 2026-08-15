@@ -249,7 +249,7 @@ async def check_tables():
 async def main():
     """Run all verification checks."""
     print("\n" + "=" * 60)
-    print("  Deviant Database Verification")
+    print("  Retinue Database Verification")
     print("=" * 60)
 
     results = {}

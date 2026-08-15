@@ -1,4 +1,4 @@
-# Deviant Documentation Consolidation Analysis
+# Retinue Documentation Consolidation Analysis
 
 **Date:** October 30, 2025  
 **Analyst:** AI Assistant  
@@ -82,7 +82,7 @@ Create `docs/archive/` subdirectory for:
 #### 1. **README.md** (New/Updated)
 **Purpose:** Primary entry point for all documentation  
 **Content:**
-- Quick overview of Deviant
+- Quick overview of Retinue
 - Links to all major docs
 - Quick start (5 minutes)
 - Key concepts

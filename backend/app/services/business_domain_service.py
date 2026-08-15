@@ -1,8 +1,8 @@
 """Business Domain Service for accessing and integrating business knowledge.
 
-This service provides access to Deviant AI/Deviant business domain knowledge including:
+This service provides access to Retinue AI/Retinue business domain knowledge including:
 - Company information and services
-- Deviant system architecture and workflows
+- Retinue system architecture and workflows
 - Best practices and methodologies
 - Agent expertise and capabilities
 """
@@ -189,14 +189,14 @@ class BusinessDomainService:
 
     async def get_company_overview(self) -> Dict:
         """
-        Get Deviant AI company overview.
+        Get Retinue AI company overview.
 
         Returns:
             Company information dictionary
         """
         try:
             results = await self.get_relevant_knowledge(
-                query="Deviant AI company overview mission services",
+                query="Retinue AI company overview mission services",
                 limit=1,
                 category="company_info"
             )
@@ -209,23 +209,23 @@ class BusinessDomainService:
 
             # Fallback to default if not in knowledge base yet
             return {
-                "overview": "Deviant AI delivers AI-powered business solutions through intelligent automation.",
+                "overview": "Retinue AI delivers AI-powered business solutions through intelligent automation.",
                 "summary": "AI solutions company specializing in enterprise automation"
             }
 
         except Exception:
             return {}
 
-    async def get_Deviant_system_info(self) -> Dict:
+    async def get_Retinue_system_info(self) -> Dict:
         """
-        Get Deviant system architecture information.
+        Get Retinue system architecture information.
 
         Returns:
             System information dictionary
         """
         try:
             results = await self.get_relevant_knowledge(
-                query="Deviant system architecture workflow agents",
+                query="Retinue system architecture workflow agents",
                 limit=3,
                 category="system_architecture"
             )
@@ -239,7 +239,7 @@ class BusinessDomainService:
 
             # Fallback to default
             return {
-                "architecture": "Deviant is an AI-powered agent-based workflow system.",
+                "architecture": "Retinue is an AI-powered agent-based workflow system.",
                 "workflow": "Projects are broken down into tasks and assigned to specialized agents.",
                 "agents": "Multiple agent types collaborate to complete projects."
             }

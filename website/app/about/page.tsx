@@ -132,7 +132,7 @@ export default function About() {
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--primary)]/10 rounded-full mb-6">
                 <Sparkles className="w-4 h-4 text-[var(--primary)]" />
                 <span className="text-sm font-semibold text-[var(--primary)]">
-                  About Deviant
+                  About Retinue
                 </span>
               </div>
 
@@ -144,7 +144,7 @@ export default function About() {
               </h1>
 
               <p className="text-xl sm:text-2xl text-[var(--body)] mb-8 leading-relaxed max-w-3xl mx-auto">
-                And the future is <strong className="text-[var(--heading)]">deviant</strong>.
+                And the future is <strong className="text-[var(--heading)]">fully staffed</strong>.
                 We're breaking every rule of traditional development to make
                 software accessible to everyone, everywhere.
               </p>
@@ -209,7 +209,7 @@ export default function About() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-              The Story Behind Deviant
+              The Story Behind Retinue
             </h2>
             <p className="text-xl text-[var(--body)] max-w-2xl mx-auto">
               From watching talent die in Nairobi to building the world's first
@@ -234,13 +234,13 @@ export default function About() {
               {
                 title: "The First Test",
                 content:
-                  "A complete todo application with authentication, CRUD operations, and modern UI. Traditional estimate: 1 week. Deviant agents: 4 hours. Production-ready. Deployed.",
+                  "A complete todo application with authentication, CRUD operations, and modern UI. Traditional estimate: 1 week. Retinue agents: 4 hours. Production-ready. Deployed.",
                 highlight: "Four hours. It worked.",
               },
               {
                 title: "The Launch",
                 content:
-                  "November 16, 2025. Deviant went live. No massive marketing. Just a working product and a belief that the world needed a better way to build software.",
+                  "November 16, 2025. Retinue went live. No massive marketing. Just a working product and a belief that the world needed a better way to build software.",
                 highlight: "The response was immediate and polarizing. We focused on the believers.",
               },
             ].map((milestone, index) => (
@@ -613,7 +613,7 @@ export default function About() {
                   </p>
                   <p className="text-[var(--body)] leading-relaxed mb-6">
                     Senior software engineer and AI specialist with a master's
-                    degree in Artificial Intelligence. Built Deviant after watching
+                    degree in Artificial Intelligence. Built Retinue after watching
                     too many brilliant entrepreneurs abandon viable ideas because
                     they couldn't afford developers.
                   </p>
@@ -683,7 +683,7 @@ export default function About() {
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
               If you believe software development can be better, that innovation
               shouldn't require Silicon Valley budgets, and that AI should be
-              transparent - you're already deviant.
+              transparent - you're already one of us.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -717,18 +717,18 @@ export default function About() {
                     <div className="space-y-2 text-sm">
                       <p className="text-gray-300">
                         <a
-                          href="mailto:hello@deviant.eu"
+                          href="mailto:hello@retinue.team"
                           className="hover:text-[var(--secondary)] transition-colors"
                         >
-                          hello@deviant.eu
+                          hello@retinue.team
                         </a>
                       </p>
                       <p className="text-gray-300">
                         <a
-                          href="mailto:support@deviant.eu"
+                          href="mailto:support@retinue.team"
                           className="hover:text-[var(--secondary)] transition-colors"
                         >
-                          support@deviant.eu
+                          support@retinue.team
                         </a>
                       </p>
                     </div>
@@ -738,18 +738,18 @@ export default function About() {
                     <div className="space-y-2 text-sm">
                       <p className="text-gray-300">
                         <a
-                          href="mailto:press@deviant.eu"
+                          href="mailto:press@retinue.team"
                           className="hover:text-[var(--secondary)] transition-colors"
                         >
-                          press@deviant.eu
+                          press@retinue.team
                         </a>
                       </p>
                       <p className="text-gray-300">
                         <a
-                          href="mailto:partnerships@deviant.eu"
+                          href="mailto:partnerships@retinue.team"
                           className="hover:text-[var(--secondary)] transition-colors"
                         >
-                          partnerships@deviant.eu
+                          partnerships@retinue.team
                         </a>
                       </p>
                     </div>

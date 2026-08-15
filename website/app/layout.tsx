@@ -5,24 +5,24 @@ import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "Deviant - Build Business Solutions with a reliable team as Fast as You Can Describe It",
+  title: "Retinue - Build Business Solutions with a reliable team as Fast as You Can Describe It",
   description:
-    "Autonomous AI agents team that develop software automatically. From idea to deployed product in hours, not months. Minutes, not weeks. Hundreds, not thousands. Deviant built our stack differently.",
+    "Autonomous AI agents team that develop software automatically. From idea to deployed product in hours, not months. Minutes, not weeks. Hundreds, not thousands. Retinue built our stack differently.",
   keywords: [
     "AI software development",
     "autonomous AI agents",
     "automated development",
     "AI developers",
     "software automation",
-    "deviant AI",
+    "Retinue AI",
     "custom software hours",
     "AI agents build software",
     "autonomous development",
     "rapid software development",
   ],
-  authors: [{ name: "Deviant" }],
-  creator: "Deviant",
-  publisher: "Deviant",
+  authors: [{ name: "Retinue" }],
+  creator: "Retinue",
+  publisher: "Retinue",
   robots: {
     index: true,
     follow: true,
@@ -37,27 +37,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://deviant-ai.vercel.app/",
-    title: "Deviant - Build Software as Fast as You Can Describe It",
+    url: "https://retinue.team/",
+    title: "Retinue - Build Software as Fast as You Can Describe It",
     description:
       "Autonomous AI agents that develop software automatically. Hours, not months. Hundreds, not thousands.",
-    siteName: "Deviant",
+    siteName: "Retinue",
     images: [
       {
         url: "/about.png",
         width: 1200,
         height: 630,
-        alt: "Deviant - Autonomous AI Software Development",
+        alt: "Retinue - Autonomous AI Software Development",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deviant - Build Software as Fast as You Can Describe It",
+    title: "Retinue - Build Software as Fast as You Can Describe It",
     description:
       "Autonomous AI agents that develop software automatically. Hours, not months. Hundreds, not thousands.",
     images: ["/about.png"],
-    creator: "@deviantai",
+    creator: "@retinueteam",
   },
   viewport: {
     width: "device-width",
@@ -112,9 +112,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Deviant",
-              url: "https://deviant-ai.vercel.app",
-              logo: "https://deviant-ai.vercel.app/favicon.png",
+              name: "Retinue",
+              url: "https://retinue.team",
+              logo: "https://retinue.team/favicon.png",
               description: "Autonomous AI agents that develop software automatically. Build software as fast as you can describe it.",
               foundingDate: "2025-10-01",
               founders: [
@@ -135,7 +135,7 @@ export default function RootLayout({
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                email: "hello@deviant-ai.vercel.app",
+                email: "hello@retinue.team",
                 contactType: "Customer Service",
               },
             }),
@@ -150,7 +150,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              name: "Deviant",
+              name: "Retinue",
               applicationCategory: "DeveloperApplication",
               offers: {
                 "@type": "Offer",

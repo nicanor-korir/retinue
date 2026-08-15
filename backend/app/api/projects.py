@@ -685,7 +685,7 @@ async def complete_project(
         })
     elif deliverable_type == "hosted":
         deliverable_info.update({
-            "hosted_url": f"https://projects.Deviant.io/{project_id}",
+            "hosted_url": f"https://projects.retinue.team/{project_id}",
             "status": "deploying",
             "description": "Project will be deployed and hosted"
         })
@@ -902,7 +902,7 @@ async def approve_project(
 )
 async def deploy_project(
     project_id: str,
-    hosting_provider: str = "Deviant_cloud",
+    hosting_provider: str = "retinue_cloud",
     session: AsyncSession = Depends(get_session)
 ):
     """
@@ -912,7 +912,7 @@ async def deploy_project(
     - `project_id`: The project identifier
 
     **Query Parameters:**
-    - `hosting_provider`: Where to deploy ('Deviant_cloud', 'vercel', 'heroku')
+    - `hosting_provider`: Where to deploy ('retinue_cloud', 'vercel', 'heroku')
 
     **Returns:** Deployment status and access information
 
@@ -934,7 +934,7 @@ async def deploy_project(
             detail="Only completed projects can be deployed"
         )
 
-    valid_providers = ["Deviant_cloud", "vercel", "heroku"]
+    valid_providers = ["retinue_cloud", "vercel", "heroku"]
     if hosting_provider not in valid_providers:
         raise HTTPException(
             status_code=400,
@@ -958,7 +958,7 @@ async def deploy_project(
 
     # Return deployment info
     deployment_urls = {
-        "Deviant_cloud": f"https://projects.Deviant.io/{project_id}",
+        "retinue_cloud": f"https://projects.retinue.team/{project_id}",
         "vercel": f"https://{project_id.replace('_', '-')}.vercel.app",
         "heroku": f"https://{project_id.replace('_', '-')}.herokuapp.com"
     }

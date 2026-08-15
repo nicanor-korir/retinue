@@ -93,7 +93,7 @@ export function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Why Deviant is Different
+            Why Retinue is Different
           </h2>
           <p className="text-xl text-[var(--body)] max-w-3xl mx-auto text-center">
             Not just another AI tool - a complete paradigm shift in how work gets

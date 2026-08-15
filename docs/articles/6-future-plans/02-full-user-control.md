@@ -11,7 +11,7 @@ There's a tension in autonomous AI:
 **More autonomy** = faster execution, less human effort
 **More control** = better alignment, more human effort
 
-Most AI tools choose one side. Deviant aims to offer both—maximum power when you want it, complete control when you need it.
+Most AI tools choose one side. Retinue aims to offer both—maximum power when you want it, complete control when you need it.
 
 ---
 
@@ -314,7 +314,7 @@ Beyond dashboards, a conversational interface for real-time control:
 ```
 You: What's the status of the dashboard project?
 
-Deviant: Dashboard project is 65% complete.
+Retinue: Dashboard project is 65% complete.
 - 8/12 tasks done
 - Backend Engineer working on API endpoints
 - Designer waiting for frontend to catch up
@@ -322,7 +322,7 @@ Deviant: Dashboard project is 65% complete.
 
 You: Pause the Backend Engineer. I want to review the API design first.
 
-Deviant: Backend Engineer paused. Current output:
+Retinue: Backend Engineer paused. Current output:
 [Shows API design so far]
 
 What would you like to review?
@@ -330,13 +330,13 @@ What would you like to review?
 You: The authentication endpoints look overcomplicated. Simplify to just
 email/password, no social auth for MVP.
 
-Deviant: Updated task requirements to exclude social auth.
+Retinue: Updated task requirements to exclude social auth.
 Redirecting Backend Engineer with new constraints.
 Shall I continue?
 
 You: Yes, but notify me when authentication is done.
 
-Deviant: Noted. I'll notify you when authentication task completes.
+Retinue: Noted. I'll notify you when authentication task completes.
 Backend Engineer resuming with simplified requirements.
 ```
 
@@ -444,4 +444,4 @@ Full user control makes that possible. Not by limiting AI capability, but by mak
 
 ---
 
-*Nicanor Korir believes AI should be powerful AND controllable. Deviant is designed to prove that's possible.*
+*Nicanor Korir believes AI should be powerful AND controllable. Retinue is designed to prove that's possible.*

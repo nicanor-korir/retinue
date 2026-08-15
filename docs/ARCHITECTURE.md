@@ -1,4 +1,4 @@
-# Deviant - Complete Architecture & Design Document
+# Retinue - Complete Architecture & Design Document
 
 ## Table of Contents
 1. [Executive Summary](#executive-summary)
@@ -18,7 +18,7 @@
 
 ## Executive Summary
 
-**Deviant** is an innovative event-driven multi-agent AI platform that simulates a fully functional software company. Seven autonomous AI agents collaborate in real-time to analyze project requests, break them down into tasks, execute development work, and deliver complete software solutions.
+**Retinue** is an innovative event-driven multi-agent AI platform that simulates a fully functional software company. Seven autonomous AI agents collaborate in real-time to analyze project requests, break them down into tasks, execute development work, and deliver complete software solutions.
 
 ### Key Characteristics
 - **7 Autonomous Agents**: CEO, CTO, PM, HR, Backend Engineer, Frontend Engineer, Designer
@@ -101,7 +101,7 @@ Create a functional AI-powered software company that can autonomously receive pr
 
 ### 1. High-Level Architecture Pattern
 
-Deviant follows a **Layered Architecture** with **Event-Driven** communication:
+Retinue follows a **Layered Architecture** with **Event-Driven** communication:
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -2228,11 +2228,11 @@ docker-compose down
 
 **Fly.io** (`fly.backend.toml`):
 ```toml
-app = "Deviant-backend"
+app = "Retinue-backend"
 primary_region = "ord"  # Chicago
 
 [build]
-  image = "Deviant-backend:latest"
+  image = "Retinue-backend:latest"
 
 [[services]]
   protocol = "tcp"
@@ -2269,7 +2269,7 @@ DEBUG=false
 JWT_SECRET=very-secure-random-secret-change-this
 
 # Database
-DATABASE_URL=postgresql+asyncpg://user:password@postgres-prod.example.com:5432/Deviant
+DATABASE_URL=postgresql+asyncpg://user:password@postgres-prod.example.com:5432/Retinue
 DB_POOL_SIZE=20
 DB_POOL_TIMEOUT=30
 
@@ -2292,7 +2292,7 @@ HR_MONITORING_ENABLED=true
 HR_MONITORING_INTERVAL=30
 
 # CORS
-CORS_ORIGINS=["https://app.Deviant.com", "https://Deviant.com"]
+CORS_ORIGINS=["https://app.Retinue.com", "https://Retinue.com"]
 
 # Logging
 LOG_LEVEL=INFO
@@ -2525,7 +2525,7 @@ The Multi-Agent Chat System enables dynamic collaboration between users and mult
 
 ## Summary
 
-Deviant represents a **cutting-edge event-driven multi-agent AI platform** that achieves several remarkable things:
+Retinue represents a **cutting-edge event-driven multi-agent AI platform** that achieves several remarkable things:
 
 ### Key Achievements
 1. **Real-time Agent Coordination**: <100ms event latency enables natural, flowing collaboration

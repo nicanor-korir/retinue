@@ -1,4 +1,4 @@
-"""Add business operations support to AgentGo.
+"""Add business operations support to Retinue.
 
 This migration adds support for flexible agent management and diverse
 project types, enabling the platform to handle multiple business functions

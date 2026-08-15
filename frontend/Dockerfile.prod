@@ -1,17 +1,28 @@
-# Production Dockerfile for Deviant Frontend
+# Production Dockerfile for Retinue Frontend
 FROM node:18-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install ALL dependencies, including devDependencies.
+# `next build` needs typescript, tailwindcss, postcss, autoprefixer and @types/*,
+# all of which are devDependencies — `--only=production` would break the build.
+RUN npm ci
 
 # Copy source code
 COPY . .
+
+# NEXT_PUBLIC_* variables are inlined into the bundle at BUILD time, so they must
+# arrive as build args. Passing them at runtime has no effect on a built app.
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_WS_URL
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+ENV NEXT_PUBLIC_WS_URL=${NEXT_PUBLIC_WS_URL}
+
+# Fail loudly rather than silently baking in a wrong API host
+RUN test -n "$NEXT_PUBLIC_API_URL" || (echo "ERROR: NEXT_PUBLIC_API_URL build arg is required" && exit 1)
 
 # Build application
 RUN npm run build
@@ -20,6 +31,8 @@ RUN npm run build
 FROM node:18-alpine AS runner
 
 WORKDIR /app
+
+ENV NODE_ENV=production
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs && \

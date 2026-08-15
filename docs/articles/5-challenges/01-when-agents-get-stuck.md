@@ -18,7 +18,7 @@ Welcome to debugging autonomous systems.
 
 ## The Failure Taxonomy
 
-After months of running Deviant, I've catalogued the ways agents get stuck:
+After months of running Retinue, I've catalogued the ways agents get stuck:
 
 ### 1. The Silent Loop
 
@@ -451,7 +451,7 @@ Despite all these safeguards, agents still get stuck. Here's my actual experienc
 1. Ambiguous task specifications (40%)
 2. LLM generating wrong approach (25%)
 3. Infrastructure/network issues (20%)
-4. Actual bugs in Deviant code (15%)
+4. Actual bugs in Retinue code (15%)
 
 **Time to detection:**
 - With HR monitoring: 30-60 minutes

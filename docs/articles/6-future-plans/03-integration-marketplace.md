@@ -6,7 +6,7 @@
 
 ## The Island Problem
 
-Right now, Deviant is an island. It generates code and specs, but:
+Right now, Retinue is an island. It generates code and specs, but:
 
 - Doesn't know what's in your GitHub repo
 - Can't see your JIRA tickets
@@ -24,7 +24,7 @@ That's not how real teams work.
 
 ```mermaid
 flowchart TB
-    Deviant[Deviant Core]
+    Retinue[Retinue Core]
 
     subgraph SourceControl["Source Control"]
         GitHub[GitHub]
@@ -62,12 +62,12 @@ flowchart TB
         GCP[GCP]
     end
 
-    Deviant <--> SourceControl
-    Deviant <--> ProjectMgmt
-    Deviant <--> Design
-    Deviant <--> Analytics
-    Deviant <--> Communication
-    Deviant <--> Deployment
+    Retinue <--> SourceControl
+    Retinue <--> ProjectMgmt
+    Retinue <--> Design
+    Retinue <--> Analytics
+    Retinue <--> Communication
+    Retinue <--> Deployment
 ```
 
 ---
@@ -83,7 +83,7 @@ What becomes possible:
 ```
 CEO Agent: "I need to understand the current codebase before we add auth."
 
-[Deviant pulls repo structure, recent commits, existing patterns]
+[Retinue pulls repo structure, recent commits, existing patterns]
 
 CTO Agent: "Based on the codebase, I see you're using:
 - FastAPI with Pydantic models
@@ -93,7 +93,7 @@ CTO Agent: "Based on the codebase, I see you're using:
 
 Backend Engineer: [Generates code matching existing patterns]
 [Creates PR directly to feature branch]
-[Links to Deviant task in PR description]
+[Links to Retinue task in PR description]
 ```
 
 **Capabilities:**
@@ -132,7 +132,7 @@ PM Agent: [Updates Linear ticket to Done]
 - Create new tickets for subtasks
 - Update ticket status
 - Add comments and attachments
-- Sync with Deviant task tracking
+- Sync with Retinue task tracking
 
 ### 3. Design Integrations
 
@@ -202,7 +202,7 @@ What becomes possible:
 
 ```
 [In Slack]
-@deviant Start a project: Add dark mode to the app
+@retinue Start a project: Add dark mode to the app
 
 CEO Agent (via Slack): "I'll evaluate this request.
 Quick questions:
@@ -211,7 +211,7 @@ Quick questions:
 Reply here or I'll assume: optional toggle, system default colors."
 
 [After completion]
-Deviant (via Slack): "Dark mode project complete!
+Retinue (via Slack): "Dark mode project complete!
 - 12 components updated
 - PR ready for review: [link]
 - Preview: [staging link]
@@ -293,7 +293,7 @@ Browse and install integrations:
 Build and publish integrations:
 
 ```python
-class FigmaIntegration(DeviantIntegration):
+class FigmaIntegration(RetinueIntegration):
     name = "Figma"
     description = "Design file analysis and component extraction"
     category = "Design"
@@ -331,15 +331,15 @@ Each integration uses standard OAuth:
 ```mermaid
 sequenceDiagram
     participant User
-    participant Deviant
+    participant Retinue
     participant GitHub
 
-    User->>Deviant: Connect GitHub
-    Deviant->>GitHub: OAuth authorization request
-    GitHub->>User: Authorize Deviant?
+    User->>Retinue: Connect GitHub
+    Retinue->>GitHub: OAuth authorization request
+    GitHub->>User: Authorize Retinue?
     User->>GitHub: Approve
-    GitHub->>Deviant: Access token
-    Deviant->>User: GitHub connected
+    GitHub->>Retinue: Access token
+    Retinue->>User: GitHub connected
 ```
 
 ### Scoped Permissions
@@ -347,7 +347,7 @@ sequenceDiagram
 Integrations request only needed permissions:
 
 ```python
-class GitHubIntegration(DeviantIntegration):
+class GitHubIntegration(RetinueIntegration):
     required_scopes = [
         "repo:read",      # Read repository content
         "repo:write",     # Create branches, PRs
@@ -405,7 +405,7 @@ class IntegrationDataStore:
 
 ## The Impact
 
-With integrations, Deviant becomes:
+With integrations, Retinue becomes:
 
 **Context-aware**
 - Understands your codebase
@@ -429,7 +429,7 @@ With integrations, Deviant becomes:
 The end state:
 
 ```
-"Hey Deviant, I need a dashboard showing our key metrics.
+"Hey Retinue, I need a dashboard showing our key metrics.
 Use our standard design system, put it on the analytics page,
 and deploy to staging when ready."
 

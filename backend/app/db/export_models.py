@@ -247,7 +247,7 @@ class ZIPExportOptions(Base):
     include_database_schema = Column(Boolean, default=True)
     include_docker_config = Column(Boolean, default=False)
     include_ci_cd_config = Column(Boolean, default=False)
-    include_Deviant_metadata = Column(Boolean, default=True)
+    include_retinue_metadata = Column(Boolean, default=True)
     include_env_example = Column(Boolean, default=True)
 
     # Processing options

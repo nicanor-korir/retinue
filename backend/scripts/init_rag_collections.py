@@ -2,7 +2,7 @@
 
 This script creates the new RAG collections needed for the intelligent chat system:
 - conversations: For indexing conversation messages
-- business_knowledge: For Deviant AI business domain knowledge
+- business_knowledge: For Retinue AI business domain knowledge
 - user_activities: For user activity patterns
 
 Run this script after deploying the context intelligence feature.
@@ -40,7 +40,7 @@ async def init_rag_collections():
         },
         {
             "name": "business_knowledge",
-            "description": "Deviant AI business domain knowledge",
+            "description": "Retinue AI business domain knowledge",
             "metadata": {
                 "embedding_model": settings.RAG_EMBEDDING_MODEL,
                 "dimensions": 384,

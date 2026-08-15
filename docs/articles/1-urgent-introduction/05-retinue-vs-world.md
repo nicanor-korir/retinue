@@ -1,4 +1,4 @@
-# Deviant vs The World: What Makes This Different
+# Retinue vs The World: What Makes This Different
 
 *A straight-up comparison with other AI agent solutions—strengths, weaknesses, and honest trade-offs.*
 
@@ -13,7 +13,7 @@ Everyone's building AI agents. Let me map the territory:
 **Coding assistants**: GitHub Copilot, Cursor, Cody, Aider
 **Vertical solutions**: Devin, SWE-Agent, OpenHands
 
-Where does Deviant fit? And why would you choose it over these alternatives?
+Where does Retinue fit? And why would you choose it over these alternatives?
 
 ---
 
@@ -27,7 +27,7 @@ Where does Deviant fit? And why would you choose it over these alternatives?
 
 **Their weakness**: No organizational structure. No review process. Context collapse on complex projects. Unpredictable outputs.
 
-**Deviant's approach**:
+**Retinue's approach**:
 
 ```mermaid
 flowchart TB
@@ -38,7 +38,7 @@ flowchart TB
         D --> E[Drift & Confusion]
     end
 
-    subgraph "Deviant Model"
+    subgraph "Retinue Model"
         CEO[CEO: Approve] --> PM[PM: Plan]
         PM --> Engineer[Engineers: Execute]
         Engineer --> CTO[CTO: Review]
@@ -47,7 +47,7 @@ flowchart TB
     end
 ```
 
-**Bottom line**: Deviant trades simplicity for reliability. Multiple agents with clear roles produce more predictable, higher-quality output than a single agent trying to do everything.
+**Bottom line**: Retinue trades simplicity for reliability. Multiple agents with clear roles produce more predictable, higher-quality output than a single agent trying to do everything.
 
 ---
 
@@ -59,9 +59,9 @@ flowchart TB
 
 **Their weakness**: It's a framework, not a solution. You still need to design your organizational structure, communication patterns, review workflows, and coordination logic.
 
-**Deviant's approach**:
+**Retinue's approach**:
 
-| Feature | CrewAI | Deviant |
+| Feature | CrewAI | Retinue |
 |---------|--------|---------|
 | Agent roles | Define yourself | 7 pre-configured |
 | Organizational hierarchy | Build it | Built-in |
@@ -70,7 +70,7 @@ flowchart TB
 | Health monitoring | Not included | HR Agent |
 | Task dependencies | Basic | Automatic resolution |
 
-**Bottom line**: CrewAI is like getting a programming language. Deviant is like getting a working application. If you want to build custom agent systems, CrewAI is great. If you want a working AI company now, Deviant delivers.
+**Bottom line**: CrewAI is like getting a programming language. Retinue is like getting a working application. If you want to build custom agent systems, CrewAI is great. If you want a working AI company now, Retinue delivers.
 
 ---
 
@@ -82,7 +82,7 @@ flowchart TB
 
 **Their weakness**: Single-file focus. No project-level understanding. No autonomous execution. You're still the driver.
 
-**Deviant's approach**:
+**Retinue's approach**:
 
 ```mermaid
 flowchart LR
@@ -92,14 +92,14 @@ flowchart LR
         You2 --> You3[You Code More]
     end
 
-    subgraph "Deviant Model"
+    subgraph "Retinue Model"
         Brief[You: Brief] --> Team[AI Team Works]
         Team --> Review[Review Output]
         Review --> Done[Project Complete]
     end
 ```
 
-**Bottom line**: Copilot makes you faster. Deviant makes you unnecessary (for execution). They solve different problems—Copilot for tactical coding, Deviant for strategic delivery.
+**Bottom line**: Copilot makes you faster. Retinue makes you unnecessary (for execution). They solve different problems—Copilot for tactical coding, Retinue for strategic delivery.
 
 ---
 
@@ -111,9 +111,9 @@ flowchart LR
 
 **Their weakness**: Single-agent model. Limited availability. Black-box execution. No organizational structure.
 
-**Deviant's approach**:
+**Retinue's approach**:
 
-| Aspect | Devin | Deviant |
+| Aspect | Devin | Retinue |
 |--------|-------|---------|
 | Model | Single AI engineer | 7-agent company |
 | Execution | Real environment | Code generation |
@@ -122,7 +122,7 @@ flowchart LR
 | Availability | Waitlist | Open source |
 | Cost | Subscription | Your API costs |
 
-**Bottom line**: Devin can execute in a real environment (huge advantage). Deviant provides organizational structure and review workflows (different advantage). They're complementary visions of autonomous AI development.
+**Bottom line**: Devin can execute in a real environment (huge advantage). Retinue provides organizational structure and review workflows (different advantage). They're complementary visions of autonomous AI development.
 
 ---
 
@@ -134,9 +134,9 @@ flowchart LR
 
 **Their weakness**: Low-level tooling. Requires significant development to build a working multi-agent system. No out-of-box organizational structure.
 
-**Deviant's approach**:
+**Retinue's approach**:
 
-Building a Deviant-equivalent on LangChain would require:
+Building a Retinue-equivalent on LangChain would require:
 - Defining 7 agent roles and prompts
 - Building coordination infrastructure
 - Implementing event-driven communication
@@ -145,17 +145,17 @@ Building a Deviant-equivalent on LangChain would require:
 - Building dependency resolution
 - Creating audit logging
 
-That's 4-6 months of development. Deviant ships ready.
+That's 4-6 months of development. Retinue ships ready.
 
-**Bottom line**: LangChain is great if you want to build your own agent system. Deviant is great if you want an agent system that works.
+**Bottom line**: LangChain is great if you want to build your own agent system. Retinue is great if you want an agent system that works.
 
 ---
 
-## Where Deviant Wins
+## Where Retinue Wins
 
 ### 1. Organizational Structure
 
-Real companies have hierarchy for a reason. It works. Deviant applies the same principle to AI agents.
+Real companies have hierarchy for a reason. It works. Retinue applies the same principle to AI agents.
 
 - Clear authority and accountability
 - Decisions made by appropriate agents
@@ -199,11 +199,11 @@ HR Agent watches for stuck tasks, unresponsive agents, review timeouts. Problems
 
 ---
 
-## Where Deviant Loses (Honestly)
+## Where Retinue Loses (Honestly)
 
 ### 1. No Real Execution Environment
 
-Deviant generates code as text. It doesn't run it. No sandboxed testing. No automated deployment. That's a limitation.
+Retinue generates code as text. It doesn't run it. No sandboxed testing. No automated deployment. That's a limitation.
 
 **Workaround**: Use the generated code as a high-quality starting point. Run and test yourself.
 
@@ -229,7 +229,7 @@ The agent roles are designed for software development. Marketing, sales, legal w
 
 ## The Competitive Moat
 
-What's defensible about Deviant?
+What's defensible about Retinue?
 
 **1. Organizational Design**
 
@@ -245,7 +245,7 @@ Review isn't separate from execution. It's built into the task lifecycle. This i
 
 **4. Accumulated Patterns**
 
-As Deviant runs more projects, we learn what works. The agent prompts improve. The coordination logic refines. The system gets better.
+As Retinue runs more projects, we learn what works. The agent prompts improve. The coordination logic refines. The system gets better.
 
 ---
 
@@ -253,7 +253,7 @@ As Deviant runs more projects, we learn what works. The agent prompts improve. T
 
 | You Should Use | If You Need |
 |---------------|-------------|
-| **Deviant** | Complete autonomous project execution, organizational structure, built-in review |
+| **Retinue** | Complete autonomous project execution, organizational structure, built-in review |
 | **CrewAI** | Custom multi-agent architectures, maximum flexibility |
 | **Copilot/Cursor** | Real-time coding assistance while you drive |
 | **Devin** | Real execution environment, single-engineer model |
@@ -267,22 +267,22 @@ As Deviant runs more projects, we learn what works. The agent prompts improve. T
 Here's my prediction: these approaches will merge.
 
 Future systems will have:
-- Deviant's organizational structure
+- Retinue's organizational structure
 - Devin's execution environment
 - Copilot's real-time integration
 - CrewAI's flexibility
 
-Deviant is a bet on organizational structure being the key differentiator. Time will tell.
+Retinue is a bet on organizational structure being the key differentiator. Time will tell.
 
 ---
 
 ## The Takeaway
 
-Deviant isn't the only option. But it is a unique approach: a complete AI company with organizational structure, review workflows, and event-driven coordination.
+Retinue isn't the only option. But it is a unique approach: a complete AI company with organizational structure, review workflows, and event-driven coordination.
 
 If you want to build custom agent systems from scratch—use frameworks.
 If you want AI assistance while you code—use Copilot.
-If you want an autonomous team delivering complete projects—try Deviant.
+If you want an autonomous team delivering complete projects—try Retinue.
 
 Different tools for different jobs.
 
@@ -292,4 +292,4 @@ Different tools for different jobs.
 
 ---
 
-*Nicanor Korir has tried every AI agent solution he could find. Deviant is what emerged when none of them quite worked.*
+*Nicanor Korir has tried every AI agent solution he could find. Retinue is what emerged when none of them quite worked.*

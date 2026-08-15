@@ -1,4 +1,4 @@
-# Deviant Messages Page Redesign - Complete Implementation
+# Retinue Messages Page Redesign - Complete Implementation
 
 ## Overview
 

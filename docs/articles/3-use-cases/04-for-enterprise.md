@@ -1,4 +1,4 @@
-# Deviant for Enterprise Innovation Labs: Prototype at Lightning Speed
+# Retinue for Enterprise Innovation Labs: Prototype at Lightning Speed
 
 *How large organizations can move like startups without startup risk.*
 
@@ -27,7 +27,7 @@ But even innovation labs hit friction:
 - Budget constraints on exploratory work
 - Internal process requirements
 
-Deviant offers a different approach: **AI-powered rapid prototyping** that validates ideas before consuming real resources.
+Retinue offers a different approach: **AI-powered rapid prototyping** that validates ideas before consuming real resources.
 
 ---
 
@@ -38,7 +38,7 @@ flowchart TB
     subgraph Innovation["Innovation Lab"]
         Ideas[Idea Pipeline]
         PM[Product Manager]
-        Deviant[Deviant: AI Development]
+        Retinue[Retinue: AI Development]
         Review[Review & Validate]
         Decision{Go/No-Go?}
     end
@@ -55,8 +55,8 @@ flowchart TB
     end
 
     Ideas --> PM
-    PM --> Deviant
-    Deviant --> Review
+    PM --> Retinue
+    Retinue --> Review
     Review --> Decision
     Decision -->|Go| Funding
     Funding --> Team
@@ -66,7 +66,7 @@ flowchart TB
     Next --> Ideas
 ```
 
-The key insight: **most experiments should fail fast**. Deviant makes "fast" actually fast.
+The key insight: **most experiments should fail fast**. Retinue makes "fast" actually fast.
 
 ---
 
@@ -98,7 +98,7 @@ When an experiment costs $2k and 2 weeks, failure is learning. Teams become bold
 
 Innovation labs often produce concepts, not working software. Stakeholders evaluate PowerPoints, not products.
 
-Deviant produces functional prototypes:
+Retinue produces functional prototypes:
 - Working interfaces
 - Real data flows
 - Interactive demonstrations
@@ -119,9 +119,9 @@ Decision-makers can try the product before approving resources.
 - Another 6 months for pilot development
 - $2M budget before any user feedback
 
-**Deviant approach:**
+**Retinue approach:**
 - Week 1: Product manager defines 5 embedded finance concepts
-- Week 2: Deviant generates prototypes for each
+- Week 2: Retinue generates prototypes for each
 - Week 3: User testing with mock interfaces
 - Week 4: Decision on which to pursue further
 
@@ -137,7 +137,7 @@ Decision-makers can try the product before approving resources.
 - Committee decides priorities
 - 12-18 months before any new tools
 
-**Deviant approach:**
+**Retinue approach:**
 - Month 1: Generate modern mockups for top 10 tools
 - Month 2: User test with actual employees
 - Month 3: Generate detailed specs for top 3
@@ -155,9 +155,9 @@ Decision-makers can try the product before approving resources.
 - 4 weeks to test and deploy
 - Competitor has 6-month head start
 
-**Deviant approach:**
+**Retinue approach:**
 - Day 1: Define competitive response concept
-- Day 2-3: Deviant generates prototype
+- Day 2-3: Retinue generates prototype
 - Day 4-5: Internal review and refinement
 - Week 2: Decision to fast-track or deprioritize
 
@@ -173,7 +173,7 @@ Decision-makers can try the product before approving resources.
 - $200-500k cost
 - Static reports
 
-**Deviant approach:**
+**Retinue approach:**
 - Week 1: Analyze target's public APIs and documentation
 - Week 2: Generate integration prototypes
 - Week 3: Identify technical gaps and risks
@@ -187,13 +187,13 @@ Decision-makers can try the product before approving resources.
 
 ### Governance Model
 
-Enterprises need controls. Here's how Deviant fits:
+Enterprises need controls. Here's how Retinue fits:
 
 ```mermaid
 flowchart TB
     subgraph Sandbox["Innovation Sandbox"]
         Lab[Innovation Lab]
-        Deviant[Deviant Instance]
+        Retinue[Retinue Instance]
         Data[(Synthetic/Test Data)]
     end
 
@@ -208,9 +208,9 @@ flowchart TB
         Approval[Approval Process]
     end
 
-    Lab --> Deviant
-    Deviant --> Data
-    Deviant --> Review
+    Lab --> Retinue
+    Retinue --> Data
+    Retinue --> Review
     Review --> Security
     Review --> Compliance
     Review --> Architecture
@@ -227,13 +227,13 @@ flowchart TB
 
 **Solution options:**
 
-1. **Self-hosted Deviant:** Run on enterprise infrastructure
+1. **Self-hosted Retinue:** Run on enterprise infrastructure
 2. **Synthetic data only:** Prototypes use fake data
 3. **Enterprise AI agreements:** Anthropic enterprise contracts with data protections
 
 ### Integration with Enterprise Tools
 
-Deviant can generate artifacts compatible with:
+Retinue can generate artifacts compatible with:
 - JIRA (stories and requirements)
 - Confluence (documentation)
 - GitHub Enterprise (code repositories)
@@ -286,7 +286,7 @@ ROI:                      6,150%
 Owns the process, advocates for AI augmentation, reports on outcomes.
 
 **Technical Product Managers**
-Write briefs for Deviant, review output, make go/no-go recommendations.
+Write briefs for Retinue, review output, make go/no-go recommendations.
 
 **Senior Architect (Part-time)**
 Reviews promoted prototypes, ensures production-readiness, advises on integration.
@@ -353,7 +353,7 @@ Developers do the interesting work. AI does the boilerplate. Most prefer this.
 
 Enterprise innovation labs exist to derisk new ideas. But traditional approaches carry their own risks: high cost, slow speed, commitment to specific approaches too early.
 
-Deviant enables a different model:
+Retinue enables a different model:
 - Fast, cheap prototypes
 - Data-driven kill decisions
 - Working software, not slide decks
@@ -367,4 +367,4 @@ The enterprises that prototype quickly will out-innovate those that don't—rega
 
 ---
 
-*Nicanor Korir has worked inside enterprises that move like molasses. Deviant is his attempt to help them move like water.*
+*Nicanor Korir has worked inside enterprises that move like molasses. Retinue is his attempt to help them move like water.*

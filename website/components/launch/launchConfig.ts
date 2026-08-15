@@ -1,5 +1,5 @@
 /**
- * Launch Configuration for Deviant/Deviant
+ * Launch Configuration for Retinue
  * Official Launch Date: December 22nd, 2025
  */
 
@@ -30,7 +30,7 @@ export const LAUNCH_CONFIG = {
     },
     launchDay: {
       hero: '🎉 WE\'RE LIVE!',
-      modal: 'Deviant Is Now Live!',
+      modal: 'Retinue Is Now Live!',
       cta: 'Start Building Now',
     },
     postLaunch: {

@@ -6,11 +6,11 @@
 
 ## The Big Picture
 
-I've spent these articles explaining what Deviant does, how it works, and where it's going. Let me step back and paint the bigger picture.
+I've spent these articles explaining what Retinue does, how it works, and where it's going. Let me step back and paint the bigger picture.
 
 We're at an inflection point. AI has crossed from "impressive demos" to "useful production tools." The question isn't whether AI will change how we build software—it's how quickly and how deeply.
 
-Deviant is my bet on one answer: **AI-native organizations that operate autonomously, produce real value, and scale without proportional human cost.**
+Retinue is my bet on one answer: **AI-native organizations that operate autonomously, produce real value, and scale without proportional human cost.**
 
 ---
 
@@ -29,14 +29,14 @@ This is valuable. It's also just the beginning.
 
 ### Horizon 2: AI-Led Development (2025-2026)
 
-What Deviant enables:
+What Retinue enables:
 - AI teams that self-coordinate
 - Human direction, AI execution
 - Autonomous task completion
 
 **The model:** Human-directed, AI-led. Productivity gains of 5-10x.
 
-One person with Deviant accomplishes what previously required a team. Small teams accomplish what required departments.
+One person with Retinue accomplishes what previously required a team. Small teams accomplish what required departments.
 
 ### Horizon 3: AI Companies (2027+)
 
@@ -88,7 +88,7 @@ Adding work doesn't add proportional cost. The tenth project costs less per unit
 **Integrates seamlessly**
 Connected to all your tools. Part of your workflow. Invisible when working well.
 
-This isn't science fiction. The components exist today. Deviant is assembling them.
+This isn't science fiction. The components exist today. Retinue is assembling them.
 
 ---
 
@@ -259,7 +259,7 @@ I've been a developer for years. I've built products, led teams, consulted for c
 
 I've watched small teams struggle against well-funded competitors. Watched talented developers burn out doing work machines should handle. Watched innovation bottleneck on hiring.
 
-Deviant is my attempt to change that equation.
+Retinue is my attempt to change that equation.
 
 Not by replacing human judgment—but by freeing it from mechanical execution. Not by eliminating developer jobs—but by making every developer vastly more powerful.
 
@@ -269,13 +269,13 @@ The future belongs to:
 - **Technical leaders** who direct AI workforces
 - **Creative problem-solvers** who imagine what to build
 
-That's the future I'm building toward. That's the vision behind Deviant.
+That's the future I'm building toward. That's the vision behind Retinue.
 
 ---
 
 ## Join the Journey
 
-Deviant is open. You can:
+Retinue is open. You can:
 
 - **Use it** for your own projects
 - **Contribute** to the codebase
@@ -290,7 +290,7 @@ This isn't about one company controlling AI development. It's about demonstratin
 
 We're at the beginning of something significant. AI isn't just another tool—it's a fundamental shift in how software gets built.
 
-Deviant is one early experiment in that shift. A proof that AI companies are possible. That autonomous agents can coordinate. That human direction plus AI execution creates leverage we've never had before.
+Retinue is one early experiment in that shift. A proof that AI companies are possible. That autonomous agents can coordinate. That human direction plus AI execution creates leverage we've never had before.
 
 The vision:
 - AI companies that run 24/7
@@ -306,7 +306,7 @@ It's coming. The question is whether you'll be directing it or watching it.
 
 If these articles resonated, here's where to go:
 
-1. **Try Deviant** - Clone the repo, run a project, see how it works
+1. **Try Retinue** - Clone the repo, run a project, see how it works
 2. **Join the community** - Share what you build, learn from others
 3. **Contribute** - Help improve the agents, add integrations, fix bugs
 4. **Build on it** - Create your own AI company for your domain
@@ -319,4 +319,4 @@ The future of software development is being written now. Be part of writing it.
 
 ---
 
-*Nicanor Korir is a developer, consultant, and builder betting on the AI-native future. Deviant is his contribution to that future—built in public, open to all, pointing toward what's possible.*
+*Nicanor Korir is a developer, consultant, and builder betting on the AI-native future. Retinue is his contribution to that future—built in public, open to all, pointing toward what's possible.*

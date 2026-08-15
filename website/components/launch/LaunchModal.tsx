@@ -118,7 +118,7 @@ export function LaunchModal({ onJoinWaitlist }: LaunchModalProps) {
                     </h2>
 
                     <p className="text-white/90 text-center text-base sm:text-lg">
-                      Deviant launches on <span className="font-bold">{formattedLaunchDate}</span>
+                      Retinue launches on <span className="font-bold">{formattedLaunchDate}</span>
                     </p>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-# Deviant - Complete Product Roadmap
+# Retinue - Complete Product Roadmap
 ## Phase 1 Feature Specification Document
 
 **Version:** 1.0  

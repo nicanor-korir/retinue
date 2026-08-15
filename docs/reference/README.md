@@ -1,6 +1,6 @@
 # Reference Documentation
 
-This directory contains original design specifications and reference documents that provide deeper context about Deviant's architecture and design decisions.
+This directory contains original design specifications and reference documents that provide deeper context about Retinue's architecture and design decisions.
 
 ## Purpose
 
@@ -41,7 +41,7 @@ This comprehensive document contains:
 #### PROMPT.md  
 **Original Project Requirements and Prompt (62,000 lines)**
 
-The complete original prompt that defined Deviant, including:
+The complete original prompt that defined Retinue, including:
 - Vision and goals
 - Detailed agent specifications
 - Time compression concept
@@ -91,10 +91,10 @@ Details the redesign of the agent-to-agent messaging system:
 
 ### ❌ Don't use reference docs for:
 - Getting started (use `../GETTING-STARTED.md`)
-- Current setup instructions
-- Deployment procedures (use `../DEPLOYMENT.md`)
-- Current feature documentation (use `../FEATURES.md`)
-- Quick commands (use `../QUICK_REFERENCE.md`)
+- Current setup instructions (use the [root README](../../README.md))
+- Deployment procedures (use `../DEPLOYMENT_GUIDE.md`)
+- Current architecture (use `../ARCHITECTURE.md`)
+- What's built today (use `../PROJECT_STATUS.md`)
 
 ---
 
@@ -105,7 +105,7 @@ Reference (Original Design)          Current Documentation
 ├── IMPLEMENTATION.md        ────────> ARCHITECTURE.md (current arch)
 ├── PROMPT.md               ────────> BUSINESS_PLAN.md (vision)
 │                                     PROJECT_STATUS.md (status)
-└── MESSAGES_REDESIGN.md    ────────> FEATURES.md (messaging section)
+└── MESSAGES_REDESIGN.md    ────────> ARCHITECTURE.md (messaging section)
 ```
 
 ---
@@ -115,14 +115,13 @@ Reference (Original Design)          Current Documentation
 For actively maintained documentation:
 
 ### Getting Started
-- **[../README.md](../README.md)** - Main entry point
+- **[../../README.md](../../README.md)** - Main entry point
+- **[../README.md](../README.md)** - Documentation map
 - **[../GETTING-STARTED.md](../GETTING-STARTED.md)** - Setup guide
-- **[../QUICK_REFERENCE.md](../QUICK_REFERENCE.md)** - Quick commands
 
 ### Technical Docs
 - **[../ARCHITECTURE.md](../ARCHITECTURE.md)** - Current architecture
-- **[../FEATURES.md](../FEATURES.md)** - Feature documentation
-- **[../DEPLOYMENT.md](../DEPLOYMENT.md)** - Deployment guide
+- **[../DEPLOYMENT_GUIDE.md](../DEPLOYMENT_GUIDE.md)** - Deployment guide
 
 ### Status & Planning
 - **[../PROJECT_STATUS.md](../PROJECT_STATUS.md)** - Current status

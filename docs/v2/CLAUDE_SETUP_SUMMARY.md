@@ -219,9 +219,9 @@ RAG_EMBEDDING_MODEL: str = "text-embedding-3-small"
 
 ### Existing Documents (Still Valid)
 - [RAG_QUICKSTART.md](RAG_QUICKSTART.md) - General setup
-- [RAG_PHASE1_IMPLEMENTATION.md](RAG_PHASE1_IMPLEMENTATION.md) - Technical reference
-- [RAG_PHASE2_INTEGRATION.md](RAG_PHASE2_INTEGRATION.md) - Agent integration
-- [RAG_DOCUMENTATION_MAP.md](RAG_DOCUMENTATION_MAP.md) - Find what you need
+- [README_RAG.md](README_RAG.md) - Complete RAG reference: architecture, all four phases, agent integration
+- [RAG_QUICKSTART.md](RAG_QUICKSTART.md) - Five-minute setup
+- [../README.md](../README.md) - Documentation map for the whole project
 
 ---
 

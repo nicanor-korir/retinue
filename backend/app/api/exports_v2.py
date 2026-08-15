@@ -110,7 +110,7 @@ async def download_export(file_name: str):
     """
     import tempfile
 
-    export_dir = Path(tempfile.gettempdir()) / "Deviant_exports"
+    export_dir = Path(tempfile.gettempdir()) / "retinue_exports"
     file_path = export_dir / file_name
 
     # Security: validate filename doesn't contain path traversal

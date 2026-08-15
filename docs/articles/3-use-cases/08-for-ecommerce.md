@@ -1,4 +1,4 @@
-# Deviant for E-Commerce: Multi-Channel Sync Without the $25k Setup Fee
+# Retinue for E-Commerce: Multi-Channel Sync Without the $25k Setup Fee
 
 *How online sellers are building inventory synchronization, order management, and fulfillment systems that rival enterprise solutions.*
 
@@ -25,7 +25,7 @@ For a seller doing $50k-500k/year, these don't make economic sense.
 
 ---
 
-## The Deviant Alternative
+## The Retinue Alternative
 
 **Timeline:** 9 hours of AI generation
 **Cost:** ~$900 in API costs
@@ -40,7 +40,7 @@ flowchart TB
         Website[Direct Website]
     end
 
-    subgraph Core["Deviant-Built System"]
+    subgraph Core["Retinue-Built System"]
         Inventory[(Central Inventory)]
         Sync[Sync Engine]
         Orders[Order Management]
@@ -250,7 +250,7 @@ async def handle_shopify_order(
 
 **Problem:** Competitors change prices, you lose buy box
 
-**Deviant Solution (6 hours, ~$600):**
+**Retinue Solution (6 hours, ~$600):**
 
 ```python
 class RepricingEngine:
@@ -283,7 +283,7 @@ class RepricingEngine:
 
 **Problem:** Not enough reviews, lower conversion
 
-**Deviant Solution (4 hours, ~$400):**
+**Retinue Solution (4 hours, ~$400):**
 
 - Track order delivery dates
 - Wait optimal period (7-14 days)
@@ -295,7 +295,7 @@ class RepricingEngine:
 
 **Problem:** Returns are manual, refunds delayed, inventory not updated
 
-**Deviant Solution (8 hours, ~$800):**
+**Retinue Solution (8 hours, ~$800):**
 
 - Customer-facing return portal
 - Automatic RMA generation
@@ -308,7 +308,7 @@ class RepricingEngine:
 
 **Problem:** Bundles sell but component inventory not tracked
 
-**Deviant Solution (5 hours, ~$500):**
+**Retinue Solution (5 hours, ~$500):**
 
 - Define bundle compositions
 - Automatic component reservation
@@ -319,7 +319,7 @@ class RepricingEngine:
 
 ## The Sync Challenge
 
-Multi-channel sync is technically hard. Here's how Deviant handles it:
+Multi-channel sync is technically hard. Here's how Retinue handles it:
 
 ### Rate Limiting
 
@@ -424,13 +424,13 @@ class InventorySyncRecovery:
 | ChannelAdvisor | $5,000 | $1,500 | $23,000 |
 | Sellbrite | $0 | $180 | $2,160 |
 | Custom Dev | $50,000 | $500 | $56,000 |
-| **Deviant** | **$900** | **$100** | **$2,100** |
+| **Retinue** | **$900** | **$100** | **$2,100** |
 
 ### Break-Even Analysis
 
 For a seller doing $200k/year:
 - Traditional solution: $15k/year = 7.5% of revenue
-- Deviant solution: $2k/year = 1% of revenue
+- Retinue solution: $2k/year = 1% of revenue
 
 **Savings: 6.5% of revenue = $13,000/year**
 
@@ -504,7 +504,7 @@ class eBayClient:
 - Document current sync process (or lack thereof)
 - Identify pain points and costs
 
-### Phase 2: Build with Deviant
+### Phase 2: Build with Retinue
 - Create project with channel specifications
 - Generate sync engine and dashboard
 - Test with subset of SKUs
@@ -525,7 +525,7 @@ class eBayClient:
 
 Multi-channel selling shouldn't require enterprise software budgets.
 
-Deviant delivers:
+Retinue delivers:
 - **Real-time sync** across all channels
 - **$900** instead of $25,000 setup
 - **Your rules** for inventory allocation
@@ -535,8 +535,8 @@ The tools that enterprise sellers take for granted are now accessible to everyon
 
 ---
 
-**Next**: [Deviant for Education →](./09-for-education.md)
+**Next**: [Retinue for Education →](./09-for-education.md)
 
 ---
 
-*Nicanor Korir has watched sellers drown in channel chaos. Deviant brings order to multi-channel selling.*
+*Nicanor Korir has watched sellers drown in channel chaos. Retinue brings order to multi-channel selling.*

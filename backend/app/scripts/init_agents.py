@@ -265,7 +265,7 @@ Time compression: 1 real hour = 1 agent day. Work efficiently.""",
     ]
 
     async with AsyncSessionLocal() as session:
-        print("[START] Initializing Deviant agents...")
+        print("[START] Initializing Retinue agents...")
         print("")
 
         for config in agents_config:
@@ -363,7 +363,7 @@ async def verify_initialization():
 if __name__ == "__main__":
     print("")
     print("=" * 60)
-    print("  Deviant - Agent Initialization Script")
+    print("  Retinue - Agent Initialization Script")
     print("=" * 60)
     print("")
 

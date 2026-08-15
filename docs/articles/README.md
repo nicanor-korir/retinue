@@ -1,22 +1,22 @@
-# Deviant Articles & Blog Content
+# Retinue Articles & Blog Content
 
-A collection of articles for marketing, education, and thought leadership around Deviant - the autonomous multi-agent AI company platform.
+A collection of articles for marketing, education, and thought leadership around Retinue - the autonomous multi-agent AI company platform.
 
 ---
 
 ## Article Categories
 
 ### [1. Urgent Introduction](./1-urgent-introduction/)
-Core articles to introduce Deviant to the world. Start here for marketing and launch content.
+Core articles to introduce Retinue to the world. Start here for marketing and launch content.
 
-- **01 - What is Deviant**: The core product pitch
+- **01 - What is Retinue**: The core product pitch
 - **02 - Why I Built an AI Company**: The personal story and vision
 - **03 - The Problem with Current AI Agents**: Market gap analysis
 - **04 - From Solo Developer to AI-Powered Company**: Target audience hook
-- **05 - Deviant vs The World**: Competitive differentiation
+- **05 - Retinue vs The World**: Competitive differentiation
 
 ### [2. Architecture](./2-architecture/)
-Deep technical dives for developers and architects who want to understand how Deviant works.
+Deep technical dives for developers and architects who want to understand how Retinue works.
 
 - **01 - Event-Driven Multi-Agent Systems**: Core architecture philosophy
 - **02 - The 7-Agent Organization**: Agent roles and hierarchy
@@ -55,7 +55,7 @@ Honest reflections on difficulties and lessons learned.
 - **03 - Building Trust in Autonomous Systems**: Human oversight balance
 
 ### [6. Future Plans](./6-future-plans/)
-Where Deviant is heading and the broader vision.
+Where Retinue is heading and the broader vision.
 
 - **01 - From Agent to Consultant**: The autonomous consulting company
 - **02 - Full User Control**: Putting humans in the driver's seat

@@ -28,7 +28,7 @@ export function ThemeProvider({
   defaultTheme = "system",
   enableSystem = true,
   disableTransitionOnChange = false,
-  storageKey = "Deviant-theme",
+  storageKey = "retinue-theme",
   ...props
 }: ThemeProviderProps) {
   const [theme, setThemeState] = React.useState<Theme>(defaultTheme);

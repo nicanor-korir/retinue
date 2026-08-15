@@ -1,6 +1,6 @@
 # Launch Countdown System
 
-Comprehensive launch countdown system for Deviant/Deviant's December 22nd, 2025 launch. Features real-time countdown, progressive urgency, first-visit modal, email reminders, and celebration effects.
+Comprehensive launch countdown system for Retinue's December 22nd, 2025 launch. Features real-time countdown, progressive urgency, first-visit modal, email reminders, and celebration effects.
 
 ## 📋 Table of Contents
 
@@ -236,7 +236,7 @@ export const LAUNCH_CONFIG = {
     },
     launchDay: {
       hero: '🎉 WE\'RE LIVE!',
-      modal: 'Deviant Is Now Live!',
+      modal: 'Retinue Is Now Live!',
       cta: 'Start Building Now',
     },
     postLaunch: {
@@ -664,7 +664,7 @@ npm install
 
 ## License
 
-This launch countdown system is part of the Deviant/Deviant website codebase.
+This launch countdown system is part of the Retinue website codebase.
 
 ---
 

@@ -399,9 +399,9 @@ Action: Investigate event broker, network, subscriber health.
 
 ---
 
-## The Deviant Implementation
+## The Retinue Implementation
 
-Deviant uses hybrid polling/events throughout:
+Retinue uses hybrid polling/events throughout:
 
 ```python
 # Agent base class

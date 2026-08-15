@@ -1,4 +1,4 @@
-# Deviant for Startups: Your AI Development Team
+# Retinue for Startups: Your AI Development Team
 
 *How early-stage companies can move fast without breaking the bank on engineering.*
 
@@ -43,11 +43,11 @@ flowchart TB
 
     subgraph "AI-Augmented Startup"
         Founders2[Founders: Vision + Strategy + Review]
-        Deviant[Deviant: AI Development Team]
+        Retinue[Retinue: AI Development Team]
         Money2[$5-20k/year]
 
-        Founders2 --> Deviant
-        Money2 --> Deviant
+        Founders2 --> Retinue
+        Money2 --> Retinue
     end
 ```
 
@@ -55,7 +55,7 @@ This isn't about replacing engineers entirely. It's about getting 80% of the out
 
 ---
 
-## What Deviant Handles for Startups
+## What Retinue Handles for Startups
 
 ### MVP Development
 
@@ -65,9 +65,9 @@ The classic startup challenge: build something to validate an idea without over-
 - 3 engineers × 8 weeks = 960 hours of development
 - Cost: $60-100k (salaries, time, opportunity cost)
 
-**Deviant approach:**
+**Retinue approach:**
 - 1 founder × 2 weeks of direction and review
-- Deviant generates complete MVP specifications and code
+- Retinue generates complete MVP specifications and code
 - Cost: $500-2,000 (API costs + founder time)
 
 The output isn't production-ready without review, but it's 80% of the way there.
@@ -76,10 +76,10 @@ The output isn't production-ready without review, but it's 80% of the way there.
 
 Startups pivot. A lot.
 
-Every pivot traditionally means rebuilding. With Deviant:
+Every pivot traditionally means rebuilding. With Retinue:
 
 Monday: "Let's try a different approach to onboarding."
-Tuesday: Deviant generates new onboarding flow specs and code.
+Tuesday: Retinue generates new onboarding flow specs and code.
 Wednesday: Review and refine.
 Thursday: Testing with users.
 
@@ -99,7 +99,7 @@ These are necessary but not differentiating. Perfect for AI generation.
 
 Investors, partners, and future hires need to understand your system.
 
-Deviant can generate:
+Retinue can generate:
 - API documentation
 - Architecture diagrams
 - Onboarding guides
@@ -113,7 +113,7 @@ Documentation that would take days takes hours.
 
 ### Stage 1: Pre-Product (Idea Validation)
 
-You have an idea but no code yet. Use Deviant to:
+You have an idea but no code yet. Use Retinue to:
 
 1. Generate comprehensive product specifications
 2. Create technical architecture documents
@@ -127,7 +127,7 @@ You have an idea but no code yet. Use Deviant to:
 
 You've validated interest. Time to build.
 
-1. Submit detailed product brief to Deviant
+1. Submit detailed product brief to Retinue
 2. Generate database schemas, APIs, frontend components
 3. Review and refine with human judgment
 4. Deploy and iterate
@@ -139,7 +139,7 @@ You've validated interest. Time to build.
 
 You have users. Need to move fast while maintaining quality.
 
-1. Use Deviant for new feature prototypes
+1. Use Retinue for new feature prototypes
 2. Human review and production hardening
 3. Hire 1-2 senior engineers for complex work
 4. AI handles the volume; humans handle the judgment
@@ -152,7 +152,7 @@ You have users. Need to move fast while maintaining quality.
 You've found product-market fit. Time to professionalize.
 
 1. Build full engineering team for core product
-2. Use Deviant for internal tools, prototypes, documentation
+2. Use Retinue for internal tools, prototypes, documentation
 3. AI augments the team rather than replaces
 
 **Cost:** Hybrid model—engineers for core, AI for adjacent
@@ -168,7 +168,7 @@ You've found product-market fit. Time to professionalize.
 
 **Challenge:** Build analytics dashboard quickly to demonstrate to customers.
 
-**Deviant usage:**
+**Retinue usage:**
 - Generated complete dashboard React components
 - Created data visualization specifications
 - Built API structure for data endpoints
@@ -182,7 +182,7 @@ You've found product-market fit. Time to professionalize.
 
 **Challenge:** Build two-sided marketplace to test business model.
 
-**Deviant usage:**
+**Retinue usage:**
 - Full marketplace specification (buyer and seller flows)
 - Database schema for listings, users, transactions
 - React components for browsing, posting, purchasing
@@ -196,7 +196,7 @@ You've found product-market fit. Time to professionalize.
 
 **Challenge:** Build and launch without external funding.
 
-**Deviant usage:**
+**Retinue usage:**
 - API design and implementation specs
 - CLI tool structure
 - Documentation site
@@ -308,7 +308,7 @@ CRUD operations, admin panels, standard APIs—AI territory.
 
 ---
 
-## When to Move Beyond Deviant
+## When to Move Beyond Retinue
 
 AI augmentation is powerful early. At some point, you may need to transition:
 
@@ -330,7 +330,7 @@ AI augmentation is powerful early. At some point, you may need to transition:
 
 Early-stage startups are resource-constrained by definition. Every dollar and hour matters.
 
-Deviant lets you:
+Retinue lets you:
 - Move faster with less money
 - Extend runway dramatically
 - Iterate rapidly on ideas
@@ -340,8 +340,8 @@ The startups that figure out AI augmentation early will have a structural advant
 
 ---
 
-**Next**: [Deviant for Enterprise Innovation Labs →](./04-for-enterprise.md)
+**Next**: [Retinue for Enterprise Innovation Labs →](./04-for-enterprise.md)
 
 ---
 
-*Nicanor Korir has bootstrapped companies and burned VC money. Deviant is the approach he wishes he'd had both times.*
+*Nicanor Korir has bootstrapped companies and burned VC money. Retinue is the approach he wishes he'd had both times.*

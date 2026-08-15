@@ -1,27 +1,22 @@
-version: '3.8'
+# Retinue — production stack for a shared VPS
+#
+# Designed to co-exist with services you already run on the same box:
+#   * No Postgres      — reuses your existing PostgreSQL instance
+#   * No reverse proxy — reuses your existing Caddy (see deploy/Caddyfile.snippet)
+#   * No image builds  — pulls prebuilt images from GHCR, so deploys use no build memory
+#
+# Steady-state footprint is roughly 350–550 MB.
+#
+# Usage:
+#   cp .env.production.example .env.production   # then fill it in
+#   docker compose -f docker-compose.prod.yml --env-file .env.production pull
+#   docker compose -f docker-compose.prod.yml --env-file .env.production up -d
 
 services:
-  postgres:
-    image: postgres:15-alpine
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: ai_company
-      POSTGRES_USER: agent
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U agent -d ai_company"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    networks:
-      - Deviant
-
   redis:
     image: redis:7-alpine
     restart: unless-stopped
-    command: redis-server --appendonly yes
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
     volumes:
       - redis_data:/data
     healthcheck:
@@ -29,60 +24,104 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 320M
     networks:
-      - Deviant
+      - retinue
+
+  # Applies migrations, then exits. The backend waits for it to succeed, so the
+  # API never starts against an out-of-date schema.
+  migrate:
+    image: ${BACKEND_IMAGE:?BACKEND_IMAGE is required}
+    restart: "no"
+    command: alembic upgrade head
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:?ANTHROPIC_API_KEY is required}
+      ENVIRONMENT: production
+    extra_hosts:
+      # Lets the container reach PostgreSQL running on the host itself.
+      # Harmless if your Postgres is in a container instead.
+      - "host.docker.internal:host-gateway"
+    networks:
+      - retinue
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile.prod
+    image: ${BACKEND_IMAGE:?BACKEND_IMAGE is required}
     restart: unless-stopped
-    ports:
-      - "8000:8000"
+    # No published ports — your Caddy reaches this by container name on the proxy network.
+    expose:
+      - "8000"
     environment:
-      DATABASE_URL: postgresql+asyncpg://agent:${DB_PASSWORD}@postgres:5432/ai_company
+      DATABASE_URL: ${DATABASE_URL:?DATABASE_URL is required}
       REDIS_URL: redis://redis:6379
-      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:?ANTHROPIC_API_KEY is required}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
       ENVIRONMENT: production
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      # Must be a JSON array — pydantic-settings parses list[str] as JSON.
+      CORS_ORIGINS: '["https://${DOMAIN:?DOMAIN is required}"]'
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
-      postgres:
-        condition: service_healthy
       redis:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
+    deploy:
+      resources:
+        limits:
+          # Caps Retinue's share so a runaway backend can't starve your other services.
+          memory: 768M
     networks:
-      - Deviant
+      - retinue
+      - proxy
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.prod
+    image: ${FRONTEND_IMAGE:?FRONTEND_IMAGE is required}
     restart: unless-stopped
-    ports:
-      - "3000:3000"
-    environment:
-      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    expose:
+      - "3000"
+    # NOTE: this image has the public API/WS URLs baked in at build time.
+    # Changing DOMAIN or API_DOMAIN requires a rebuild in CI, not a restart here.
     depends_on:
       backend:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3000',r=>{if(r.statusCode!==200)process.exit(1)}).on('error',()=>process.exit(1))\""]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 384M
     networks:
-      - Deviant
+      - retinue
+      - proxy
 
 volumes:
-  postgres_data:
   redis_data:
 
 networks:
-  Deviant:
+  # Private network for Retinue's own services.
+  retinue:
     driver: bridge
+
+  # Your existing Caddy's network, so it can reach backend:8000 and frontend:3000
+  # by name. Create it once if it doesn't exist:
+  #     docker network create proxy
+  # then attach your Caddy container to it.
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK:-proxy}

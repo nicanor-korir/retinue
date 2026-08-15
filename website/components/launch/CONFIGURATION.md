@@ -146,7 +146,7 @@ messages: {
   },
   launchDay: {
     hero: '🎉 WE\'RE LIVE!',
-    modal: 'Deviant Is Now Live!',
+    modal: 'Retinue Is Now Live!',
     cta: 'Start Building Now',
   },
   postLaunch: {
@@ -187,7 +187,7 @@ messages: {
   },
   launchDay: {
     hero: 'Now Available',
-    modal: 'Welcome to Deviant',
+    modal: 'Welcome to Retinue',
     cta: 'Get Started',
   },
 }

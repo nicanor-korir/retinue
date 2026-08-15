@@ -2,7 +2,7 @@
 Event-Driven System Integration Module
 
 This module provides the main integration point for enabling event-driven
-execution in Deviant. It handles initialization, startup, and provides
+execution in Retinue. It handles initialization, startup, and provides
 backwards compatibility with the existing polling-based system.
 """
 

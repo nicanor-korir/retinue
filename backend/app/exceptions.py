@@ -1,5 +1,5 @@
 """
-Custom exception hierarchy for Deviant application.
+Custom exception hierarchy for Retinue application.
 Provides consistent error handling and user-friendly error messages.
 """
 
@@ -47,8 +47,8 @@ class ErrorResponse:
         return response
 
 
-class DeviantException(Exception):
-    """Base exception for all Deviant custom exceptions."""
+class RetinueException(Exception):
+    """Base exception for all Retinue custom exceptions."""
 
     def __init__(
         self,
@@ -68,7 +68,7 @@ class DeviantException(Exception):
         super().__init__(message)
 
 
-class RateLimitError(DeviantException):
+class RateLimitError(RetinueException):
     """Raised when API rate limit is exceeded."""
 
     def __init__(self, retry_after: int = 60, details: Optional[Dict[str, Any]] = None):
@@ -85,7 +85,7 @@ class RateLimitError(DeviantException):
         self.retry_after = retry_after
 
 
-class LLMError(DeviantException):
+class LLMError(RetinueException):
     """Raised when LLM/Claude API returns an error."""
 
     def __init__(
@@ -131,7 +131,7 @@ class LLMError(DeviantException):
         return "An error occurred with the AI service. Please try again."
 
 
-class DatabaseError(DeviantException):
+class DatabaseError(RetinueException):
     """Raised when a database operation fails."""
 
     def __init__(
@@ -154,7 +154,7 @@ class DatabaseError(DeviantException):
         )
 
 
-class ValidationError(DeviantException):
+class ValidationError(RetinueException):
     """Raised when input validation fails."""
 
     def __init__(
@@ -172,7 +172,7 @@ class ValidationError(DeviantException):
         )
 
 
-class NotFoundError(DeviantException):
+class NotFoundError(RetinueException):
     """Raised when a requested resource is not found."""
 
     def __init__(
@@ -195,7 +195,7 @@ class NotFoundError(DeviantException):
         )
 
 
-class ConflictError(DeviantException):
+class ConflictError(RetinueException):
     """Raised when operation conflicts with existing data."""
 
     def __init__(
@@ -218,7 +218,7 @@ class ConflictError(DeviantException):
         )
 
 
-class ForbiddenError(DeviantException):
+class ForbiddenError(RetinueException):
     """Raised when user does not have permission to perform action."""
 
     def __init__(
@@ -234,7 +234,7 @@ class ForbiddenError(DeviantException):
         )
 
 
-class InternalError(DeviantException):
+class InternalError(RetinueException):
     """Raised for unexpected internal errors."""
 
     def __init__(
@@ -250,7 +250,7 @@ class InternalError(DeviantException):
         )
 
 
-class TimeoutError(DeviantException):
+class TimeoutError(RetinueException):
     """Raised when an operation times out."""
 
     def __init__(
@@ -273,7 +273,7 @@ class TimeoutError(DeviantException):
         )
 
 
-class InvalidStateError(DeviantException):
+class InvalidStateError(RetinueException):
     """Raised when an operation is performed on an invalid state."""
 
     def __init__(

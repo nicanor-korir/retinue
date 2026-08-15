@@ -100,7 +100,7 @@ class TestPhase1APIIntegration:
             test_messages = {
                 "connection_established": {
                     "type": "connection_established",
-                    "message": "Connected to Deviant real-time stream",
+                    "message": "Connected to Retinue real-time stream",
                     "timestamp": "2025-11-01T12:34:56Z",
                 },
                 "activity_created": {

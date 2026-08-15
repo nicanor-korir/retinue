@@ -18,7 +18,7 @@ Pick any two to do well. The rest suffers.
 
 I lived this for years. I watched opportunities pass because I didn't have bandwidth. I said "no" to projects I could have crushed if I had a team. I compromised on quality because I was spread too thin.
 
-Then I built Deviant, and the math changed.
+Then I built Retinue, and the math changed.
 
 ---
 
@@ -63,7 +63,7 @@ Let me show you how this actually works.
 **8:00 AM** - You write a project brief:
 > "Build a habit tracking app. Users can create habits, mark daily completion, see streaks. Simple dashboard showing progress. No auth for MVP—just local storage."
 
-**8:10 AM** - You submit to Deviant.
+**8:10 AM** - You submit to Retinue.
 
 **8:11 AM** - CEO Agent receives it, starts evaluation.
 
@@ -121,7 +121,7 @@ A traditional approach to that habit tracker MVP:
 
 **Total**: 20-30 hours minimum. A week of full-time work.
 
-With Deviant:
+With Retinue:
 - 1 hour writing the project brief
 - 30 minutes reviewing midday
 - 30 minutes reviewing final output
@@ -146,7 +146,7 @@ Each project runs autonomously. You check in daily. They make progress while you
 
 ### Prototype Fast, Decide Faster
 
-Got an idea? Throw it at Deviant. Get a complete specification and codebase in hours.
+Got an idea? Throw it at Retinue. Get a complete specification and codebase in hours.
 
 Idea doesn't work? You learned that in an afternoon, not a month.
 
@@ -172,7 +172,7 @@ This is the hard part: letting go.
 
 I'm a control freak. I want to touch every line of code. Review every decision. Know every detail.
 
-Working with Deviant meant learning to trust the system. To accept that the AI's output might be different from what I would write—but still correct. To focus on outcomes, not process.
+Working with Retinue meant learning to trust the system. To accept that the AI's output might be different from what I would write—but still correct. To focus on outcomes, not process.
 
 ```mermaid
 flowchart LR
@@ -217,10 +217,10 @@ Let's be clear about what doesn't change:
 If you're a solo developer considering this approach, here's how to start:
 
 ### Week 1: Observer Mode
-Run Deviant on a project you've already built. See what it generates. Compare to your original. Understand its strengths and limitations.
+Run Retinue on a project you've already built. See what it generates. Compare to your original. Understand its strengths and limitations.
 
 ### Week 2: Assistant Mode
-Use Deviant for the parts you hate. Database schemas. Boilerplate. Documentation. Take its output as a starting point, refine yourself.
+Use Retinue for the parts you hate. Database schemas. Boilerplate. Documentation. Take its output as a starting point, refine yourself.
 
 ### Week 3: Delegation Mode
 Submit a real project. Let it run. Review with fresh eyes. Resist the urge to intervene unless necessary.
@@ -248,7 +248,7 @@ I'd rather be in the first group.
 
 You don't need a bigger team. You need better leverage.
 
-Deviant gives you seven specialized agents working autonomously on your projects. They coordinate. They review. They deliver. You direct.
+Retinue gives you seven specialized agents working autonomously on your projects. They coordinate. They review. They deliver. You direct.
 
 The math changes from "I have 60 hours" to "I have 60 hours of direction plus hundreds of hours of execution."
 
@@ -256,8 +256,8 @@ That's how a solo developer builds like a company.
 
 ---
 
-**Next**: [Deviant vs The World: How We're Different →](./05-deviant-vs-world.md)
+**Next**: [Retinue vs The World: How We're Different →](./05-retinue-vs-world.md)
 
 ---
 
-*Nicanor Korir spent years hitting the ceiling of solo output. Deviant is his ladder over that wall.*
+*Nicanor Korir spent years hitting the ceiling of solo output. Retinue is his ladder over that wall.*

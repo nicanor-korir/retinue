@@ -7,7 +7,7 @@ Get the launch countdown system up and running in minutes.
 ### 1. Install Dependencies
 
 ```bash
-cd Domains/02-shoman-saas-domain/apps/Deviant/website
+cd Domains/02-shoman-saas-domain/apps/Retinue/website
 npm install canvas-confetti
 npm install --save-dev @types/canvas-confetti
 ```
@@ -188,7 +188,7 @@ function PhaseBasedHero() {
       {launchPhase === 'post-launch' && (
         <>
           <h1>Build Software as Fast as You Can Describe It</h1>
-          <p>Join 1000+ companies already building with Deviant</p>
+          <p>Join 1000+ companies already building with Retinue</p>
         </>
       )}
     </div>
@@ -441,7 +441,7 @@ export async function POST(request: NextRequest) {
   // Send confirmation email
   await sgMail.send({
     to: email,
-    from: 'hello@deviant.eu',
+    from: 'hello@retinue.team',
     subject: 'Launch Day Reminder Confirmed',
     html: '<p>We'll remind you on launch day!</p>',
   })

@@ -1,5 +1,5 @@
 /**
- * Launch Components - Deviant/Deviant Launch Countdown
+ * Launch Components - Retinue Launch Countdown
  * Export all launch-related components, hooks, and utilities
  */
 

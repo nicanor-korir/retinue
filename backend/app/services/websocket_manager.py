@@ -78,7 +78,7 @@ class WebSocketManager:
         try:
             await websocket.send_json({
                 "type": "connection_established",
-                "message": "Connected to Deviant real-time stream",
+                "message": "Connected to Retinue real-time stream",
                 "subscriptions": {
                     "project_id": project_id,
                     "agent_id": agent_id,

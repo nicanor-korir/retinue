@@ -1,4 +1,4 @@
-# Deviant for Marketing Agencies: From 3 Weeks to 8 Hours
+# Retinue for Marketing Agencies: From 3 Weeks to 8 Hours
 
 *How digital agencies are delivering 15 landing pages in the time it used to take to build one.*
 
@@ -41,7 +41,7 @@ For 15 client landing pages:
 - **Time:** 3+ weeks (with parallel work)
 - **Cost:** $76,500 in labor
 
-### With Deviant
+### With Retinue
 
 | Phase | Time | Cost |
 |-------|------|------|
@@ -56,7 +56,7 @@ For 15 client landing pages:
 
 ---
 
-## What Deviant Generates for Landing Pages
+## What Retinue Generates for Landing Pages
 
 When you submit a landing page project, here's what you get:
 
@@ -156,7 +156,7 @@ flowchart LR
         Goals[Conversion Goals]
     end
 
-    subgraph Deviant["Deviant Processing"]
+    subgraph Retinue["Retinue Processing"]
         CEO[CEO: Evaluate Scope]
         Designer[Designer: Specs]
         Frontend[Frontend: Code]
@@ -215,7 +215,7 @@ pages:
 
 ### Step 2: AI Generation (25 minutes per page)
 
-Deviant's agents collaborate:
+Retinue's agents collaborate:
 
 1. **CEO** evaluates feasibility and scope
 2. **Designer** creates detailed specifications matching brand
@@ -251,7 +251,7 @@ Project: Welcome Email Sequence
 Emails: 5-part onboarding series
 Goal: Activation within 7 days
 
-Deviant output:
+Retinue output:
 - Email copy for all 5 emails
 - Subject lines with A/B variants
 - HTML email templates
@@ -265,7 +265,7 @@ Project: Q1 Content Calendar
 Channels: Blog, LinkedIn, Twitter, Email
 Frequency: 3 blog posts/week, daily social
 
-Deviant output:
+Retinue output:
 - 36 blog post outlines with SEO keywords
 - 90 LinkedIn post drafts
 - 90 Twitter threads
@@ -279,7 +279,7 @@ Deviant output:
 Project: Product Launch Campaign
 Components: Landing page, email sequence, social posts, ad copy
 
-Deviant output (in one project):
+Retinue output (in one project):
 - Landing page design + code
 - 5-email announcement sequence
 - 20 social media posts
@@ -297,7 +297,7 @@ Deviant output (in one project):
 **Current cost:** $4,000 (labor + overhead)
 **Current margin:** 20%
 
-**With Deviant:**
+**With Retinue:**
 **Same pricing:** $5,000 per landing page
 **New cost:** $500 (review time + API)
 **New margin:** 90%
@@ -323,7 +323,7 @@ Charge premium for speed no competitor can match.
 
 ## Marketing Department Agents
 
-Deviant includes pre-built marketing-focused agents:
+Retinue includes pre-built marketing-focused agents:
 
 ```mermaid
 graph TB
@@ -356,7 +356,7 @@ graph TB
 ## Real Agency Example
 
 **Agency:** Digital growth agency, 8 people
-**Before Deviant:** 4 clients/month capacity
+**Before Retinue:** 4 clients/month capacity
 **Challenge:** Turning down good clients due to bandwidth
 
 **Implementation:**
@@ -381,13 +381,13 @@ graph TB
 ## Getting Started for Agencies
 
 ### Phase 1: Internal Test (Week 1)
-Build your agency's own marketing assets with Deviant. Learn the system. Build confidence.
+Build your agency's own marketing assets with Retinue. Learn the system. Build confidence.
 
 ### Phase 2: Low-Risk Client Work (Week 2-3)
 Use for one client's project. Compare quality and speed to traditional approach. Measure savings.
 
 ### Phase 3: Workflow Integration (Week 4+)
-Build Deviant into your standard workflow. Train team on brief creation. Establish review processes.
+Build Retinue into your standard workflow. Train team on brief creation. Establish review processes.
 
 ### Phase 4: Scale (Month 2+)
 Take on more clients. Expand service offerings. Raise margins or lower prices. Grow.
@@ -396,7 +396,7 @@ Take on more clients. Expand service offerings. Raise margins or lower prices. G
 
 ## The Takeaway
 
-Marketing agencies live and die by margins and capacity. Deviant transforms both:
+Marketing agencies live and die by margins and capacity. Retinue transforms both:
 
 - **Capacity:** 3-5x more output from same team
 - **Speed:** Days instead of weeks
@@ -407,8 +407,8 @@ The agencies that figure this out first capture the clients that others can't se
 
 ---
 
-**Next**: [Deviant for Financial Services →](./06-for-finance.md)
+**Next**: [Retinue for Financial Services →](./06-for-finance.md)
 
 ---
 
-*Nicanor Korir has worked with agencies stuck in the capacity trap. Deviant is the way out.*
+*Nicanor Korir has worked with agencies stuck in the capacity trap. Retinue is the way out.*

@@ -11,7 +11,7 @@ const cases = [
     challenge:
       "A marketing agency needed 15 client landing pages for a product launch campaign - fast.",
     traditional: { time: "3 weeks", cost: "$12,000" },
-    deviant: { time: "8 hours", cost: "$800" },
+    retinue: { time: "8 hours", cost: "$800" },
     results: [
       "All 15 pages deployed same day",
       "Mobile-responsive, brand-matched designs",
@@ -19,7 +19,7 @@ const cases = [
       "93% cost reduction",
     ],
     quote:
-      "Deviant is our secret weapon for same-day delivery. What used to take weeks now happens in hours.",
+      "Retinue is our secret weapon for same-day delivery. What used to take weeks now happens in hours.",
     author: "Marketing Director, Digital Agency",
   },
   {
@@ -28,7 +28,7 @@ const cases = [
     challenge:
       "Finance team drowning in spreadsheets needed custom expense tracking with approval workflows.",
     traditional: { time: "2 months", cost: "$50,000" },
-    deviant: { time: "12 hours", cost: "$1,200" },
+    retinue: { time: "12 hours", cost: "$1,200" },
     results: [
       "Custom approval workflows automated",
       "Real-time reporting dashboard",
@@ -45,7 +45,7 @@ const cases = [
     challenge:
       "Manufacturing company needed real-time inventory tracking across 3 warehouses with barcode scanning.",
     traditional: { time: "6 months", cost: "$80,000" },
-    deviant: { time: "18 hours", cost: "$1,800" },
+    retinue: { time: "18 hours", cost: "$1,800" },
     results: [
       "Real-time inventory across all locations",
       "Barcode scanning integration",
@@ -53,7 +53,7 @@ const cases = [
       "98% cost reduction, 1000x faster",
     ],
     quote:
-      "We've been quoting this project for a year. Deviant built it in a day. Game-changing.",
+      "We've been quoting this project for a year. Retinue built it in a day. Game-changing.",
     author: "Operations Manager, Manufacturing",
   },
   {
@@ -62,7 +62,7 @@ const cases = [
     challenge:
       "E-commerce seller needed to sync inventory across Shopify, Amazon, eBay in real-time to prevent overselling.",
     traditional: { time: "Off-the-shelf", cost: "$25,000 setup + ongoing fees" },
-    deviant: { time: "9 hours", cost: "$900 one-time" },
+    retinue: { time: "9 hours", cost: "$900 one-time" },
     results: [
       "Real-time sync across all platforms",
       "Zero oversells since deployment",
@@ -70,7 +70,7 @@ const cases = [
       "96% cost reduction",
     ],
     quote:
-      "The off-the-shelf solutions were expensive and inflexible. Deviant built exactly what we needed.",
+      "The off-the-shelf solutions were expensive and inflexible. Retinue built exactly what we needed.",
     author: "Founder, E-Commerce Brand",
   },
   {
@@ -79,7 +79,7 @@ const cases = [
     challenge:
       "Education startup needed a custom LMS with video hosting, quizzes, certificates, and student dashboards.",
     traditional: { time: "3 months", cost: "$60,000" },
-    deviant: { time: "14 hours", cost: "$1,400" },
+    retinue: { time: "14 hours", cost: "$1,400" },
     results: [
       "Full LMS with video hosting",
       "Automated certificates and tracking",
@@ -87,7 +87,7 @@ const cases = [
       "98% cost reduction, 650x faster",
     ],
     quote:
-      "We were about to pay $60K for an agency. Deviant delivered better results in 14 hours for $1,400.",
+      "We were about to pay $60K for an agency. Retinue delivered better results in 14 hours for $1,400.",
     author: "Founder, EdTech Startup",
   },
   {
@@ -96,7 +96,7 @@ const cases = [
     challenge:
       "Medical practice needed HIPAA-compliant scheduling with SMS reminders and patient portal integration.",
     traditional: { time: "Commercial solution", cost: "$15,000 + $500/month" },
-    deviant: { time: "11 hours", cost: "$1,100 one-time" },
+    retinue: { time: "11 hours", cost: "$1,100 one-time" },
     results: [
       "HIPAA-compliant booking system",
       "Automated SMS reminders",
@@ -104,7 +104,7 @@ const cases = [
       "93% cost reduction in first year",
     ],
     quote:
-      "The commercial solutions were expensive and didn't fit our workflow. Deviant built exactly what we needed.",
+      "The commercial solutions were expensive and didn't fit our workflow. Retinue built exactly what we needed.",
     author: "Practice Manager, Medical Clinic",
   },
 ]
@@ -125,7 +125,7 @@ export function UseCases() {
             Real Results from Real Businesses
           </h2>
           <p className="text-xl text-[var(--body)] max-w-3xl mx-auto text-center">
-            See how Deviant is building custom software in hours, not months
+            See how Retinue is building custom software in hours, not months
           </p>
         </motion.div>
 
@@ -154,7 +154,7 @@ export function UseCases() {
                     {caseStudy.challenge}
                   </p>
 
-                  {/* Traditional vs Deviant comparison */}
+                  {/* Traditional vs Retinue comparison */}
                   <div className="grid md:grid-cols-2 gap-6 mb-8">
                     <div className="border-2 border-gray-200 rounded-lg p-6 bg-white">
                       <h4 className="font-semibold text-gray-500 mb-4 text-sm uppercase tracking-wider">
@@ -178,22 +178,22 @@ export function UseCases() {
 
                     <div className="border-2 border-[var(--secondary)] rounded-lg p-6 bg-gradient-to-br from-[var(--secondary)]/5 to-[var(--secondary)]/10 relative overflow-hidden">
                       <div className="absolute top-2 right-2 px-2 py-1 bg-[var(--secondary)] text-white text-xs font-bold rounded">
-                        WITH DEVIANT
+                        WITH RETINUE
                       </div>
                       <h4 className="font-semibold text-[var(--secondary)] mb-4 text-sm uppercase tracking-wider">
-                        Deviant Solution
+                        Retinue Solution
                       </h4>
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
                           <span className="text-[var(--body)]">Time:</span>
                           <span className="font-bold text-[var(--secondary)] text-lg">
-                            {caseStudy.deviant.time}
+                            {caseStudy.retinue.time}
                           </span>
                         </div>
                         <div className="flex justify-between items-center">
                           <span className="text-[var(--body)]">Cost:</span>
                           <span className="font-bold text-[var(--secondary)] text-lg">
-                            {caseStudy.deviant.cost}
+                            {caseStudy.retinue.cost}
                           </span>
                         </div>
                       </div>

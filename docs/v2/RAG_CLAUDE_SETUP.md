@@ -300,7 +300,7 @@ RAG_EMBEDDING_BACKEND: str = "openai"
 | **Multi-language** | distiluse-base-multilingual-cased-v1 | 512 | ~60MB |
 | **Maximum quality** | OpenAI's text-embedding-3-small | 1536 | - (API) |
 
-### For Your Setup (Claude + Deviant)
+### For Your Setup (Claude + Retinue)
 
 **Recommended:**
 ```python
@@ -328,16 +328,16 @@ RAG_EMBEDDING_MODEL: str = "distiluse-base-multilingual-cased-v1"
 - [ ] Test with sample task (see Quick Start)
 - [ ] Verify ChromaDB creates `data/chromadb` directory
 - [ ] Check retrieval results are relevant
-- [ ] Integrate with agents (see RAG_PHASE2_INTEGRATION.md)
+- [ ] Integrate with agents (see README_RAG.md)
 
 ---
 
 ## 📚 Next Steps
 
 1. **Test RAG:** Follow Quick Start section above
-2. **Integrate Agents:** See [RAG_PHASE2_INTEGRATION.md](RAG_PHASE2_INTEGRATION.md)
+2. **Integrate Agents:** See [README_RAG.md](README_RAG.md)
 3. **Index Data:** See [RAG_QUICKSTART.md](RAG_QUICKSTART.md)
-4. **Monitor Performance:** See [RAG_PHASE1_IMPLEMENTATION.md](RAG_PHASE1_IMPLEMENTATION.md) - Monitoring section
+4. **Monitor Performance:** See [README_RAG.md](README_RAG.md) - Monitoring section
 
 ---
 
@@ -423,9 +423,9 @@ Phase 3 will add Redis caching, but for now:
 
 For more information, see:
 - [RAG_QUICKSTART.md](RAG_QUICKSTART.md) - General setup and usage
-- [RAG_PHASE1_IMPLEMENTATION.md](RAG_PHASE1_IMPLEMENTATION.md) - Complete reference
-- [RAG_PHASE2_INTEGRATION.md](RAG_PHASE2_INTEGRATION.md) - Agent integration
-- [RAG_DOCUMENTATION_MAP.md](RAG_DOCUMENTATION_MAP.md) - Find what you need
+- [README_RAG.md](README_RAG.md) - Complete RAG reference: architecture, all four phases, agent integration
+- [RAG_QUICKSTART.md](RAG_QUICKSTART.md) - Five-minute setup
+- [../README.md](../README.md) - Documentation map for the whole project
 
 ---
 

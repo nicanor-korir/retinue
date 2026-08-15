@@ -169,7 +169,7 @@ export function DepartmentShowcase() {
             Deploy Entire Departments in Minutes
           </p>
           <p className="text-xl text-[var(--body)] max-w-4xl mx-auto">
-            Deviant isn't just another AI tool - it's a complete company of
+            Retinue isn't just another AI tool - it's a complete company of
             specialized AI agents that work together like real teams, with real
             hierarchy, real collaboration, and real output.
           </p>

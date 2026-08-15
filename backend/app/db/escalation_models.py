@@ -1,5 +1,5 @@
 """
-Advanced Escalation Management Models for Deviant.
+Advanced Escalation Management Models for Retinue.
 
 This module defines the complete data model for the escalations management system
 including escalations, timeline events, comments, and statistics tracking.

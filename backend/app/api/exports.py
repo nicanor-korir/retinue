@@ -228,7 +228,7 @@ class ZIPExportOptions(BaseModel):
     include_database_schema: bool = True
     include_docker_config: bool = False
     include_ci_cd_config: bool = False
-    include_Deviant_metadata: bool = True
+    include_retinue_metadata: bool = True
     include_env_example: bool = True
     format_code: bool = False
     fix_linting_issues: bool = False

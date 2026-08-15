@@ -7,7 +7,7 @@ import { NotificationProvider } from "@/components/notifications/notification-pr
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Deviant - AI Agent Company Platform",
+  title: "Retinue - AI Agent Company Platform",
   description: "Monitor and manage your autonomous AI agent company",
 };
 
