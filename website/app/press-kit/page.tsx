@@ -25,7 +25,7 @@ export default function PressKit() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Deviant Press Kit
+              Retinue Press Kit
             </h1>
             <p className="text-xl text-[var(--body)] max-w-3xl mb-8">
               Media resources, company information, and assets for journalists
@@ -37,7 +37,7 @@ export default function PressKit() {
                 Download Media Kit
               </Button>
               <a
-                href="mailto:press@deviant.eu"
+                href="mailto:press@retinue.team"
                 className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 border-2 border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)]/10 px-8 py-4 text-lg"
               >
                 <Mail className="mr-2 w-5 h-5" />
@@ -93,10 +93,10 @@ export default function PressKit() {
                   Short Boilerplate (50 words)
                 </h3>
                 <p className="text-[var(--body)] leading-relaxed">
-                  Deviant is an autonomous AI software company that builds
+                  Retinue is an autonomous AI software company that builds
                   custom applications automatically. Using 7 specialized AI
                   agents that function as CEO, CTO, engineers, and designers,
-                  Deviant delivers in hours what traditional development takes
+                  Retinue delivers in hours what traditional development takes
                   weeks to build - at a fraction of the cost.
                 </p>
               </CardContent>
@@ -108,14 +108,14 @@ export default function PressKit() {
                   Medium Boilerplate (100 words)
                 </h3>
                 <p className="text-[var(--body)] leading-relaxed">
-                  Deviant is revolutionizing software development through
+                  Retinue is revolutionizing software development through
                   autonomous AI agents. Our platform features 7 specialized AI
                   agents (CEO, CTO, Project Manager, HR, Backend Engineer,
                   Frontend Engineer, and Designer) that organize themselves,
                   make decisions, write code, and deploy applications -
                   automatically. What takes traditional development teams weeks
-                  or months, Deviant delivers in hours. Founded in Kenya and
-                  serving customers globally, Deviant democratizes access to
+                  or months, Retinue delivers in hours. Founded in Kenya and
+                  serving customers globally, Retinue democratizes access to
                   world-class software development, making enterprise-level
                   capabilities accessible to entrepreneurs, small businesses,
                   and organizations worldwide.
@@ -129,9 +129,9 @@ export default function PressKit() {
                   Long Boilerplate (200 words)
                 </h3>
                 <p className="text-[var(--body)] leading-relaxed mb-4">
-                  Deviant is pioneering the future of software development
+                  Retinue is pioneering the future of software development
                   through fully autonomous AI agents. Unlike traditional AI
-                  coding assistants that help developers work faster, Deviant
+                  coding assistants that help developers work faster, Retinue
                   replaces the entire development team with 7 specialized AI
                   agents that function as a complete software company.
                 </p>
@@ -146,10 +146,10 @@ export default function PressKit() {
                 </p>
                 <p className="text-[var(--body)] leading-relaxed">
                   Founded in Kenya by entrepreneur and AI engineer Nicanor
-                  Korir, Deviant addresses a critical global problem: quality
+                  Korir, Retinue addresses a critical global problem: quality
                   software development is too expensive and too slow for most
                   businesses. By automating the entire development process,
-                  Deviant makes enterprise-level software accessible to
+                  Retinue makes enterprise-level software accessible to
                   entrepreneurs, small businesses, and organizations worldwide -
                   regardless of budget or location.
                 </p>
@@ -188,7 +188,7 @@ export default function PressKit() {
 
             <p className="text-[var(--body)] leading-relaxed mb-6">
               In October 2025, after months of research and development, Nicanor
-              launched Deviant: a complete AI software company where 7
+              launched Retinue: a complete AI software company where 7
               autonomous agents collaborate to build applications automatically.
               The first test project - a complete todo application with
               authentication, database, and modern UI - took the system just 4
@@ -196,9 +196,9 @@ export default function PressKit() {
             </p>
 
             <p className="text-[var(--body)] leading-relaxed font-semibold">
-              The name "Deviant" reflects the philosophy: deviate from broken
-              traditional development. Break the rules that deserve breaking.
-              Build the future differently.
+              The name "Retinue" reflects the philosophy: a retinue is the
+              hand-picked company of specialists who accompany someone with
+              something to accomplish. Every founder deserves one.
             </p>
           </div>
         </section>
@@ -228,7 +228,7 @@ export default function PressKit() {
                     <strong>Stage:</strong> Pre-Seed MVP
                   </li>
                   <li>
-                    <strong>Website:</strong> deviant.eu
+                    <strong>Website:</strong> retinue.team
                   </li>
                 </ul>
               </CardContent>
@@ -270,13 +270,13 @@ export default function PressKit() {
                     <strong>Traditional MVP Cost:</strong> $50K - $150K
                   </li>
                   <li>
-                    <strong>Deviant MVP Cost:</strong> $800 - $2,000
+                    <strong>Retinue MVP Cost:</strong> $800 - $2,000
                   </li>
                   <li>
                     <strong>Traditional Timeline:</strong> 3-6 months
                   </li>
                   <li>
-                    <strong>Deviant Timeline:</strong> 4-18 hours
+                    <strong>Retinue Timeline:</strong> 4-18 hours
                   </li>
                   <li>
                     <strong>Target Market:</strong> 30M+ entrepreneurs globally
@@ -333,7 +333,7 @@ export default function PressKit() {
                   </h4>
                   <p className="text-[var(--body)] leading-relaxed">
                     Nicanor Korir is a Kenyan entrepreneur and senior software
-                    engineer with a master's degree in AI. He founded Deviant to
+                    engineer with a master's degree in AI. He founded Retinue to
                     democratize software development globally, making
                     enterprise-level development accessible to entrepreneurs
                     everywhere through autonomous AI agents.
@@ -345,12 +345,12 @@ export default function PressKit() {
                     Medium Bio (150 words):
                   </h4>
                   <p className="text-[var(--body)] leading-relaxed">
-                    Nicanor Korir is the founder and CEO of Deviant, an
+                    Nicanor Korir is the founder and CEO of Retinue, an
                     autonomous AI software company based in Nairobi, Kenya. A
                     senior software engineer with a master's degree in
                     Artificial Intelligence, Nicanor has spent his career at the
                     intersection of AI/ML and practical software development.
-                    Before founding Deviant, Nicanor witnessed countless
+                    Before founding Retinue, Nicanor witnessed countless
                     talented African entrepreneurs abandon viable business ideas
                     because custom software development was too expensive and
                     too slow. This inspired him to build a solution: autonomous
@@ -397,7 +397,7 @@ export default function PressKit() {
                 <h3 className="text-lg font-semibold mb-4">On the problem:</h3>
                 <blockquote className="border-l-4 border-[var(--primary)] pl-6 italic text-lg text-[var(--body)]">
                   "Traditional software development is broken. It's too
-                  expensive, too slow, and too inaccessible. We built Deviant to
+                  expensive, too slow, and too inaccessible. We built Retinue to
                   prove there's a better way."
                 </blockquote>
                 <p className="text-sm text-[var(--muted)] mt-2">
@@ -427,7 +427,7 @@ export default function PressKit() {
                 </h3>
                 <blockquote className="border-l-4 border-[var(--primary)] pl-6 italic text-lg text-[var(--body)]">
                   "Quality software development has been accessible only to the
-                  wealthy. Deviant democratizes it - making enterprise-level
+                  wealthy. Retinue democratizes it - making enterprise-level
                   development available to everyone, everywhere."
                 </blockquote>
                 <p className="text-sm text-[var(--muted)] mt-2">
@@ -438,10 +438,11 @@ export default function PressKit() {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Being deviant:</h3>
+                <h3 className="text-lg font-semibold mb-4">On building differently:</h3>
                 <blockquote className="border-l-4 border-[var(--primary)] pl-6 italic text-lg text-[var(--body)]">
-                  "We're deviant by design. We break every rule of traditional
-                  development - and we deliver better results because of it."
+                  "We give every founder a retinue - a full company of
+                  specialists, hand-picked per project. We break every rule of
+                  traditional development, and we deliver better results because of it."
                 </blockquote>
                 <p className="text-sm text-[var(--muted)] mt-2">
                   - Nicanor Korir, Founder & CEO
@@ -463,19 +464,19 @@ export default function PressKit() {
                   <p>
                     <strong>Email:</strong>{" "}
                     <a
-                      href="mailto:press@deviant.eu"
+                      href="mailto:press@retinue.team"
                       className="text-[var(--primary)] hover:underline"
                     >
-                      press@deviant.eu
+                      press@retinue.team
                     </a>
                   </p>
                   <p>
                     <strong>Website:</strong>{" "}
                     <a
-                      href="https://deviant.eu"
+                      href="https://retinue.team"
                       className="text-[var(--primary)] hover:underline"
                     >
-                      deviant.eu
+                      retinue.team
                     </a>
                   </p>
                   <p>
@@ -492,28 +493,28 @@ export default function PressKit() {
                   <p>
                     <strong>Business:</strong>{" "}
                     <a
-                      href="mailto:hello@deviant.eu"
+                      href="mailto:hello@retinue.team"
                       className="text-[var(--primary)] hover:underline"
                     >
-                      hello@deviant.eu
+                      hello@retinue.team
                     </a>
                   </p>
                   <p>
                     <strong>Support:</strong>{" "}
                     <a
-                      href="mailto:support@deviant.eu"
+                      href="mailto:support@retinue.team"
                       className="text-[var(--primary)] hover:underline"
                     >
-                      support@deviant.eu
+                      support@retinue.team
                     </a>
                   </p>
                   <p>
                     <strong>Partnerships:</strong>{" "}
                     <a
-                      href="mailto:partnerships@deviant.eu"
+                      href="mailto:partnerships@retinue.team"
                       className="text-[var(--primary)] hover:underline"
                     >
-                      partnerships@deviant.eu
+                      partnerships@retinue.team
                     </a>
                   </p>
                 </div>
@@ -531,7 +532,7 @@ export default function PressKit() {
                 assets, or schedule interviews with our founder.
               </p>
               <a
-                href="mailto:press@deviant.eu?subject=Press Kit Request"
+                href="mailto:press@retinue.team?subject=Press Kit Request"
                 className="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 bg-[var(--secondary)] text-white hover:bg-[var(--secondary-hover)] shadow-lg shadow-[var(--secondary)]/25 hover:shadow-xl hover:shadow-[var(--secondary)]/30 transform hover:scale-105 px-8 py-4 text-lg"
               >
                 <Mail className="mr-2 w-5 h-5" />

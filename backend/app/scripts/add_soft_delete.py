@@ -19,7 +19,7 @@ async def add_soft_delete_columns():
     """Add deleted_at columns to projects and tasks tables."""
 
     print("=" * 60)
-    print("  Deviant - Database Migration")
+    print("  Retinue - Database Migration")
     print("  Adding soft delete (deleted_at) columns")
     print("=" * 60)
     print("")

@@ -155,7 +155,7 @@ export function FinalCTA() {
                 <CheckCircle2 className="w-5 h-5 text-[var(--primary)] mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-[var(--heading)]">Priority Rollout</p>
-                  <p className="text-sm text-[var(--body)]">Be among the first to access Deviant</p>
+                  <p className="text-sm text-[var(--body)]">Be among the first to access Retinue</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -301,7 +301,7 @@ export function FinalCTA() {
                         className="mt-1 w-5 h-5 text-[var(--primary)] border-gray-300 rounded focus:ring-[var(--primary)]"
                       />
                       <span className="text-[var(--body)]">
-                        Send me updates on Deviant development
+                        Send me updates on Retinue development
                       </span>
                     </label>
                   </div>
@@ -355,7 +355,7 @@ export function FinalCTA() {
                     You're on the list!
                   </h3>
                   <p className="text-xl text-[var(--body)] mb-8">
-                    We'll notify you as soon as Deviant is ready for you.
+                    We'll notify you as soon as Retinue is ready for you.
                   </p>
                 </div>
               )}

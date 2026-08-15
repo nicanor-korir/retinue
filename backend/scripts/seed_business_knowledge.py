@@ -1,8 +1,8 @@
 """Seed business knowledge documents.
 
 This script populates the business_knowledge table with initial documents about:
-- Deviant AI company overview
-- Deviant system architecture
+- Retinue AI company overview
+- Retinue system architecture
 - Best practices for various roles
 - Project management methodologies
 """
@@ -26,11 +26,11 @@ KNOWLEDGE_DOCUMENTS = [
     {
         "category": "company_info",
         "subcategory": "overview",
-        "title": "Deviant AI Company Overview",
-        "content": """# Deviant AI Company Overview
+        "title": "Retinue AI Company Overview",
+        "content": """# Retinue AI Company Overview
 
 ## Mission
-Deviant AI delivers AI-powered business solutions that transform enterprise operations through intelligent automation and data-driven insights.
+Retinue AI delivers AI-powered business solutions that transform enterprise operations through intelligent automation and data-driven insights.
 
 ## Services
 - Custom AI Agent Development: Building specialized AI agents for business workflows
@@ -52,17 +52,17 @@ We follow an agile approach with 2-week sprints, continuous client communication
 - Quality: Delivering robust, reliable solutions
 - Collaboration: Working closely with clients
 - Transparency: Clear communication and expectations""",
-        "summary": "Deviant AI delivers AI-powered business solutions through intelligent automation and data-driven insights.",
+        "summary": "Retinue AI delivers AI-powered business solutions through intelligent automation and data-driven insights.",
         "tags": ["company", "mission", "services", "values"]
     },
     {
         "category": "system_architecture",
         "subcategory": "overview",
-        "title": "Deviant System Architecture Overview",
-        "content": """# Deviant System Architecture
+        "title": "Retinue System Architecture Overview",
+        "content": """# Retinue System Architecture
 
 ## Overview
-Deviant is an AI-powered agent-based workflow system that automates project management and task execution through specialized AI agents.
+Retinue is an AI-powered agent-based workflow system that automates project management and task execution through specialized AI agents.
 
 ## Core Components
 1. **Agent System**: Specialized AI agents with defined roles and capabilities
@@ -93,14 +93,14 @@ Deviant is an AI-powered agent-based workflow system that automates project mana
 - Escalation system for blockers
 - Real-time progress tracking
 - Context-aware agent collaboration""",
-        "summary": "Deviant is an AI-powered agent-based workflow system for automated project management and task execution.",
+        "summary": "Retinue is an AI-powered agent-based workflow system for automated project management and task execution.",
         "tags": ["architecture", "agents", "workflow", "system"]
     },
     {
         "category": "best_practice",
         "subcategory": "project_management",
         "title": "Project Management Best Practices",
-        "content": """# Project Management Best Practices at Deviant AI
+        "content": """# Project Management Best Practices at Retinue AI
 
 ## Planning Phase
 - Define clear project objectives and success criteria
@@ -200,7 +200,7 @@ Deviant is an AI-powered agent-based workflow system that automates project mana
         "category": "methodology",
         "subcategory": "agile",
         "title": "Agile Development Methodology",
-        "content": """# Agile Development Methodology at Deviant AI
+        "content": """# Agile Development Methodology at Retinue AI
 
 ## Sprint Structure
 - 2-week sprints (standard duration)

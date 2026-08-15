@@ -1,6 +1,6 @@
 # The 7-Agent Organization: How to Structure an AI Company
 
-*Why hierarchy matters for AI agents—and how Deviant's organizational design enables reliable autonomous execution.*
+*Why hierarchy matters for AI agents—and how Retinue's organizational design enables reliable autonomous execution.*
 
 ---
 
@@ -20,11 +20,11 @@ Result: Context collapse. No specialization. Quality degrades on complex work.
 
 There's a reason real companies don't work like this. Hierarchy isn't about power—it's about clarity. Who decides what. Who's responsible for what. Who reviews what.
 
-Deviant uses organizational structure as a feature, not a bug.
+Retinue uses organizational structure as a feature, not a bug.
 
 ---
 
-## The Deviant Org Chart
+## The Retinue Org Chart
 
 ```mermaid
 graph TB
@@ -514,7 +514,7 @@ The pattern is consistent: clear role, defined authority, proper reporting.
 
 Organizational structure isn't overhead—it's infrastructure.
 
-Deviant's 7-agent organization provides:
+Retinue's 7-agent organization provides:
 - **Clear authority**: No confusion about who decides what
 - **Appropriate scope**: Each agent focuses on their expertise
 - **Built-in review**: Quality gates are structural
@@ -529,4 +529,4 @@ Real companies have org charts for a reason. AI companies should too.
 
 ---
 
-*Nicanor Korir learned org design the hard way—by watching flat agent structures fail spectacularly. Deviant is the structured alternative.*
+*Nicanor Korir learned org design the hard way—by watching flat agent structures fail spectacularly. Retinue is the structured alternative.*

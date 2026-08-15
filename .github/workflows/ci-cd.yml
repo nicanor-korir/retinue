@@ -169,3 +169,10 @@ jobs:
           push: true
           tags: ${{ steps.meta-frontend.outputs.tags }}
           labels: ${{ steps.meta-frontend.outputs.labels }}
+          # NEXT_PUBLIC_* are inlined into the bundle at build time, so the public
+          # URLs must be known here — they cannot be supplied at runtime on the server.
+          # Set these as repository variables (Settings > Secrets and variables >
+          # Actions > Variables). They are public URLs, not secrets.
+          build-args: |
+            NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL }}
+            NEXT_PUBLIC_WS_URL=${{ vars.NEXT_PUBLIC_WS_URL }}

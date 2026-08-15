@@ -1,4 +1,4 @@
-# Building a Knowledge-Aware AI System: How Deviant Learns and Remembers
+# Building a Knowledge-Aware AI System: How Retinue Learns and Remembers
 
 *From stateless LLM calls to agents that actually remember what they've learned.*
 
@@ -10,7 +10,7 @@ Here's a frustrating truth about LLMs: every conversation starts from zero.
 
 Ask Claude to write an authentication system. Great output. Ask it again tomorrow, and it has no idea it ever did that before. No memory of patterns that worked. No recall of decisions made. No learning from past projects.
 
-In Deviant, the Backend Engineer might build user authentication five times. Without knowledge management, each time is like the first time. Same mistakes. Same exploration. Same wasted tokens.
+In Retinue, the Backend Engineer might build user authentication five times. Without knowledge management, each time is like the first time. Same mistakes. Same exploration. Same wasted tokens.
 
 The solution: build a knowledge system that lets agents remember, learn, and apply past experience.
 
@@ -150,7 +150,7 @@ class TaskCompletionHandler:
 
 ## Hybrid Search
 
-Finding relevant knowledge isn't simple keyword matching. Deviant uses three search strategies combined:
+Finding relevant knowledge isn't simple keyword matching. Retinue uses three search strategies combined:
 
 ### 1. Vector Similarity Search
 
@@ -622,4 +622,4 @@ The result: agents that get smarter with every project, remember what works, and
 
 ---
 
-*Nicanor Korir believes the future of AI is agents that remember and learn—not stateless APIs called repeatedly. Deviant's knowledge system is the implementation of that belief.*
+*Nicanor Korir believes the future of AI is agents that remember and learn—not stateless APIs called repeatedly. Retinue's knowledge system is the implementation of that belief.*

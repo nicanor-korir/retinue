@@ -10,7 +10,7 @@ Here's something the AI hype doesn't mention: every time an agent "thinks," it c
 
 Not theoretical compute costs. Actual dollars charged to your Anthropic account.
 
-I learned this the hard way. My first complex project with Deviant ran up $47 in API costs. The project was worth it, but I hadn't budgeted for that number.
+I learned this the hard way. My first complex project with Retinue ran up $47 in API costs. The project was worth it, but I hadn't budgeted for that number.
 
 Let's talk about the real economics of running AI agents.
 
@@ -26,7 +26,7 @@ Let's talk about the real economics of running AI agents.
 | Claude 3 Opus | $15.00 | $75.00 |
 | Claude 3 Haiku | $0.25 | $1.25 |
 
-Deviant uses Claude 3.5 Sonnet by default—the best balance of capability and cost.
+Retinue uses Claude 3.5 Sonnet by default—the best balance of capability and cost.
 
 ### What a Single Task Costs
 
@@ -219,7 +219,7 @@ Shorter prompts = lower costs:
 ```python
 # Before: 2,500 tokens
 """
-You are a senior backend engineer at a software company called Deviant.
+You are a senior backend engineer at a software company called Retinue.
 You have extensive experience with Python, FastAPI, PostgreSQL, and
 modern software development practices. Your role is to generate
 high-quality, production-ready code that follows best practices.
@@ -271,7 +271,7 @@ result = await llm.generate(prompt, max_tokens=500)  # 500 tokens = $0.0075
 
 ## Real Cost Data
 
-Here's actual cost data from running Deviant:
+Here's actual cost data from running Retinue:
 
 ### Simple Project (Todo App MVP)
 
@@ -317,12 +317,12 @@ Here's actual cost data from running Deviant:
 
 ### ROI Calculation
 
-| Metric | Traditional Dev | With Deviant |
+| Metric | Traditional Dev | With Retinue |
 |--------|-----------------|--------------|
 | Developer cost/hour | $75-150 | - |
 | Hours for MVP | 40-80 | - |
 | Developer cost | $3,000-12,000 | - |
-| Deviant API cost | - | $10-50 |
+| Retinue API cost | - | $10-50 |
 | Your review time | - | 3-5 hours |
 | Your cost (@$100/hr) | - | $300-500 |
 | **Total cost** | **$3,000-12,000** | **$310-550** |

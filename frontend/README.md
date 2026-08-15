@@ -1,4 +1,4 @@
-# Deviant Frontend Dashboard
+# Retinue Frontend Dashboard
 
 A modern, responsive Next.js 14 dashboard for monitoring and managing your AI agent company.
 
@@ -356,4 +356,4 @@ Same as parent project.
 
 **Built with Next.js 14 + TailwindCSS + React Query**
 
-For questions or issues, refer to the main Deviant documentation.
+For questions or issues, refer to the main Retinue documentation.

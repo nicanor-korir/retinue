@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 class DynamicPromptBuilder:
     """Build context-aware system prompts for agents."""
 
-    BASE_TEMPLATE = """You are {agent_name}, {agent_role} at Deviant AI.
+    BASE_TEMPLATE = """You are {agent_name}, {agent_role} at Retinue AI.
 
 {business_context}
 

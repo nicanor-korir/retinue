@@ -249,7 +249,7 @@ class MarkdownGenerationService:
             "priority": project.get("priority", ""),
             "created_at": project.get("created_at", ""),
             "completed_at": project.get("completed_at", ""),
-            "generated_by": "Deviant",
+            "generated_by": "Retinue",
             "generated_at": datetime.now().isoformat(),
         }
         yaml_content = yaml.dump(frontmatter, default_flow_style=False, sort_keys=False)
@@ -261,7 +261,7 @@ class MarkdownGenerationService:
 
     def _create_footer(self) -> str:
         """Create document footer."""
-        return f"\n---\n\n*Document generated on {datetime.now().strftime('%B %d, %Y at %H:%M')} by Deviant*"
+        return f"\n---\n\n*Document generated on {datetime.now().strftime('%B %d, %Y at %H:%M')} by Retinue*"
 
     def _format_project_overview(self, overview: Dict[str, Any]) -> str:
         """Format project overview."""

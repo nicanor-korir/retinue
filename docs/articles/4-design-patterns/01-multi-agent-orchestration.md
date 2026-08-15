@@ -79,7 +79,7 @@ class CommanderAgent:
 - Tasks are independent
 - Need strong control
 
-**Deviant application:** PM Agent uses this pattern for task assignment.
+**Retinue application:** PM Agent uses this pattern for task assignment.
 
 ---
 
@@ -139,7 +139,7 @@ class PeerAgent:
 - Tasks can be self-selected
 - Need high parallelism
 
-**Deviant application:** Future Chief of Staff pattern uses elements of peer negotiation.
+**Retinue application:** Future Chief of Staff pattern uses elements of peer negotiation.
 
 ---
 
@@ -201,7 +201,7 @@ class PipelineAgent:
 - Stages are independent
 - Need flexibility in pipeline
 
-**Deviant application:** Core event-driven architecture uses this pattern extensively.
+**Retinue application:** Core event-driven architecture uses this pattern extensively.
 
 ---
 
@@ -278,7 +278,7 @@ class SupervisorAgent:
 - Need fault tolerance
 - Want autonomous operation with safety net
 
-**Deviant application:** HR Agent implements this pattern for agent health monitoring.
+**Retinue application:** HR Agent implements this pattern for agent health monitoring.
 
 ---
 
@@ -348,7 +348,7 @@ class ApprovalWorkflow:
 - Need human-like review process
 - Decisions need documentation
 
-**Deviant application:** CTO code review uses this pattern for all task output.
+**Retinue application:** CTO code review uses this pattern for all task output.
 
 ---
 
@@ -431,7 +431,7 @@ class HybridOrchestrator:
 - Need flexibility
 - Mimicking real organizations
 
-**Deviant application:** Full system uses hybrid orchestration across all agents.
+**Retinue application:** Full system uses hybrid orchestration across all agents.
 
 ---
 

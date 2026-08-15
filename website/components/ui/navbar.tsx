@@ -69,7 +69,7 @@ export function Navbar() {
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] bg-clip-text text-transparent">
-                Deviant
+                Retinue
               </span>
             </motion.a>
 
@@ -189,7 +189,7 @@ export function Navbar() {
                       <Zap className="w-5 h-5 text-white" />
                     </div>
                     <span className="text-xl font-bold bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] bg-clip-text text-transparent">
-                      Deviant
+                      Retinue
                     </span>
                   </div>
                   <button

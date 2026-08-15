@@ -46,7 +46,7 @@ export default function CookiePolicy() {
               Last Updated: November 16, 2025
             </p>
             <p className="text-lg text-[var(--body)] max-w-3xl mx-auto">
-              This Cookie Policy explains how Deviant uses cookies and similar technologies.
+              This Cookie Policy explains how Retinue uses cookies and similar technologies.
             </p>
           </motion.div>
         </div>
@@ -145,7 +145,7 @@ export default function CookiePolicy() {
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
               <p className="text-yellow-900 font-semibold mb-2">⚠ Important</p>
               <p className="text-yellow-800">
-                Disabling essential cookies may prevent you from using certain features of Deviant, such as logging in or saving preferences.
+                Disabling essential cookies may prevent you from using certain features of Retinue, such as logging in or saving preferences.
               </p>
             </div>
           </section>
@@ -154,7 +154,7 @@ export default function CookiePolicy() {
             <h2 className="text-3xl font-bold mb-6 text-[var(--heading)]">Data Collected by Cookies</h2>
             <p className="mb-4 text-[var(--body)]">Cookies may collect:</p>
             <ul className="list-disc pl-6 mb-4 text-[var(--body)] space-y-2">
-              <li>Pages you visit on Deviant</li>
+              <li>Pages you visit on Retinue</li>
               <li>Features you use</li>
               <li>Time spent on pages</li>
               <li>Browser and device information</li>
@@ -172,7 +172,7 @@ export default function CookiePolicy() {
               We may update this Cookie Policy from time to time. We'll notify you of material changes via email or in-app notification.
             </p>
             <p className="text-[var(--body)]">
-              Continued use of Deviant after changes constitutes acceptance of the updated policy.
+              Continued use of Retinue after changes constitutes acceptance of the updated policy.
             </p>
           </section>
 
@@ -183,8 +183,8 @@ export default function CookiePolicy() {
                 If you have questions about our use of cookies, contact us:
               </p>
               <p className="text-[var(--body)]">
-                <strong>Email:</strong> privacy@deviant.eu<br />
-                <strong>Address:</strong> Deviant, Nairobi, Kenya
+                <strong>Email:</strong> privacy@retinue.team<br />
+                <strong>Address:</strong> Retinue, Nairobi, Kenya
               </p>
             </CardContent>
           </Card>

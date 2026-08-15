@@ -66,7 +66,7 @@ export function ProjectCompletionDialog({
   const handleDeploy = async (hostedUrl: string) => {
     try {
       const response = await fetch(
-        `/api/v1/projects/${projectId}/deploy?hosting_provider=Deviant_cloud`,
+        `/api/v1/projects/${projectId}/deploy?hosting_provider=retinue_cloud`,
         { method: "POST" }
       );
 
@@ -264,7 +264,7 @@ export function ProjectCompletionDialog({
         <div className="bg-accent/50 rounded-lg p-3 space-y-2">
           <p className="text-xs font-medium">About Hosting</p>
           <p className="text-xs text-muted-foreground">
-            Projects are hosted on Deviant Cloud with automatic SSL, CDN, and monitoring.
+            Projects are hosted on Retinue Cloud with automatic SSL, CDN, and monitoring.
             You can also export to Vercel or Heroku.
           </p>
         </div>

@@ -1,4 +1,4 @@
-# What is Deviant? The AI Company That Works While You Sleep
+# What is Retinue? The AI Company That Works While You Sleep
 
 *A new way to think about AI agents—not as tools, but as a complete organization.*
 
@@ -8,7 +8,7 @@
 
 Imagine walking away from your computer after describing a project idea, then coming back to find a complete software specification, backend code, frontend components, and design documentation—all created autonomously by AI agents who collaborated, reviewed each other's work, and solved problems together.
 
-That's Deviant.
+That's Retinue.
 
 Not a chatbot. Not a coding assistant. A fully autonomous AI company with seven specialized agents—CEO, CTO, Project Manager, Backend Engineer, Frontend Engineer, Designer, and HR—that work together like a real software team.
 
@@ -100,7 +100,7 @@ Glass-box AI, not black-box magic.
 
 ## What Kind of Projects Can It Handle?
 
-Right now, Deviant is optimized for software development projects:
+Right now, Retinue is optimized for software development projects:
 
 - **MVPs and prototypes**: Get a working codebase in hours, not weeks
 - **Feature specifications**: Detailed designs before you write a line of code
@@ -140,7 +140,7 @@ I could sell you a dream, but that's not my style.
 
 ## The Takeaway
 
-Deviant isn't about replacing developers. It's about giving every technical person the power of a full team.
+Retinue isn't about replacing developers. It's about giving every technical person the power of a full team.
 
 I built this because I was tired of being bottlenecked by my own time. Now I describe what I want, and a team of specialized agents figures out how to build it.
 
@@ -148,8 +148,8 @@ That's the future I'm betting on. Seven agents. One company. Your ideas, shipped
 
 ---
 
-**Next**: [Why I Built an AI Company That Runs Itself →](./02-why-i-built-deviant.md)
+**Next**: [Why I Built an AI Company That Runs Itself →](./02-why-i-built-retinue.md)
 
 ---
 
-*Nicanor Korir builds tools for technical independence. Deviant is his latest attempt to multiply one person's output by an order of magnitude.*
+*Nicanor Korir builds tools for technical independence. Retinue is his latest attempt to multiply one person's output by an order of magnitude.*

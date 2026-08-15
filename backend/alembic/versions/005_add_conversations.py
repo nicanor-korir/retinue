@@ -1,4 +1,4 @@
-"""Add conversation and chat feature support to AgentGo.
+"""Add conversation and chat feature support to Retinue.
 
 This migration adds support for user-agent conversations, chat, brainstorming,
 and intelligent project creation from conversations.

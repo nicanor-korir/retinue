@@ -1,750 +1,441 @@
-# Deviant - AI Agent Company Platform
+# Retinue
 
-## ✅ Phase 0 COMPLETE - Foundation Ready!
+**An AI company you can staff.** Retinue gives you a hand-picked team of AI agents — a CEO, a CTO, engineers, designers, marketers, analysts — that plan, delegate, and execute real project work together, while you stay in control of the decisions that matter.
 
-**Status**: Expanded foundation complete with AgentRegistry system supporting 25+ agents across 9 departments.
+You describe what you want built. A team of agents organizes itself around the goal, breaks it into tasks, assigns them by skill, does the work, escalates to you when it needs a decision, and hands you finished deliverables.
 
-## ✅ Phase 1 COMPLETE - API Implementation Ready!
-
-**Status**: REST API fully enhanced with 32 new endpoints supporting flexible teams, capability matching, and multiple output formats.
-
-## ✅ Phase 1 MVP COMPLETE - Ready for Testing!
-
-**Status**: Fully functional with 7 autonomous AI agents working together to build software projects.
-
----
-
-## 🚀 Quick Start (5 Minutes)
-
-**New here?** See [QUICK_START.md](QUICK_START.md) for the fastest way to get running.
-
-**Want details?** See [PROJECT_STATUS.md](PROJECT_STATUS.md) for complete implementation status.
-
-**Ready to test?** See [TESTING_GUIDE.md](TESTING_GUIDE.md) for comprehensive test scenarios.
-
----
-
-## Phase 1: REST API Implementation
-
-The REST API has been fully enhanced with 32 new endpoints supporting Phase 0's capabilities.
-
-### Phase 1 Highlights
-
-**New API Endpoints:**
-- **12 Agent Endpoints**: Discovery, filtering, capability matching, team validation
-- **6 Project Endpoints**: Creation with custom teams, team management, deliverable support
-- **10 Task Endpoints**: Capability-based assignment, output format support
-- **4 Support Endpoints**: Validation, suggestions, status tracking
-
-**Key Features:**
-- Flexible project team selection (not fixed 7 agents)
-- Skill-based agent recommendations
-- Automatic task assignment by capability match
-- Multiple output format support (PDF, DOCX, XLSX, code, etc.)
-- Team validation with cost estimation
-- Complete API documentation (Swagger/OpenAPI)
-
-**Usage Example**:
-```bash
-# Create project with custom team
-curl -X POST http://localhost:8000/api/v1/projects \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "Q1 Marketing Campaign",
-    "deliverable_type": "marketing_campaign",
-    "selected_agents": ["ceo_001", "cmo_001", "designer_001"]
-  }'
-
-# Find capable agents
-curl http://localhost:8000/api/v1/agents/by-capability/python
-
-# Validate team
-curl -X POST http://localhost:8000/api/v1/agents/validate-team \
-  -H "Content-Type: application/json" \
-  -d '{
-    "agent_ids": ["ceo_001", "cto_001", "backend_001"],
-    "deliverable_type": "software_mvp"
-  }'
+```
+You ──► "Build me a customer feedback portal"
+         │
+         ▼
+    ┌──────────────────────────────────────────┐
+    │  CEO plans  →  CTO designs the approach   │
+    │       ↓                                   │
+    │  PM breaks it into tasks                  │
+    │       ↓                                   │
+    │  Engineers + Designer execute in parallel │
+    │       ↓                                   │
+    │  HR agent monitors health, escalates      │
+    └──────────────────────────────────────────┘
+         │
+         ▼
+You ◄── Working code, docs, and a deployable project
 ```
 
-**See [PHASE_1_COMPLETE.md](PHASE_1_COMPLETE.md) for full details.**
+---
+
+## Table of contents
+
+- [What makes this different](#what-makes-this-different)
+- [Core concepts](#core-concepts) — read this before the code
+- [Quick start](#quick-start) — running in about 15 minutes
+- [Your first project](#your-first-project)
+- [How the system works](#how-the-system-works)
+- [Project structure](#project-structure)
+- [Common tasks](#common-tasks)
+- [Troubleshooting](#troubleshooting)
+- [Where to go next](#where-to-go-next)
 
 ---
 
-## Phase 0: Flexible Multi-Agent Foundation
+## What makes this different
 
-Deviant evolved from a specialized 7-agent software development platform into a flexible multi-agent business operations system.
+Most AI agent tools give you one assistant, or a flat swarm of identical workers. Retinue models a **company**: roles, hierarchy, departments, and escalation paths.
 
-### Phase 0 Highlights
+| | Single assistant (ChatGPT) | Agent swarms (AutoGPT) | Retinue |
+|---|---|---|---|
+| Structure | One generalist | Flat, unstructured | Org chart with roles |
+| Delegation | You do it manually | Emergent, often chaotic | PM agent assigns by skill |
+| When stuck | Tells you | Loops or drifts | Escalates to a human |
+| Output | Text in a chat | Scattered files | Packaged deliverables |
 
-**Expanded Agent System:**
-- **25 Agents** across 9 departments (Executive, Engineering, Marketing, Finance, Sales, HR, Operations, Legal, Research)
-- **Dynamic Agent Registry** - Centralized catalog with metadata-driven agent management
-- **Flexible Project Teams** - Custom agent selection per project instead of fixed 7-agent teams
-- **Multiple Output Formats** - PDF, DOCX, XLSX, code, and more
-- **10 Deliverable Types** - Software MVP, marketing campaigns, financial analysis, proposals, and more
-- **Backward Compatible** - All existing projects continue to work unchanged
-
-**Key Features:**
-- AgentRegistry system with 25 configurable agents
-- Capability-based agent matching for task assignment
-- Team composition validation
-- Department-based organization
-- Specialization tracking and skill matching
-- 66 comprehensive tests (52 unit + 14 integration)
-- Non-breaking database migration with full downgrade support
-
-## Phase 1 MVP: 7-Agent System
-
-A multi-agent AI system that operates like a real company, with 7 AI agents working together to build software projects autonomously.
-
-### Phase 1 Agents
-
-**7 Core Agents:**
-- **CEO Agent** - Strategic orchestrator
-- **CTO Agent** - Technical oversight
-- **Project Manager Agent** - Task coordination
-- **HR Agent** - Agent monitoring and health
-- **Senior Backend Engineer Agent** - Server-side development
-- **Senior Frontend Engineer Agent** - Client-side development
-- **Product Designer Agent** - UI/UX design
-
-**Plus 18 Additional Agents (Phase 0):**
-- **Marketing**: CMO, Content Specialist, Social Media Manager
-- **Finance**: CFO, Financial Analyst
-- **Sales**: Sales Manager
-- **HR**: CHRO, HR Specialist
-- **Legal**: Legal Counsel
-- **Research**: Research Analyst, Data Analyst
-- **Operations**: COO
-
-**Tech Stack:**
-- Backend: Python 3.11+, FastAPI, SQLAlchemy, Alembic
-- Database: PostgreSQL 15+, Redis 7+
-- AI: Anthropic Claude 3.5 Sonnet
-- Frontend: Next.js 14+ (coming soon)
-- Infrastructure: Docker, Docker Compose
+The bet is that **structure is what makes autonomy safe**. A CTO agent reviewing a backend agent's plan catches things neither would catch alone, and an explicit escalation path means the system asks instead of guessing.
 
 ---
 
-## Quick Start (Windows PowerShell)
+## Core concepts
+
+Five ideas explain almost everything. Learn these and the codebase will make sense.
+
+### 1. Agent
+
+A specialist with a role, a department, and a set of capabilities. Each agent is a Python class that knows how to plan and execute a certain kind of work.
+
+There are **25 agents across 9 departments** (Executive, Engineering, Marketing, Finance, Sales, HR, Operations, Legal, Research). **7 are fully implemented** and do real work today:
+
+| Agent | Department | Responsibility |
+|---|---|---|
+| CEO | Executive | Sets direction, approves plans, resolves conflicts |
+| CTO | Engineering | Technical decisions, architecture review |
+| Project Manager | Operations | Breaks goals into tasks, assigns, tracks |
+| HR | HR | Monitors agent health, detects stuck agents |
+| Backend Engineer | Engineering | Server-side implementation |
+| Frontend Engineer | Engineering | Client-side implementation |
+| Product Designer | Engineering | UI/UX and design assets |
+
+The other 18 are registered in the **AgentRegistry** with metadata and capabilities — they can be selected onto teams and assigned tasks, but their specialized execution logic is still being built out.
+
+> **Registry vs. implementation.** `AgentRegistry` (`backend/app/agents/agent_registry.py`) is the catalog of *who exists and what they're good at*. The agent classes next to it are *how they actually work*. The registry is why you can add an agent's metadata without writing its executor first.
+
+### 2. Project
+
+A goal plus the team assigned to it. You pick a **deliverable type** (software MVP, marketing campaign, financial analysis, proposal, and others) and either accept the recommended team or hand-pick agents.
+
+### 3. Task
+
+A unit of work owned by exactly one agent. The PM agent creates tasks, and the system assigns them by **capability matching** — comparing a task's required skills against each agent's declared capabilities and scoring the fit.
+
+### 4. Escalation
+
+When an agent is blocked, uncertain, or hits a decision above its authority, it escalates instead of guessing. Escalations surface in the dashboard and wait for you. This is the human-in-the-loop control that keeps autonomy from becoming unpredictability.
+
+### 5. Knowledge base
+
+A RAG-backed store of project context, company knowledge, and past learnings that agents query before acting, so they build on what the system already knows rather than starting cold each time.
+
+---
+
+## Quick start
+
+This gets you a running system with agents doing real work. Budget **~15 minutes**, most of it waiting on installs.
 
 ### Prerequisites
 
-1. **Install Docker Desktop for Windows**
-   - Download from: https://www.docker.com/products/docker-desktop
-   - Make sure it's running before proceeding
+| Requirement | Version | Notes |
+|---|---|---|
+| Docker Desktop | Any recent | Runs PostgreSQL + Redis |
+| Python | 3.11+ | Backend |
+| Node.js | 18+ | Frontend |
+| Anthropic API key | — | Get one at [console.anthropic.com](https://console.anthropic.com/) |
 
-2. **Install Python 3.11+**
-   - Download from: https://www.python.org/downloads/
-   - Make sure to check "Add Python to PATH" during installation
+> **Cost warning.** Agents make real Claude API calls. A small project typically costs a few dollars. Start with something small and watch your usage the first time.
 
-3. **Get Anthropic API Key**
-   - Sign up at: https://console.anthropic.com/
-   - Create an API key
-   - You'll need this for the `.env` file
+> **Don't run `docker-compose up` bare.** The compose file declares `backend` and `frontend` services, but `frontend/Dockerfile` doesn't exist yet and the containers skip database setup. Start only the data services, as below, and run the app natively — that's the supported path and it's better for development anyway.
 
-### Step 1: Clone and Setup
+### Step 1 — Configure your environment
 
-```powershell
-# Navigate to the project directory
-cd Domains\02-shoman-saas-domain\apps\Deviant
-
-# Create environment file from example
-Copy-Item .env.example .env
-
-# Edit .env file with your API keys
-notepad .env
-# Add your ANTHROPIC_API_KEY and set a secure DB_PASSWORD
+```bash
+cp .env.example .env
 ```
 
-### Step 2: Start Infrastructure (PostgreSQL & Redis)
+Open `.env` and set two values:
 
-```powershell
-# Start PostgreSQL and Redis
+```bash
+ANTHROPIC_API_KEY=sk-ant-...      # required — nothing works without this
+DB_PASSWORD=pick_something_secure # required — used by Postgres and the backend
+```
+
+### Step 2 — Start PostgreSQL and Redis
+
+```bash
 docker-compose up -d postgres redis
-
-# Wait for services to be healthy (about 30 seconds)
-docker-compose ps
+docker-compose ps        # both should read "healthy" after ~30s
 ```
 
-### Step 3: Setup Python Environment
+### Step 3 — Set up the backend
 
-```powershell
-# Create virtual environment
+```bash
 cd backend
 python -m venv venv
 
-# Activate virtual environment
-.\venv\Scripts\Activate.ps1
+# macOS / Linux
+source venv/bin/activate
+# Windows PowerShell
+venv\Scripts\Activate.ps1
 
-# Install dependencies
 pip install -r requirements.txt
 ```
 
-### Step 4: Initialize Database
+### Step 4 — Create and seed the database
 
-```powershell
-# Create database tables (while in backend directory with venv activated)
-alembic upgrade head
+Run these in order. Each one is safe to re-run.
 
-# Initialize database with departments, deliverable types, and agent metadata
-python -m app.scripts.init_database
-
-# Initialize the 7 core agents
-python -m app.scripts.init_agents
+```bash
+alembic upgrade head                        # create all tables
+python -m app.scripts.init_agents           # register the 7 core agents
+python -m app.scripts.seed_agent_expertise  # tag agents for skill matching
+python -m app.scripts.init_knowledge_system # optional: knowledge base categories
 ```
 
-### Step 5: Start Backend Server
+Verify it worked:
 
-```powershell
-# Start FastAPI backend
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```bash
+python -m app.scripts.verify_database
 ```
 
-The API will be available at: http://localhost:8000
+### Step 5 — Start the backend
 
-API Documentation (Swagger): http://localhost:8000/docs
+```bash
+uvicorn app.main:app --reload --port 8000
+```
+
+Confirm it's alive: open **http://localhost:8000/docs** for interactive API documentation.
+
+### Step 6 — Start the frontend
+
+In a **second terminal**:
+
+```bash
+cd frontend
+npm install
+cp .env.example .env.local   # defaults point at localhost:8000
+npm run dev
+```
+
+Open **http://localhost:3000**.
+
+### You should now have
+
+| Service | URL | What it is |
+|---|---|---|
+| Dashboard | http://localhost:3000 | The UI you'll work in |
+| API docs | http://localhost:8000/docs | Swagger, fully interactive |
+| Health check | http://localhost:8000/health | Should return a healthy status |
+| PostgreSQL | localhost:5432 | Database `ai_company`, user `agent` |
+| Redis | localhost:6379 | Cache and event bus |
+
+Stuck? Jump to [Troubleshooting](#troubleshooting).
 
 ---
 
-## Testing the System
+## Your first project
 
-### Option 1: Using the API (Swagger UI)
+### From the dashboard
 
-1. Open http://localhost:8000/docs in your browser
-2. Use the `POST /api/v1/projects` endpoint
-3. Submit a project request:
+1. Open http://localhost:3000 and create a new project.
+2. Give it a goal — be specific. *"A task tracker with user login, projects, and due dates"* works far better than *"a productivity app."*
+3. Pick a deliverable type (start with **Software MVP**).
+4. Accept the recommended team, or hand-pick agents.
+5. Create it, then watch the **Tasks** and **Messages** views as agents plan and execute.
 
-```json
-{
-  "name": "Simple Todo App",
-  "description": "Build a todo list app with user authentication, CRUD operations, and a clean UI",
-  "priority": "high"
-}
+### From the API
+
+```bash
+# Create a project with a custom team
+curl -X POST http://localhost:8000/api/v1/projects \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Customer Feedback Portal",
+    "description": "A web app where customers submit and vote on feature requests",
+    "deliverable_type": "software_mvp",
+    "selected_agents": ["ceo_001", "cto_001", "backend_001", "frontend_001"]
+  }'
+
+# Watch it progress
+curl http://localhost:8000/api/v1/projects/{project_id}
+curl http://localhost:8000/api/v1/agents/status
 ```
 
-4. Monitor progress using `GET /api/v1/projects/{project_id}`
-5. Check agent status with `GET /api/v1/agents/status`
+Useful helper endpoints while you're picking a team:
 
-### Option 2: Using curl (PowerShell)
+```bash
+# Which agents can do Python?
+curl http://localhost:8000/api/v1/agents/by-capability/python
 
-```powershell
-# Create a new project
-$body = @{
-    name = "Todo App Test"
-    description = "Build a simple todo app with auth and database"
-    priority = "high"
-} | ConvertTo-Json
-
-$response = Invoke-RestMethod -Uri "http://localhost:8000/api/v1/projects" `
-    -Method Post `
-    -ContentType "application/json" `
-    -Body $body
-
-# Save the project ID
-$projectId = $response.project_id
-
-# Check project status
-Invoke-RestMethod -Uri "http://localhost:8000/api/v1/projects/$projectId"
-
-# View all agent statuses
-Invoke-RestMethod -Uri "http://localhost:8000/api/v1/agents/status"
-
-# View dashboard data
-Invoke-RestMethod -Uri "http://localhost:8000/api/v1/dashboard"
+# Is this team viable for this deliverable? (returns gaps + cost estimate)
+curl -X POST http://localhost:8000/api/v1/agents/validate-team \
+  -H "Content-Type: application/json" \
+  -d '{"agent_ids": ["ceo_001","cto_001"], "deliverable_type": "software_mvp"}'
 ```
 
-## Architecture
-- [System Architecture](https://claude.ai/public/artifacts/e4fd68ed-4c03-481a-9bf7-4308a923f31d)
-- [Event Driven Workflow](https://claude.ai/public/artifacts/4ea9a4c2-7794-4a4e-99b8-a5b267262ffa)
+Browse the full endpoint list at http://localhost:8000/docs.
 
-## Project Structure
+### What to expect
+
+The first minutes are mostly planning — the CEO and CTO agents think before anyone writes code. Tasks appear, get assigned, and move through states. If an agent gets blocked you'll see an **escalation** waiting for your decision. That's the system working as designed, not an error.
+
+---
+
+## How the system works
+
+### Request flow
 
 ```
-Deviant/
+Browser (Next.js)
+   │  REST for actions, WebSocket for live updates
+   ▼
+FastAPI  (backend/app/main.py)
+   │
+   ├── API layer      backend/app/api/       route handlers, validation
+   ├── Service layer  backend/app/services/  business logic, orchestration
+   ├── Agent layer    backend/app/agents/    planning + execution, calls Claude
+   └── Data layer     backend/app/db/        SQLAlchemy models
+         │
+         ├── PostgreSQL   projects, tasks, agents, messages, escalations
+         └── Redis        caching + event bus between agents
+```
+
+### How agents coordinate
+
+Agents communicate through an **event bus** rather than calling each other directly. When a task completes, an event fires and interested agents react. This keeps agents decoupled — a new agent subscribes to events without any existing agent needing to know it exists.
+
+A **hybrid model** runs alongside it: events drive immediate reactions, while periodic polling catches anything missed, so a dropped event degrades throughput instead of stalling the project.
+
+The **HR agent** independently monitors the others, watching for agents stuck on a task or looping, and escalates when it finds one.
+
+### Tech stack
+
+**Backend** — Python 3.11, FastAPI, SQLAlchemy 2.0 (async), Alembic, asyncpg, Redis, WebSockets, Anthropic Claude SDK
+
+**Frontend** — Next.js 14 (App Router), React 18, TypeScript, TanStack Query, Axios
+
+**Infrastructure** — PostgreSQL 15, Redis 7, Docker Compose
+
+---
+
+## Project structure
+
+```
+.
 ├── backend/
-│   ├── alembic/              # Database migrations
-│   │   └── versions/         # Migration files (including Phase 0 additions)
 │   ├── app/
-│   │   ├── agents/
-│   │   │   ├── agent_registry.py     # NEW: Centralized 25-agent catalog (Phase 0)
-│   │   │   ├── base_agent.py
-│   │   │   ├── ceo_agent.py
-│   │   │   ├── cto_agent.py
-│   │   │   ├── pm_agent.py
-│   │   │   ├── hr_agent.py
-│   │   │   ├── backend_engineer_agent.py
-│   │   │   ├── frontend_engineer_agent.py
-│   │   │   └── designer_agent.py
-│   │   ├── api/              # FastAPI routes
-│   │   ├── core/             # Core utilities
-│   │   ├── db/               # Database models and connection
-│   │   │   └── models.py     # UPDATED: Phase 0 models (departments, deliverables)
-│   │   ├── scripts/
-│   │   │   ├── init_database.py      # NEW: Initialize Phase 0 data (Phase 0)
-│   │   │   └── init_agents.py        # Initialize agents
-│   │   ├── utils/
-│   │   │   └── agent_capabilities.py # NEW: Agent capability utilities (Phase 0)
-│   │   └── tests/
-│   │       ├── test_agent_registry.py        # NEW: 52 tests (Phase 0)
-│   │       └── test_database_integration.py  # NEW: 14 tests (Phase 0)
-│   ├── output/               # Generated code output
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── alembic.ini
-├── frontend/                 # Next.js dashboard
-├── docs/                     # Documentation
-├── PHASE_0_COMPLETE.md       # Phase 0 completion summary
-├── PHASE_0_PROGRESS.md       # Phase 0 detailed progress
-├── docker-compose.yml
-├── .env.example
-└── README.md
+│   │   ├── main.py          # FastAPI entry point — start reading here
+│   │   ├── agents/          # agent implementations + AgentRegistry
+│   │   ├── api/             # HTTP route handlers, one module per resource
+│   │   ├── services/        # business logic and orchestration
+│   │   ├── db/              # SQLAlchemy models
+│   │   ├── schemas/         # Pydantic request/response models
+│   │   ├── core/            # config, settings
+│   │   ├── scripts/         # setup, seeding, verification
+│   │   ├── templates/       # PDF/export templates
+│   │   └── workers/         # background jobs
+│   ├── alembic/versions/    # database migrations
+│   ├── tests/
+│   └── requirements.txt
+│
+├── frontend/                # Next.js dashboard (the product UI)
+│   └── src/
+│       ├── app/             # App Router pages
+│       ├── components/      # UI components by feature
+│       └── hooks/           # data fetching (TanStack Query)
+│
+├── website/                 # Marketing site — separate from the product
+├── docs/                    # Documentation (start at docs/README.md)
+├── ProductRoadmap/          # Per-feature specifications
+└── docker-compose.yml       # PostgreSQL + Redis for local dev
 ```
+
+**Where to start reading code:** `backend/app/main.py` → `backend/app/api/projects.py` → `backend/app/agents/base_agent.py` → `backend/app/agents/ceo_agent.py`. That path takes you from an HTTP request to an agent thinking.
 
 ---
 
-## Development Workflow
+## Common tasks
 
-### Running Migrations
+### Database migrations
 
-```powershell
-# Create a new migration after model changes
+```bash
 cd backend
-alembic revision --autogenerate -m "Description of changes"
-
-# Apply migrations
-alembic upgrade head
-
-# Rollback last migration
-alembic downgrade -1
+alembic revision --autogenerate -m "describe your change"   # after editing models
+alembic upgrade head                                        # apply
+alembic downgrade -1                                        # roll back one
 ```
 
-### Viewing Logs
+### Running tests
 
-```powershell
-# View all container logs
-docker-compose logs -f
-
-# View specific service logs
-docker-compose logs -f postgres
-docker-compose logs -f redis
-docker-compose logs -f backend
-
-# View Python application logs
-# (When running backend directly, logs appear in console)
+```bash
+cd backend
+pytest tests/                              # everything
+pytest tests/test_agent_registry.py -v     # one file
 ```
 
-### Database Access
+### Inspecting data
 
-```powershell
-# Connect to PostgreSQL
+```bash
+# PostgreSQL
 docker-compose exec postgres psql -U agent -d ai_company
+#   \dt                        list tables
+#   SELECT * FROM agents;      see registered agents
 
-# Common SQL commands:
-\dt                 # List tables
-\d+ agents          # Describe agents table
-SELECT * FROM agents;
-SELECT * FROM agent_status;
-SELECT * FROM projects;
-SELECT * FROM tasks ORDER BY created_at DESC;
-\q                  # Quit
-```
-
-### Redis Access
-
-```powershell
-# Connect to Redis
+# Redis
 docker-compose exec redis redis-cli
-
-# Common Redis commands:
-KEYS *              # List all keys
-GET agent_status:ceo_001
-HGETALL agent_status:ceo_001
-QUIT                # Quit
+#   KEYS *
 ```
 
----
+### Logs
 
-## Configuration
-
-### Environment Variables
-
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `ANTHROPIC_API_KEY` | Yes | Your Anthropic API key for Claude |
-| `DB_PASSWORD` | Yes | PostgreSQL password |
-| `OPENAI_API_KEY` | No | Optional fallback LLM |
-| `ENVIRONMENT` | No | `development` or `production` |
-| `LOG_LEVEL` | No | `DEBUG`, `INFO`, `WARNING`, `ERROR` |
-| `JWT_SECRET` | No | Secret for JWT tokens (future use) |
-
-### Agent Configuration
-
-Agents are initialized with predefined roles and prompts. See:
-- `backend/app/agents/` for individual agent implementations
-- `backend/app/scripts/init_agents.py` for initialization
-
----
-
-## Using the AgentRegistry System (Phase 0)
-
-### Quick Reference
-
-```python
-from app.agents import AgentRegistry, Specialization, Department
-
-# Get agent configuration
-config = AgentRegistry.get_agent_config('cmo_001')
-
-# Get agents by department
-marketing_agents = AgentRegistry.get_agents_by_department(Department.MARKETING)
-
-# Get required agents for a deliverable type
-required = AgentRegistry.get_required_agents('marketing_campaign')
-
-# Find agents by capability
-python_devs = AgentRegistry.get_agents_by_capability(Specialization.PYTHON)
-
-# Check if agent can handle a task
-can_handle, missing = AgentRegistry.validate_agent_selection(['ceo_001', 'cmo_001'])
-
-# Get detailed agent information
-summary = AgentRegistry.get_agent_capability_summary('backend_001')
+```bash
+docker-compose logs -f postgres redis   # data services
+# Backend and frontend log to their own terminals when run natively
 ```
 
-### Key Concepts
+### Stopping
 
-**Departments**: Organize agents by business function
-- Executive, Engineering, Marketing, Sales, Finance, HR, Operations, Legal, Research
-
-**Specializations**: Represent agent skills and capabilities
-- PYTHON, FASTAPI, REACT, UI_DESIGN, STRATEGY, ANALYTICS, FINANCIAL_ANALYSIS, etc.
-
-**Output Types**: What agents can produce
-- CODE, DOCUMENT, PRESENTATION, ANALYSIS, REPORT, etc.
-
-**Deliverable Types**: Project types with predefined team composition
-- software_mvp, marketing_campaign, financial_analysis, business_proposal, etc.
-
-### Agent Capability Utilities
-
-Use `agent_capabilities.py` utilities for task assignment:
-
-```python
-from app.utils.agent_capabilities import (
-    can_agent_handle_task,
-    find_capable_agents,
-    validate_team_composition,
-    calculate_skill_match,
-    suggest_agents_for_task
-)
-
-# Check if agent has required skills
-can_handle, missing = can_agent_handle_task(
-    'backend_001',
-    required_skills=['python', 'fastapi'],
-    required_output_type='code'
-)
-
-# Find agents for a task
-agents = find_capable_agents(
-    required_skills=['marketing_strategy', 'content_writing'],
-    required_output_type='document'
-)
-
-# Validate team composition
-is_valid, issues = validate_team_composition(['ceo_001', 'cto_001', 'backend_001'])
-
-# Calculate match score (0.0-1.0)
-score = calculate_skill_match('backend_001', ['python', 'fastapi'])
-
-# Get agent recommendations
-suggestions = suggest_agents_for_task('design', ['ui_design', 'ux_strategy'])
-```
-
-### Creating Projects with AgentRegistry
-
-```python
-from app.db.models import Project, ProjectStatus, Priority
-from app.agents import AgentRegistry
-
-# Get agents for a specific deliverable type
-selected_agents = AgentRegistry.get_required_agents('marketing_campaign')
-
-# Create project with custom team
-project = Project(
-    name='Q1 Marketing Campaign',
-    project_type='marketing_campaign',
-    deliverable_type='marketing_campaign',
-    selected_agents=selected_agents,
-    status=ProjectStatus.PLANNING,
-    priority=Priority.HIGH,
-    owner_agent_id='ceo_001'
-)
-
-# Database will validate team composition automatically
-```
-
-### Available Agents (25 Total)
-
-See `PHASE_0_COMPLETE.md` for full agent list with details, or run:
-
-```python
-from app.agents import AgentRegistry
-
-# List all agents
-for agent_id, config in AgentRegistry.AGENT_CATALOG.items():
-    print(f"{agent_id}: {config['name']} ({config['department']})")
+```bash
+docker-compose down       # stop, keep data
+docker-compose down -v    # stop and DELETE all data
 ```
 
 ---
 
 ## Troubleshooting
 
-### Issue: Docker containers won't start
+### `ANTHROPIC_API_KEY not set`
 
-```powershell
-# Check Docker is running
-docker --version
-docker-compose --version
+`.env` must exist in the **repository root** and contain a valid key. The backend reads it at startup, so restart the backend after editing. Verify the key at [console.anthropic.com](https://console.anthropic.com/).
 
-# Restart Docker Desktop
-# Check container status
-docker-compose ps
+### Database connection errors
 
-# View container logs for errors
-docker-compose logs postgres
-docker-compose logs redis
-```
+Check Postgres is healthy with `docker-compose ps`. The defaults are user `agent`, database `ai_company`, and the password comes from `DB_PASSWORD` in `.env`. If you set `DATABASE_URL` by hand, make sure it matches `docker-compose.yml`.
 
-### Issue: Database connection errors
+To start completely fresh (**this deletes all data**):
 
-```powershell
-# Ensure PostgreSQL is healthy
-docker-compose ps
-
-# Check the DATABASE_URL in .env matches docker-compose.yml
-# Default: postgresql+asyncpg://agent:your_password@localhost:5432/ai_company
-
-# Recreate database
+```bash
 docker-compose down -v
 docker-compose up -d postgres redis
-# Wait 30 seconds
-cd backend
-alembic upgrade head
+# wait ~30s for health checks
+cd backend && alembic upgrade head && python -m app.scripts.init_agents
 ```
 
-### Issue: "ANTHROPIC_API_KEY not set" error
+### `docker-compose up` fails on the frontend service
 
-```powershell
-# Make sure .env file exists and contains your API key
-cat .env | Select-String "ANTHROPIC"
+Expected — `frontend/Dockerfile` doesn't exist yet. Use `docker-compose up -d postgres redis` and run the apps natively.
 
-# Verify the key is valid at https://console.anthropic.com/
+### Port already in use
 
-# Restart the backend after updating .env
+```bash
+# macOS / Linux
+lsof -i :8000
+# Windows PowerShell
+netstat -ano | findstr :8000
 ```
 
-### Issue: Port already in use
+Kill the process, or change the port (`uvicorn --port 8001`, `npm run dev -- -p 3001`).
 
-```powershell
-# Check what's using the port
-netstat -ano | findstr :8000    # For backend
-netstat -ano | findstr :5432    # For PostgreSQL
-netstat -ano | findstr :6379    # For Redis
+### Agents aren't picking up tasks
 
-# Change ports in docker-compose.yml or stop conflicting services
-```
+1. Confirm they were registered: `curl http://localhost:8000/api/v1/agents/status`
+2. If that's empty, run `python -m app.scripts.init_agents`
+3. Check the backend terminal for Claude API errors (rate limits, invalid key, insufficient credits)
 
-### Issue: Agents not processing tasks
+### Frontend loads but shows no data
 
-```powershell
-# Check agent statuses
-Invoke-RestMethod -Uri "http://localhost:8000/api/v1/agents/status"
-
-# Check for errors in agent logs
-docker-compose logs -f backend
-
-# Verify agents were initialized
-docker-compose exec postgres psql -U agent -d ai_company -c "SELECT agent_id, name, role FROM agents;"
-```
+The API base URL is wrong or the backend is down. Confirm `curl http://localhost:8000/health` responds, then check `NEXT_PUBLIC_API_URL` in `frontend/.env.local`.
 
 ---
 
-## Testing
+## Where to go next
 
-### Run Unit Tests
+### Getting productive
 
-```powershell
-cd backend
-pytest app/tests/ -v
-```
+- **[docs/GETTING-STARTED.md](docs/GETTING-STARTED.md)** — the setup guide in more depth, with verification at every step
+- **[docs/README.md](docs/README.md)** — the full documentation map
+- **http://localhost:8000/docs** — interactive API reference, the fastest way to explore endpoints
 
-### Run Integration Tests
+### Understanding the design
 
-```powershell
-cd backend
-pytest app/tests/integration/ -v
-```
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — system architecture in detail
+- **[docs/articles/](docs/articles/)** — long-form writing on why the system is built this way
+- **[ProductRoadmap/](ProductRoadmap/)** — per-feature specifications (projects, tasks, escalations, knowledge base, auth)
 
-### End-to-End Test
+### Operating it
 
-```powershell
-# This will test the full workflow
-cd backend
-pytest app/tests/test_e2e.py -v -s
-```
+- **[docs/DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md)** — deploying to production
+- **[docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md)** — what's built and what's in progress
 
 ---
 
-## Current Implementation Status
+## Project status
 
-### ✅ Phase 0: Flexible Foundation (COMPLETE)
+Retinue is in **active development**. The 7 core agents, the REST API, the dashboard, real-time updates, escalations, and the knowledge base all work end to end. The remaining 18 agents are registered and selectable but still gaining their specialized execution logic.
 
-- [x] AgentRegistry system with 25 agents
-- [x] 9 departments across organization
-- [x] 30+ specializations and capabilities
-- [x] 10 deliverable types
-- [x] Database migration with new tables and columns
-- [x] Agent capability utilities
-- [x] Backward compatible schema updates
-- [x] 66 comprehensive tests (52 unit + 14 integration)
-- [x] Non-breaking changes to existing data
-
-### ✅ Stage 1: All 7 Agents (COMPLETE)
-
-- [x] Project structure
-- [x] Docker Compose configuration
-- [x] PostgreSQL database schema (10 tables)
-- [x] SQLAlchemy models with async support
-- [x] Alembic migrations
-- [x] Base agent class with LLM integration
-- [x] CEO Agent - Strategic decisions and project evaluation
-- [x] CTO Agent - Technical guidance and code review
-- [x] PM Agent - Task breakdown and coordination
-- [x] HR Agent - Agent health monitoring
-- [x] Backend Engineer Agent - Python/FastAPI code generation
-- [x] Frontend Engineer Agent - React/Next.js code generation
-- [x] Designer Agent - UI/UX specifications
-- [x] Database connection and session management
-- [x] Environment configuration
-
-### ✅ Stage 2: API & Orchestration (COMPLETE)
-
-- [x] FastAPI routes with 15+ endpoints
-- [x] Main orchestrator (app.main) with agent lifecycle
-- [x] Agent initialization script
-- [x] Complete REST API with Swagger docs
-- [x] Dashboard endpoint with metrics
-- [x] Health monitoring endpoints
-- [x] Message and task filtering
-- [x] Audit logging system
-
-### ✅ Stage 3: Frontend Dashboard (COMPLETE)
-
-- [x] Next.js 14 dashboard with App Router
-- [x] Real-time project monitoring UI with auto-refresh
-- [x] Agent status visualization with health indicators
-- [x] Interactive task board with filtering
-- [x] Message feed viewer with real-time updates
-- [x] Dark mode support
-- [x] Fully responsive design (mobile/tablet/desktop)
-- [x] TypeScript throughout
-- [x] React Query for state management
-- [x] Beautiful UI with TailwindCSS
-
-### 📋 Future Enhancements (Phase 2+)
-
-- [ ] Code execution environment
-- [ ] File generation system
-- [ ] Multi-project parallel processing
-- [ ] Additional specialist agents
-- [ ] Production deployment configuration
-- [ ] Monitoring and alerting (Prometheus/Grafana)
-
----
-
-## What You Can Do Now
-
-### ✅ Available Features
-
-All Phase 1 MVP features are **fully operational**:
-
-- **Create Projects**: Submit project requests via REST API or beautiful UI
-- **Autonomous Agents**: 7 AI agents work together without human intervention
-- **Complete Workflow**: From project request to code generation
-- **Code Generation**: Backend (Python/FastAPI) and Frontend (React/Next.js) code
-- **Design Specs**: Detailed UI/UX specifications
-- **Monitoring**: Real-time agent status and task tracking via dashboard
-- **Communication**: View inter-agent messages and decisions
-- **Audit Trail**: Complete history of all agent actions
-- **Modern Dashboard**: Next.js 14 frontend with real-time updates and dark mode
-
-### 🎯 Next Steps
-
-1. **Test the System** - Follow [TESTING_GUIDE.md](TESTING_GUIDE.md) or use the dashboard at http://localhost:3000
-2. **Deploy** - Production deployment guide available
-3. **Expand** - Phase 2 features (more agents, file generation, code execution, etc.)
-
----
-
-## Resources
-
-### Documentation
-
-**Phase 1 Documentation:**
-- **[PHASE_1_COMPLETE.md](PHASE_1_COMPLETE.md)** - Complete Phase 1 API implementation summary
-- **[PHASE_1_SUMMARY.md](PHASE_1_SUMMARY.md)** - Quick executive summary
-- **[PHASE_1_PLAN.md](PHASE_1_PLAN.md)** - Detailed implementation plan
-
-**Phase 0 Documentation:**
-- **[PHASE_0_COMPLETE.md](PHASE_0_COMPLETE.md)** - Complete Phase 0 implementation summary
-- **[PHASE_0_PROGRESS.md](PHASE_0_PROGRESS.md)** - Detailed Phase 0 progress tracking
-
-**Phase 1 & Setup Documentation:**
-- **[QUICK_START.md](QUICK_START.md)** - Get running locally in 5 minutes
-- **[COMPLETE_SETUP_GUIDE.md](COMPLETE_SETUP_GUIDE.md)** - Full local setup guide
-- **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - Comprehensive test scenarios
-- **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** - Complete deployment documentation
-- **[DEPLOYMENT_QUICK_START.md](DEPLOYMENT_QUICK_START.md)** - Deploy to production in 30 minutes
-- **[PROJECT_STATUS.md](PROJECT_STATUS.md)** - Current implementation status
-- **[STAGE_1_COMPLETE.md](STAGE_1_COMPLETE.md)** - Agent implementation details
-- **[STAGE_2_COMPLETE.md](STAGE_2_COMPLETE.md)** - API documentation
-- **[STAGE_3_COMPLETE.md](STAGE_3_COMPLETE.md)** - Frontend dashboard details
-- **`docs/` folder** - Detailed architecture and business plan
-
-### Live Resources
-- **API Docs**: http://localhost:8000/docs (when running)
-- **Anthropic Claude**: https://console.anthropic.com/docs
-- **FastAPI**: https://fastapi.tiangolo.com/
-- **SQLAlchemy**: https://docs.sqlalchemy.org/
-- **Next.js**: https://nextjs.org/docs
-
----
-
-## Support & Contributing
-
-For issues, questions, or contributions, please refer to the project documentation in the `docs/` folder.
-
-## License
-
-[Add your license here]
-
----
-
-## Phase 1 MVP - Success! ✅
-
-**Goal**: Build a working 7-agent system that can complete projects autonomously.
-
-**Success Criteria** (All Met):
-- ✅ All 7 agents operational with 15-minute check cycles
-- ✅ Complete end-to-end workflow (human request → code output)
-- ✅ Autonomous operation with zero human intervention required
-- ✅ High-quality code generation (Backend, Frontend, Design)
-- ✅ Real-time monitoring and status tracking
-- ✅ Complete audit trail and message history
-
-**Timeline**: Simple projects complete in ~3 hours with time-compressed agent work (1 hour = 1 agent day)
-
-**Ready to Use**: Follow [QUICK_START.md](QUICK_START.md) to get started in 5 minutes!
+See **[docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md)** for a detailed breakdown.

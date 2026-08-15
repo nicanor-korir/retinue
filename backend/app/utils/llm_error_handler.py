@@ -17,7 +17,7 @@ from anthropic import (
     APITimeoutError as AnthropicAPITimeoutError,
 )
 
-from app.exceptions import RateLimitError, LLMError, TimeoutError as DeviantTimeoutError
+from app.exceptions import RateLimitError, LLMError, TimeoutError as RetinueTimeoutError
 
 logger = logging.getLogger(__name__)
 
@@ -33,7 +33,7 @@ DEFAULT_TIMEOUT = 60  # seconds
 def handle_llm_errors(func: Callable[..., Awaitable[T]]) -> Callable[..., Awaitable[T]]:
     """
     Decorator to handle LLM API errors with retry logic and timeout.
-    Converts Claude API exceptions to Deviant exceptions.
+    Converts Claude API exceptions to Retinue exceptions.
     """
 
     @wraps(func)
@@ -83,7 +83,7 @@ def handle_llm_errors(func: Callable[..., Awaitable[T]]) -> Callable[..., Awaita
                     logger.info(f"Retrying after {backoff} seconds...")
                     await asyncio.sleep(backoff)
                 else:
-                    raise DeviantTimeoutError(
+                    raise RetinueTimeoutError(
                         message="AI service request timed out. Please try again.",
                         operation=func.__name__,
                         timeout_seconds=timeout
@@ -104,7 +104,7 @@ def handle_llm_errors(func: Callable[..., Awaitable[T]]) -> Callable[..., Awaita
                     logger.info(f"Retrying after {backoff} seconds...")
                     await asyncio.sleep(backoff)
                 else:
-                    raise DeviantTimeoutError(
+                    raise RetinueTimeoutError(
                         message="Request timed out. Please try again.",
                         operation=func.__name__,
                         timeout_seconds=timeout
@@ -214,7 +214,7 @@ def handle_llm_errors(func: Callable[..., Awaitable[T]]) -> Callable[..., Awaita
 def extract_llm_error_message(error: Exception) -> str:
     """
     Extract a user-friendly message from LLM error.
-    Handles both Anthropic exceptions and Deviant exceptions.
+    Handles both Anthropic exceptions and Retinue exceptions.
     """
     error_str = str(error)
 
@@ -269,7 +269,7 @@ async def retry_with_exponential_backoff(
 
     Raises:
         RateLimitError: If rate limited
-        DeviantTimeoutError: If timed out
+        RetinueTimeoutError: If timed out
         LLMError: For other LLM errors
     """
     for attempt in range(max_retries):
@@ -281,7 +281,7 @@ async def retry_with_exponential_backoff(
         except Exception as e:
             if attempt == max_retries - 1:
                 # Last attempt failed, raise the error
-                if isinstance(e, (RateLimitError, DeviantTimeoutError, LLMError)):
+                if isinstance(e, (RateLimitError, RetinueTimeoutError, LLMError)):
                     raise
                 raise LLMError(
                     message=extract_llm_error_message(e),

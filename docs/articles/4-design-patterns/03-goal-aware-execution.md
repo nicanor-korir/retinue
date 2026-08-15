@@ -402,7 +402,7 @@ class GoalAlignmentMetrics:
 
 ---
 
-## Real Example: Deviant in Action
+## Real Example: Retinue in Action
 
 ### Project Intent
 
@@ -484,7 +484,7 @@ The result: agents that make decisions like informed team members, not isolated 
 
 ---
 
-*This completes the Design Patterns series. Check out Challenges for honest reflections on what goes wrong, or Future Plans for where Deviant is heading.*
+*This completes the Design Patterns series. Check out Challenges for honest reflections on what goes wrong, or Future Plans for where Retinue is heading.*
 
 ---
 

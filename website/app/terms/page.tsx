@@ -42,7 +42,7 @@ export default function TermsOfService() {
               Last Updated: November 16, 2025
             </p>
             <p className="text-lg text-[var(--body)] max-w-3xl mx-auto">
-              Please read these Terms of Service carefully before using Deviant. By accessing or using our services, you agree to be bound by these Terms.
+              Please read these Terms of Service carefully before using Retinue. By accessing or using our services, you agree to be bound by these Terms.
             </p>
           </motion.div>
         </div>
@@ -83,7 +83,7 @@ export default function TermsOfService() {
                   The Short Version
                 </h2>
                 <ul className="space-y-2 text-[var(--body)]">
-                  <li>✅ Use Deviant responsibly</li>
+                  <li>✅ Use Retinue responsibly</li>
                   <li>✅ You own the code generated</li>
                   <li>✅ We provide the service "as-is"</li>
                   <li>✅ Don't abuse the platform</li>
@@ -101,7 +101,7 @@ export default function TermsOfService() {
 
               <h3 className="text-xl font-semibold mb-3">1.1 Binding Agreement</h3>
               <p className="mb-4 text-[var(--body)]">
-                By accessing or using Deviant (deviant.eu), you agree to be bound by these Terms. If you don't agree, don't use our services.
+                By accessing or using Retinue (retinue.team), you agree to be bound by these Terms. If you don't agree, don't use our services.
               </p>
 
               <h3 className="text-xl font-semibold mb-3">1.2 Age Requirement</h3>
@@ -114,7 +114,7 @@ export default function TermsOfService() {
 
               <h3 className="text-xl font-semibold mb-3">1.3 Authority</h3>
               <p className="mb-4 text-[var(--body)]">
-                If using Deviant for a company, you have authority to bind that company to these Terms.
+                If using Retinue for a company, you have authority to bind that company to these Terms.
               </p>
 
               <h3 className="text-xl font-semibold mb-3">1.4 Changes to Terms</h3>
@@ -127,9 +127,9 @@ export default function TermsOfService() {
             <section id="service" className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-[var(--heading)]">2. Description of Service</h2>
 
-              <h3 className="text-xl font-semibold mb-3">2.1 What Deviant Provides</h3>
+              <h3 className="text-xl font-semibold mb-3">2.1 What Retinue Provides</h3>
               <p className="mb-4 text-[var(--body)]">
-                Deviant is an autonomous AI software development platform featuring:
+                Retinue is an autonomous AI software development platform featuring:
               </p>
               <ul className="list-disc pl-6 mb-4 text-[var(--body)]">
                 <li>7 specialized AI agents (CEO, CTO, PM, HR, Backend Engineer, Frontend Engineer, Designer)</li>
@@ -147,7 +147,7 @@ export default function TermsOfService() {
                 <li>You review, modify, and deploy as needed</li>
               </ol>
 
-              <h3 className="text-xl font-semibold mb-3">2.3 What Deviant Doesn't Provide</h3>
+              <h3 className="text-xl font-semibold mb-3">2.3 What Retinue Doesn't Provide</h3>
               <p className="mb-2 text-[var(--body)]">We do NOT provide:</p>
               <ul className="list-disc pl-6 mb-4 text-[var(--body)]">
                 <li>Code execution environments (you deploy code)</li>
@@ -164,7 +164,7 @@ export default function TermsOfService() {
               <h2 className="text-3xl font-bold mb-6 text-[var(--heading)]">3. Account Creation</h2>
 
               <h3 className="text-xl font-semibold mb-3">3.1 Account Registration</h3>
-              <p className="mb-4 text-[var(--body)]">To use Deviant, you must:</p>
+              <p className="mb-4 text-[var(--body)]">To use Retinue, you must:</p>
               <ul className="list-disc pl-6 mb-4 text-[var(--body)]">
                 <li>Provide accurate information</li>
                 <li>Maintain account security</li>
@@ -187,7 +187,7 @@ export default function TermsOfService() {
               <h2 className="text-3xl font-bold mb-6 text-[var(--heading)]">4. Acceptable Use Policy</h2>
 
               <h3 className="text-xl font-semibold mb-3">4.1 Permitted Uses</h3>
-              <p className="mb-4 text-[var(--body)]">You may use Deviant to:</p>
+              <p className="mb-4 text-[var(--body)]">You may use Retinue to:</p>
               <ul className="list-disc pl-6 mb-4 text-[var(--body)]">
                 <li>Build legitimate software applications</li>
                 <li>Create business tools and websites</li>
@@ -198,7 +198,7 @@ export default function TermsOfService() {
 
               <h3 className="text-xl font-semibold mb-3">4.2 Prohibited Uses</h3>
               <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-4">
-                <p className="font-semibold text-red-900 mb-3">You may NOT use Deviant to:</p>
+                <p className="font-semibold text-red-900 mb-3">You may NOT use Retinue to:</p>
                 <ul className="space-y-2 text-red-800">
                   <li>❌ Build illegal services or applications</li>
                   <li>❌ Violate laws or regulations</li>
@@ -224,21 +224,21 @@ export default function TermsOfService() {
               <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
                 <h3 className="text-xl font-semibold mb-3 text-green-900">5.1 Your Code (You Own It!)</h3>
                 <p className="mb-4 text-green-900 font-semibold">
-                  You own the code generated by Deviant's AI agents.
+                  You own the code generated by Retinue's AI agents.
                 </p>
                 <p className="mb-4 text-green-800">This means:</p>
                 <ul className="list-disc pl-6 text-green-800">
                   <li>Full rights to use, modify, distribute, sell generated code</li>
                   <li>Use commercially without additional fees</li>
                   <li>Claim copyright on generated code</li>
-                  <li>No attribution to Deviant required</li>
+                  <li>No attribution to Retinue required</li>
                 </ul>
               </div>
 
-              <h3 className="text-xl font-semibold mb-3">5.2 Deviant's Platform</h3>
-              <p className="mb-4 text-[var(--body)]">Deviant retains all rights to:</p>
+              <h3 className="text-xl font-semibold mb-3">5.2 Retinue's Platform</h3>
+              <p className="mb-4 text-[var(--body)]">Retinue retains all rights to:</p>
               <ul className="list-disc pl-6 mb-4 text-[var(--body)]">
-                <li>The Deviant platform and infrastructure</li>
+                <li>The Retinue platform and infrastructure</li>
                 <li>AI agent architecture and prompts</li>
                 <li>Trademarks, logos, branding</li>
                 <li>Documentation and materials</li>
@@ -299,7 +299,7 @@ export default function TermsOfService() {
 
               <div className="bg-gray-100 border border-gray-300 rounded-lg p-6 mb-6">
                 <p className="font-bold text-gray-900 mb-4 text-lg">
-                  DEVIANT IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.
+                  RETINUE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.
                 </p>
                 <p className="text-gray-800">This means:</p>
                 <ul className="list-disc pl-6 mt-2 text-gray-800">
@@ -322,10 +322,10 @@ export default function TermsOfService() {
 
               <div className="bg-gray-100 border border-gray-300 rounded-lg p-6 mb-6">
                 <p className="font-bold text-gray-900 mb-4">
-                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, DEVIANT'S TOTAL LIABILITY IS LIMITED TO:
+                  TO THE MAXIMUM EXTENT PERMITTED BY LAW, RETINUE'S TOTAL LIABILITY IS LIMITED TO:
                 </p>
                 <p className="text-xl font-bold text-gray-900">
-                  The amount you paid to Deviant in the 12 months preceding the claim, OR $100 USD, whichever is greater.
+                  The amount you paid to Retinue in the 12 months preceding the claim, OR $100 USD, whichever is greater.
                 </p>
               </div>
 
@@ -339,7 +339,7 @@ export default function TermsOfService() {
               <h2 className="text-3xl font-bold mb-6 text-[var(--heading)]">10. Indemnification</h2>
 
               <p className="mb-4 text-[var(--body)]">
-                You agree to indemnify and hold harmless Deviant from claims arising from your use of the service, violations of these Terms, code you deploy, or applications you build.
+                You agree to indemnify and hold harmless Retinue from claims arising from your use of the service, violations of these Terms, code you deploy, or applications you build.
               </p>
             </section>
 
@@ -349,7 +349,7 @@ export default function TermsOfService() {
 
               <h3 className="text-xl font-semibold mb-3">11.1 Informal Resolution</h3>
               <p className="mb-4 text-[var(--body)]">
-                Before filing a claim, contact us at legal@deviant.eu. We'll work to resolve within 30 days.
+                Before filing a claim, contact us at legal@retinue.team. We'll work to resolve within 30 days.
               </p>
 
               <h3 className="text-xl font-semibold mb-3">11.2 Governing Law</h3>
@@ -388,7 +388,7 @@ export default function TermsOfService() {
               <h2 className="text-3xl font-bold mb-6 text-[var(--heading)]">13. General Provisions</h2>
 
               <ul className="space-y-3 text-[var(--body)]">
-                <li><strong>Entire Agreement:</strong> These Terms constitute the entire agreement between you and Deviant.</li>
+                <li><strong>Entire Agreement:</strong> These Terms constitute the entire agreement between you and Retinue.</li>
                 <li><strong>Amendments:</strong> We may modify Terms with notice. Continued use = acceptance.</li>
                 <li><strong>Severability:</strong> If any provision is invalid, the rest remains in effect.</li>
                 <li><strong>No Agency:</strong> These Terms don't create partnership, agency, or employment relationship.</li>
@@ -400,17 +400,17 @@ export default function TermsOfService() {
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-4 text-[var(--heading)]">Contact Information</h2>
                 <div className="space-y-2 text-[var(--body)]">
-                  <p><strong>Legal Questions:</strong> legal@deviant.eu</p>
-                  <p><strong>Support:</strong> support@deviant.eu</p>
-                  <p><strong>Abuse Reports:</strong> abuse@deviant.eu</p>
-                  <p className="mt-4"><strong>Mailing Address:</strong> Deviant, Nairobi, Kenya</p>
+                  <p><strong>Legal Questions:</strong> legal@retinue.team</p>
+                  <p><strong>Support:</strong> support@retinue.team</p>
+                  <p><strong>Abuse Reports:</strong> abuse@retinue.team</p>
+                  <p className="mt-4"><strong>Mailing Address:</strong> Retinue, Nairobi, Kenya</p>
                 </div>
               </CardContent>
             </Card>
 
             <div className="mt-12 text-center text-sm text-[var(--muted)]">
               <p>Last Updated: November 16, 2025 | Version 1.0</p>
-              <p className="mt-2">By using Deviant, you accept these Terms.</p>
+              <p className="mt-2">By using Retinue, you accept these Terms.</p>
             </div>
           </div>
         </div>

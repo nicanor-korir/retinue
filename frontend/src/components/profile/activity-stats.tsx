@@ -36,7 +36,7 @@ export function ActivityStats() {
         <div className="space-y-4">
           {[
             { action: "Completed task", detail: "Implement user authentication", time: "2 hours ago" },
-            { action: "Joined project", detail: "Deviant Development", time: "5 hours ago" },
+            { action: "Joined project", detail: "Retinue Development", time: "5 hours ago" },
             { action: "Updated profile", detail: "Changed availability status", time: "1 day ago" },
             { action: "Commented on task", detail: "Database optimization", time: "2 days ago" },
           ].map((activity, index) => (

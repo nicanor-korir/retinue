@@ -1,0 +1,52 @@
+# Retinue — site blocks for an EXISTING Caddy instance
+#
+# Append these two blocks to the Caddyfile your Caddy already uses, then reload:
+#
+#     docker exec <your-caddy-container> caddy reload --config /etc/caddy/Caddyfile
+#     # or, if Caddy runs on the host:
+#     sudo systemctl reload caddy
+#
+# Requirements:
+#   1. Your Caddy container must be attached to the `proxy` docker network, so it
+#      can resolve `frontend` and `backend` by name:
+#          docker network create proxy          # once, if it doesn't exist
+#          docker network connect proxy <your-caddy-container>
+#   2. DNS A/AAAA records for both names must point at this server BEFORE reload,
+#      or certificate issuance fails.
+#
+# Replace the two hostnames with your own if they differ.
+
+# ---------------------------------------------------------------------------
+# Frontend — the dashboard
+# ---------------------------------------------------------------------------
+retinue.nicanor.xyz {
+	encode gzip zstd
+
+	reverse_proxy frontend:3000
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+}
+
+# ---------------------------------------------------------------------------
+# Backend API — REST + WebSockets
+# ---------------------------------------------------------------------------
+# Caddy proxies WebSocket upgrades (/ws/*) transparently, so the live task and
+# agent activity streams work with no extra configuration.
+api.retinue.nicanor.xyz {
+	encode gzip zstd
+
+	reverse_proxy backend:8000
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+}

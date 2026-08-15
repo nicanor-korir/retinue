@@ -1,5 +1,5 @@
 """
-Intelligent Knowledge Base Models for Deviant
+Intelligent Knowledge Base Models for Retinue
 
 Implements the comprehensive knowledge system as specified in
 INTELLIGENT_KNOWLEDGE_BASE.md including:

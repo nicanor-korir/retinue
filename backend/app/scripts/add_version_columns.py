@@ -19,7 +19,7 @@ async def add_version_columns():
     """Add version columns to projects and tasks tables."""
 
     print("=" * 60)
-    print("  Deviant - Database Migration")
+    print("  Retinue - Database Migration")
     print("  Adding version and parent_id columns")
     print("=" * 60)
     print("")

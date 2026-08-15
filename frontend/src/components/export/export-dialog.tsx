@@ -114,7 +114,7 @@ export function ExportDialog({
   const [zipIncludeTests, setZipIncludeTests] = useState(true);
   const [zipIncludeDocumentation, setZipIncludeDocumentation] = useState(true);
   const [zipIncludeAssets, setZipIncludeAssets] = useState(true);
-  const [zipIncludeDeviantMetadata, setZipIncludeDeviantMetadata] = useState(true);
+  const [zipIncludeRetinueMetadata, setZipIncludeRetinueMetadata] = useState(true);
   const [zipIncludeEnvExample, setZipIncludeEnvExample] = useState(true);
   const [zipDocumentationLevel, setZipDocumentationLevel] = useState('standard');
   const [zipGenerateSetupScript, setZipGenerateSetupScript] = useState(true);
@@ -194,7 +194,7 @@ export function ExportDialog({
           include_database_schema: true,
           include_docker_config: false,
           include_ci_cd_config: false,
-          include_Deviant_metadata: zipIncludeDeviantMetadata,
+          include_retinue_metadata: zipIncludeRetinueMetadata,
           include_env_example: zipIncludeEnvExample,
           format_code: false,
           fix_linting_issues: false,
@@ -427,11 +427,11 @@ export function ExportDialog({
                     <div className="flex items-center space-x-2">
                       <Checkbox
                         id="zip-metadata"
-                        checked={zipIncludeDeviantMetadata}
-                        onCheckedChange={(checked) => setZipIncludeDeviantMetadata(checked as boolean)}
+                        checked={zipIncludeRetinueMetadata}
+                        onCheckedChange={(checked) => setZipIncludeRetinueMetadata(checked as boolean)}
                       />
                       <Label htmlFor="zip-metadata" className="font-normal cursor-pointer text-sm">
-                        Deviant metadata (project info, tasks)
+                        Retinue metadata (project info, tasks)
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2">

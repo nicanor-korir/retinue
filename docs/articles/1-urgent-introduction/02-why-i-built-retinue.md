@@ -1,6 +1,6 @@
 # Why I Built an AI Company That Runs Itself
 
-*The real reason behind Deviant—and why the future belongs to tiny teams with massive leverage.*
+*The real reason behind Retinue—and why the future belongs to tiny teams with massive leverage.*
 
 ---
 
@@ -56,7 +56,7 @@ flowchart LR
         C --> D[Bad Output]
     end
 
-    subgraph "Deviant Approach"
+    subgraph "Retinue Approach"
         E[CEO Agent] --> F[Strategy]
         G[CTO Agent] --> H[Technical]
         I[PM Agent] --> J[Tasks]
@@ -65,7 +65,7 @@ flowchart LR
     end
 ```
 
-That insight became Deviant.
+That insight became Retinue.
 
 ---
 
@@ -135,15 +135,15 @@ sequenceDiagram
 
 ---
 
-## Why "Deviant"?
+## Why "Retinue"?
 
 The name isn't random.
 
-Deviant: *departing from usual or accepted standards*.
+Retinue: *departing from usual or accepted standards*.
 
 That's the point. The usual standard is to hire people. The accepted wisdom is that AI can't replace teams. The conventional approach is to use AI as a tool, not as an organization.
 
-Deviant says: what if we built companies differently?
+Retinue says: what if we built companies differently?
 
 Not human employees replaced by AI. But solo founders empowered by AI teams. Small groups accomplishing what used to require large organizations.
 
@@ -153,11 +153,11 @@ The deviation is structural, not just technological.
 
 ## What This Means for You
 
-I didn't build Deviant to create a cool demo. I built it because I needed it.
+I didn't build Retinue to create a cool demo. I built it because I needed it.
 
 Every technical person I know has the same problem: more ideas than time. More capabilities than hours. More ambition than bandwidth.
 
-Deviant is the leverage I wished I had three years ago.
+Retinue is the leverage I wished I had three years ago.
 
 Now I can:
 - Describe a project idea in the morning
@@ -176,7 +176,7 @@ But here's what I know for certain:
 
 The future doesn't belong to huge teams. It belongs to tiny teams with massive leverage. One person with the right AI infrastructure can outproduce organizations ten times their size.
 
-Deviant is my bet on that future.
+Retinue is my bet on that future.
 
 ---
 
@@ -184,7 +184,7 @@ Deviant is my bet on that future.
 
 If you're reading this, you're probably like me. Technical. Ambitious. Frustrated by the limits of what one person can accomplish.
 
-Deviant is open source. You can run it yourself. You can modify it for your needs. You can build your own AI company.
+Retinue is open source. You can run it yourself. You can modify it for your needs. You can build your own AI company.
 
 The technology exists. The question is: what will you build with it?
 
@@ -194,4 +194,4 @@ The technology exists. The question is: what will you build with it?
 
 ---
 
-*Nicanor Korir is a developer, consultant, and builder of things that scale. Deviant is his attempt to solve his own bottleneck problem—and maybe yours too.*
+*Nicanor Korir is a developer, consultant, and builder of things that scale. Retinue is his attempt to solve his own bottleneck problem—and maybe yours too.*

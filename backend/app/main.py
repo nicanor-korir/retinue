@@ -1,5 +1,5 @@
 """
-Main FastAPI application for Deviant platform.
+Main FastAPI application for Retinue platform.
 
 This application orchestrates all 7 AI agents and provides a REST API
 for human interaction with the agent company.
@@ -27,7 +27,7 @@ from app.api.websocket import router as websocket_router
 from app.api.multi_agent import router as multi_agent_router
 from app.api.exports_v2 import router as exports_v2_router
 from app.db.database import init_db
-from app.exceptions import DeviantException, InternalError
+from app.exceptions import RetinueException, InternalError
 # Import all models to register them with SQLAlchemy
 from app.db import models
 from app.db import event_models
@@ -108,7 +108,7 @@ async def lifespan(app: FastAPI):
     Starts all agents on application startup and gracefully shuts them down.
     """
     # Startup
-    logger.info("🚀 Starting Deviant Platform...")
+    logger.info("🚀 Starting Retinue Platform...")
 
     try:
         # Initialize database
@@ -216,7 +216,7 @@ async def lifespan(app: FastAPI):
     yield
 
     # Shutdown
-    logger.info("🛑 Shutting down Deviant Platform...")
+    logger.info("🛑 Shutting down Retinue Platform...")
 
     # Shutdown Agent Chat Monitor
     logger.info("Stopping agent chat monitoring service...")
@@ -277,7 +277,7 @@ app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
     description="""
-    Deviant - AI Agent Company Platform
+    Retinue - AI Agent Company Platform
 
     A multi-agent AI system that operates like a real company
     """,
@@ -417,12 +417,12 @@ async def system_info():
 
 
 # Exception handlers
-@app.exception_handler(DeviantException)
-async def Deviant_exception_handler(request: Request, exc: DeviantException):
-    """Handle Deviant custom exceptions with consistent error format."""
+@app.exception_handler(RetinueException)
+async def retinue_exception_handler(request: Request, exc: RetinueException):
+    """Handle Retinue custom exceptions with consistent error format."""
     error_response = exc.error_response.to_dict()
     logger.warning(
-        f"Deviant error [{exc.error_response.error_code}]: {exc.error_response.message}",
+        f"Retinue error [{exc.error_response.error_code}]: {exc.error_response.message}",
         extra={"request_id": exc.error_response.request_id}
     )
     return JSONResponse(

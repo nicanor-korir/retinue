@@ -39,7 +39,7 @@ flowchart LR
     end
 ```
 
-Deviant operates primarily in the **medium trust** zone:
+Retinue operates primarily in the **medium trust** zone:
 - Agents self-coordinate for most decisions
 - Built-in review (CTO reviews code)
 - Escalation for exceptions
@@ -47,7 +47,7 @@ Deviant operates primarily in the **medium trust** zone:
 
 ---
 
-## What Deviant Decides Autonomously
+## What Retinue Decides Autonomously
 
 ### Green Zone: AI Decides
 
@@ -173,7 +173,7 @@ class OversightAdjuster:
 
 ## Transparency: The Foundation of Trust
 
-You can't trust what you can't see. Deviant provides:
+You can't trust what you can't see. Retinue provides:
 
 ### Decision Logs
 
@@ -429,7 +429,7 @@ Autonomy isn't about humans doing nothing. It's about humans doing the right thi
 
 ## My Personal Balance
 
-After months of using Deviant, here's my oversight approach:
+After months of using Retinue, here's my oversight approach:
 
 **Daily (10 min):**
 - Check dashboard for stuck items
@@ -462,7 +462,7 @@ The goal isn't to replace human judgment. It's to focus human judgment where it 
 
 ---
 
-*This completes the Challenges series. Check out Future Plans for where Deviant is heading—more autonomy, better control, and the vision for AI companies that build real products.*
+*This completes the Challenges series. Check out Future Plans for where Retinue is heading—more autonomy, better control, and the vision for AI companies that build real products.*
 
 ---
 

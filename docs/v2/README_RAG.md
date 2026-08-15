@@ -1,8 +1,8 @@
-# RAG System - Deviant Knowledge Persistence
+# RAG System - Retinue Knowledge Persistence
 
 **Welcome to RAG Phase 1! 🚀**
 
-This directory contains the implementation of RAG (Retrieval-Augmented Generation) for Deviant - enabling agents to learn from past work and make informed decisions.
+This directory contains the implementation of RAG (Retrieval-Augmented Generation) for Retinue - enabling agents to learn from past work and make informed decisions.
 
 ---
 
@@ -15,34 +15,26 @@ This directory contains the implementation of RAG (Retrieval-Augmented Generatio
   - Common use cases
   - Troubleshooting FAQ
 
-### Understanding RAG
-- **[RAG_IMPLEMENTATION_PLAN.md](RAG_IMPLEMENTATION_PLAN.md)** (Reference)
-  - Complete RAG architecture
-  - All 4 phases explained
-  - Technical deep dive
-  - Data migration strategy
+### Wiring RAG to Claude
+- **[RAG_CLAUDE_SETUP.md](RAG_CLAUDE_SETUP.md)** (Setup)
+  - Connecting retrieval to the Claude API
+  - Configuration and keys
+  - Verification steps
+- **[CLAUDE_SETUP_SUMMARY.md](CLAUDE_SETUP_SUMMARY.md)** (Condensed)
+  - The same setup, abridged
 
-### Phase 1 Implementation Details
-- **[RAG_PHASE1_IMPLEMENTATION.md](RAG_PHASE1_IMPLEMENTATION.md)** (Comprehensive)
-  - What was implemented
-  - Architecture overview
-  - Features & capabilities
-  - Testing guide
-  - Success criteria
+### Project-wide status
+- **[../PROJECT_STATUS.md](../PROJECT_STATUS.md)** (Executive summary)
+  - What's delivered across the whole platform
+  - Where RAG sits in it
 
-### Phase 1 Summary
-- **[PHASE1_COMPLETION_SUMMARY.md](PHASE1_COMPLETION_SUMMARY.md)** (Executive Summary)
-  - What was delivered
-  - Problems solved
-  - Capabilities unlocked
-  - Next steps
-  - File inventory
+### This file
+- **README_RAG.md** (you are here)
+  - Complete RAG architecture and all four phases
+  - What Phase 1 implemented
+  - Testing guide and common tasks
 
-### This File
-- **[README_RAG.md](README_RAG.md)** (You are here)
-  - Directory guide
-  - Quick reference
-  - Common tasks
+> **A note on links.** Several companion documents referenced in earlier drafts (`RAG_PHASE1_IMPLEMENTATION.md`, `RAG_PHASE2_INTEGRATION.md`, `RAG_IMPLEMENTATION_PLAN.md`, `RAG_DOCUMENTATION_MAP.md`) were consolidated into this file. References to them now point here.
 
 ---
 
@@ -377,13 +369,13 @@ CHROMADB_PATH = "./data/chromadb"  # in config.py
 → Start with [RAG_QUICKSTART.md](RAG_QUICKSTART.md)
 
 ### Implementation Details
-→ Read [RAG_PHASE1_IMPLEMENTATION.md](RAG_PHASE1_IMPLEMENTATION.md)
+→ Keep reading this document — see [What's Implemented](#-whats-implemented-phase-1) below
+
+### Wiring it to Claude
+→ See [RAG_CLAUDE_SETUP.md](RAG_CLAUDE_SETUP.md)
 
 ### Executive Summary
-→ Check [PHASE1_COMPLETION_SUMMARY.md](PHASE1_COMPLETION_SUMMARY.md)
-
-### Complete Plan (all 4 phases)
-→ Review [RAG_IMPLEMENTATION_PLAN.md](RAG_IMPLEMENTATION_PLAN.md)
+→ Check [../PROJECT_STATUS.md](../PROJECT_STATUS.md)
 
 ---
 
@@ -465,10 +457,10 @@ Phase 2. Currently index manually or via `queue_index_task()`.
 
 ## 📞 Support
 
-- **How-to questions:** See RAG_QUICKSTART.md FAQ section
-- **Technical details:** See RAG_PHASE1_IMPLEMENTATION.md
-- **Architecture questions:** See RAG_IMPLEMENTATION_PLAN.md
-- **Bugs or issues:** Check troubleshooting section above
+- **How-to questions:** See the FAQ in [RAG_QUICKSTART.md](RAG_QUICKSTART.md)
+- **Technical and architecture details:** This document
+- **Claude wiring:** [RAG_CLAUDE_SETUP.md](RAG_CLAUDE_SETUP.md)
+- **Bugs or issues:** Check the troubleshooting section above
 
 ---
 
@@ -476,11 +468,11 @@ Phase 2. Currently index manually or via `queue_index_task()`.
 
 ```
 docs/v2/
-├── README_RAG.md                        ← You are here
+├── README_RAG.md                        ← You are here (architecture + all 4 phases)
 ├── RAG_QUICKSTART.md                    ← Start here (5 min)
-├── RAG_PHASE1_IMPLEMENTATION.md         ← Detailed reference
-├── RAG_IMPLEMENTATION_PLAN.md           ← Full 4-phase plan
-└── PHASE1_COMPLETION_SUMMARY.md         ← Executive summary
+├── RAG_CLAUDE_SETUP.md                  ← Wiring retrieval to Claude
+├── CLAUDE_SETUP_SUMMARY.md              ← Condensed version of the above
+└── TASKS_REDESIGN_V2.md                 ← Task system redesign
 
 backend/app/services/
 ├── rag_embedding_service.py             ← OpenAI embeddings

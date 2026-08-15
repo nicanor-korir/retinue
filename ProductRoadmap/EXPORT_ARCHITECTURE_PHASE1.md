@@ -96,7 +96,7 @@
         │  └──────────────────────────────────────┘ │
         │                                            │
         │  ┌──────────────────────────────────────┐ │
-        │  │ Existing Deviant Tables              │ │
+        │  │ Existing Retinue Tables              │ │
         │  │                                      │ │
         │  │  • projects, tasks, agents           │ │
         │  │  • messages, decisions               │ │

@@ -1,4 +1,4 @@
-# Real-Time Coordination Under 100ms: How Deviant Agents Communicate
+# Real-Time Coordination Under 100ms: How Retinue Agents Communicate
 
 *The technical deep-dive on making AI agents hand off work faster than humans can blink.*
 
@@ -8,7 +8,7 @@
 
 Here's a number that changed everything: 100 milliseconds.
 
-That's the target latency for passing work between agents in Deviant. Not 100 seconds. Not 10 seconds. One-tenth of a second.
+That's the target latency for passing work between agents in Retinue. Not 100 seconds. Not 10 seconds. One-tenth of a second.
 
 Why does this matter?
 
@@ -530,4 +530,4 @@ The result: 20ms typical latency, 100ms worst case, and coordination overhead th
 
 ---
 
-*Nicanor Korir has spent too many nights staring at latency dashboards. Deviant's event system is the result of that obsession.*
+*Nicanor Korir has spent too many nights staring at latency dashboards. Retinue's event system is the result of that obsession.*

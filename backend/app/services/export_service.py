@@ -37,7 +37,7 @@ class ExportService:
             temp_dir: Temporary directory for file storage (defaults to system temp)
         """
         self.session = session
-        self.temp_dir = temp_dir or Path(tempfile.gettempdir()) / "Deviant_exports"
+        self.temp_dir = temp_dir or Path(tempfile.gettempdir()) / "retinue_exports"
         self.temp_dir.mkdir(parents=True, exist_ok=True)
 
         # Set up templates directory

@@ -1,4 +1,4 @@
-# Deviant for Financial Services: Custom Systems in Hours, Not Months
+# Retinue for Financial Services: Custom Systems in Hours, Not Months
 
 *How finance teams are building expense management, approval workflows, and reporting dashboards at a fraction of traditional cost.*
 
@@ -38,7 +38,7 @@ A client came to me with this problem:
 
 Plus ongoing: $12,000/year licensing.
 
-### With Deviant
+### With Retinue
 
 | Phase | Timeline | Cost |
 |-------|----------|------|
@@ -52,7 +52,7 @@ No ongoing licensing. You own the code.
 
 ---
 
-## What Deviant Builds for Finance
+## What Retinue Builds for Finance
 
 ### Expense Management System
 
@@ -193,7 +193,7 @@ export function FinanceDashboard() {
 
 **Problem:** Manual invoice entry, lost invoices, missed payments
 
-**Deviant Solution (10 hours, ~$1,000):**
+**Retinue Solution (10 hours, ~$1,000):**
 - Invoice upload with OCR extraction
 - Automatic vendor matching
 - Approval routing based on vendor/amount
@@ -204,7 +204,7 @@ export function FinanceDashboard() {
 
 **Problem:** Departments overspend before anyone notices
 
-**Deviant Solution (8 hours, ~$800):**
+**Retinue Solution (8 hours, ~$800):**
 - Department budget setup
 - Real-time spend tracking
 - Automatic alerts at 75%, 90%, 100%
@@ -215,7 +215,7 @@ export function FinanceDashboard() {
 
 **Problem:** Reports take days to compile, data is stale
 
-**Deviant Solution (12 hours, ~$1,200):**
+**Retinue Solution (12 hours, ~$1,200):**
 - Real-time P&L dashboard
 - Cash flow visualization
 - Department cost breakdowns
@@ -226,7 +226,7 @@ export function FinanceDashboard() {
 
 **Problem:** Vendors calling to check payment status
 
-**Deviant Solution (8 hours, ~$800):**
+**Retinue Solution (8 hours, ~$800):**
 - Vendor self-service portal
 - Invoice submission
 - Payment status tracking
@@ -237,7 +237,7 @@ export function FinanceDashboard() {
 
 ## Compliance and Security
 
-Finance software has special requirements. Here's how Deviant addresses them:
+Finance software has special requirements. Here's how Retinue addresses them:
 
 ### Data Security
 
@@ -303,7 +303,7 @@ FINANCE_ROLES = {
 
 ## Integration with Existing Systems
 
-Deviant generates code that integrates with your stack:
+Retinue generates code that integrates with your stack:
 
 ### QuickBooks Integration
 
@@ -352,7 +352,7 @@ class BankFeedMatcher:
 
 ### Initial Investment
 
-| Item | Traditional | Deviant |
+| Item | Traditional | Retinue |
 |------|-------------|---------|
 | Development | $50,000+ | ~$1,200 |
 | Implementation | $15,000 | Your time |
@@ -361,7 +361,7 @@ class BankFeedMatcher:
 
 ### Ongoing Costs
 
-| Item | Traditional | Deviant |
+| Item | Traditional | Retinue |
 |------|-------------|---------|
 | Licensing | $12,000/year | $0 |
 | Maintenance | $10,000/year | $500/year (hosting) |
@@ -373,7 +373,7 @@ class BankFeedMatcher:
 | Approach | Year 1 | Year 2 | Year 3 | **Total** |
 |----------|--------|--------|--------|-----------|
 | Traditional | $70,000 | $22,000 | $22,000 | **$114,000** |
-| Deviant | $1,500 | $500 | $500 | **$2,500** |
+| Retinue | $1,500 | $500 | $500 | **$2,500** |
 
 **Savings: $111,500 over 3 years**
 
@@ -408,7 +408,7 @@ Write out exactly how you want it to work. Include:
 - What reports you need
 - What integrations matter
 
-### Step 3: Generate with Deviant
+### Step 3: Generate with Retinue
 Submit the project. Get comprehensive specs and code.
 
 ### Step 4: Review with Your Team
@@ -423,7 +423,7 @@ Simple deployment. Intuitive interface means minimal training.
 
 Finance teams deserve software that works their way—not software that forces them into someone else's workflow.
 
-Deviant makes custom finance systems accessible:
+Retinue makes custom finance systems accessible:
 - **$1,200** instead of $50,000
 - **12 hours** instead of 4 months
 - **Your workflow** instead of vendor's assumptions
@@ -432,8 +432,8 @@ The math is simple. The technology is ready. The only question is what you'll bu
 
 ---
 
-**Next**: [Deviant for Manufacturing →](./07-for-manufacturing.md)
+**Next**: [Retinue for Manufacturing →](./07-for-manufacturing.md)
 
 ---
 
-*Nicanor Korir has watched finance teams struggle with software that doesn't fit. Deviant gives them exactly what they need.*
+*Nicanor Korir has watched finance teams struggle with software that doesn't fit. Retinue gives them exactly what they need.*

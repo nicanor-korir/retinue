@@ -1,4 +1,4 @@
-"""Central registry for all available agents in the Deviant platform.
+"""Central registry for all available agents in the Retinue platform.
 
 This module provides a centralized catalog of all available agents,
 their capabilities, departments, and requirements. This replaces the
@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 # ===== ENUMS =====
 
 class Department(str, Enum):
-    """All business departments in Deviant."""
+    """All business departments in Retinue."""
     EXECUTIVE = "executive"
     ENGINEERING = "engineering"
     MARKETING = "marketing"
@@ -134,7 +134,7 @@ class CapabilityCategory(str, Enum):
 # ===== AGENT REGISTRY =====
 
 class AgentRegistry:
-    """Central registry for all available agents in Deviant.
+    """Central registry for all available agents in Retinue.
 
     Provides methods to:
     - Get agent configurations

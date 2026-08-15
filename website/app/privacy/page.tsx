@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Privacy Policy</h1>
             <p className="text-xl text-[var(--body)] mb-8">Last Updated: November 16, 2025</p>
             <p className="text-lg text-[var(--body)] max-w-3xl mx-auto">
-              At Deviant, we're committed to radical transparency - including how we handle your data.
+              At Retinue, we're committed to radical transparency - including how we handle your data.
             </p>
           </motion.div>
         </div>
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
         <div className="prose prose-lg max-w-none">
           <section className="mb-12">
             <h2 className="text-3xl font-bold mb-6">1. Who We Are</h2>
-            <p className="mb-4"><strong>Company:</strong> Deviant<br/><strong>Location:</strong> Nairobi, Kenya<br/><strong>Contact:</strong> privacy@deviant.eu<br/><strong>DPO:</strong> dpo@deviant.eu</p>
+            <p className="mb-4"><strong>Company:</strong> Retinue<br/><strong>Location:</strong> Nairobi, Kenya<br/><strong>Contact:</strong> privacy@retinue.team<br/><strong>DPO:</strong> dpo@retinue.team</p>
           </section>
 
           <section className="mb-12">
@@ -134,7 +134,7 @@ export default function PrivacyPolicy() {
             <Card className="bg-blue-50 border-blue-200">
               <CardContent className="p-6">
                 <h4 className="font-bold text-blue-900 mb-2">Exercise Your Rights:</h4>
-                <p className="text-blue-800">Email privacy@deviant.eu - We respond within 30 days, no charge for reasonable requests</p>
+                <p className="text-blue-800">Email privacy@retinue.team - We respond within 30 days, no charge for reasonable requests</p>
               </CardContent>
             </Card>
           </section>
@@ -162,10 +162,10 @@ export default function PrivacyPolicy() {
           <Card className="bg-gradient-to-br from-[var(--primary)]/5 to-[var(--accent)]/5">
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-              <p><strong>Privacy:</strong> privacy@deviant.eu</p>
-              <p><strong>DPO:</strong> dpo@deviant.eu</p>
-              <p><strong>Security:</strong> security@deviant.eu</p>
-              <p className="mt-4"><strong>Address:</strong> Deviant, Nairobi, Kenya</p>
+              <p><strong>Privacy:</strong> privacy@retinue.team</p>
+              <p><strong>DPO:</strong> dpo@retinue.team</p>
+              <p><strong>Security:</strong> security@retinue.team</p>
+              <p className="mt-4"><strong>Address:</strong> Retinue, Nairobi, Kenya</p>
               <p className="mt-4 text-sm text-[var(--muted)]">Response within 72 hours</p>
             </CardContent>
           </Card>

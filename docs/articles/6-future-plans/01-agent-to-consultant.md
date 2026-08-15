@@ -6,7 +6,7 @@
 
 ## The Current State
 
-Today, Deviant is an execution engine. You tell it what to build, and it builds.
+Today, Retinue is an execution engine. You tell it what to build, and it builds.
 
 That's valuable. But it's not the end state.
 
@@ -16,7 +16,7 @@ Real consulting firms don't just execute. They:
 - Challenge your assumptions
 - Deliver outcomes, not just outputs
 
-That's where Deviant is heading.
+That's where Retinue is heading.
 
 ---
 
@@ -26,22 +26,22 @@ That's where Deviant is heading.
 flowchart LR
     subgraph Phase1["Phase 1: Executor (Current)"]
         P1A[Human: Define project]
-        P1B[Deviant: Build it]
+        P1B[Retinue: Build it]
         P1C[Human: Deploy]
     end
 
     subgraph Phase2["Phase 2: Advisor"]
         P2A[Human: Describe problem]
-        P2B[Deviant: Propose solutions]
+        P2B[Retinue: Propose solutions]
         P2C[Human: Choose approach]
-        P2D[Deviant: Build it]
+        P2D[Retinue: Build it]
     end
 
     subgraph Phase3["Phase 3: Consultant"]
         P3A[Human: Share context]
-        P3B[Deviant: Analyze & strategize]
-        P3C[Deviant: Propose & build]
-        P3D[Deviant: Measure & iterate]
+        P3B[Retinue: Analyze & strategize]
+        P3C[Retinue: Propose & build]
+        P3D[Retinue: Measure & iterate]
     end
 
     Phase1 --> Phase2 --> Phase3
@@ -148,7 +148,7 @@ class AdvisoryConversation:
 
 ### Full Autonomy with Oversight
 
-The vision: You share your business context once. Deviant continuously identifies opportunities, proposes initiatives, and—with approval—executes them.
+The vision: You share your business context once. Retinue continuously identifies opportunities, proposes initiatives, and—with approval—executes them.
 
 ```
 Human onboarding:
@@ -156,7 +156,7 @@ Human onboarding:
 500 customers, $50k MRR, 5% monthly churn.
 Main challenge: reducing churn."
 
-Deviant (ongoing):
+Retinue (ongoing):
 
 Week 1: "Analyzed usage patterns. Found 3 churn predictors:
 - Login frequency dropping
@@ -313,7 +313,7 @@ class TrustEvolution:
 **Input:**
 "Early-stage SaaS, 100 users, need to grow to 1000 for Series A."
 
-**Deviant Consulting Response:**
+**Retinue Consulting Response:**
 ```
 Analysis complete. Current state:
 - 100 users, mostly from founder network
@@ -347,7 +347,7 @@ Shall I build the LinkedIn content system first?
 **Input:**
 "Our customer support team is overwhelmed. 200 tickets/day, 4 agents."
 
-**Deviant Consulting Response:**
+**Retinue Consulting Response:**
 ```
 Analysis of your support situation:
 
@@ -412,7 +412,7 @@ Phase 3: "2% of revenue improvement" or "$2,000/month retainer"
 
 ## Technical Requirements
 
-To reach Phase 3, Deviant needs:
+To reach Phase 3, Retinue needs:
 
 **Long-term memory**
 - Business context persistence
@@ -446,7 +446,7 @@ Every business decision is informed by data and analysis.
 
 Not because AI replaces human judgment—but because it amplifies it.
 
-That's the consultant model. That's where Deviant is heading.
+That's the consultant model. That's where Retinue is heading.
 
 ---
 
@@ -454,4 +454,4 @@ That's the consultant model. That's where Deviant is heading.
 
 ---
 
-*Nicanor Korir has hired consultants and been a consultant. Deviant is the consulting company he wished was affordable for everyone.*
+*Nicanor Korir has hired consultants and been a consultant. Retinue is the consulting company he wished was affordable for everyone.*

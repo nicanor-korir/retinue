@@ -26,14 +26,14 @@ logger = logging.getLogger(__name__)
 
 def handle_database_error(error: Exception, operation: str = "database operation") -> Exception:
     """
-    Convert SQLAlchemy exceptions to user-friendly Deviant exceptions.
+    Convert SQLAlchemy exceptions to user-friendly Retinue exceptions.
 
     Args:
         error: SQLAlchemy exception
         operation: Description of the operation that failed
 
     Returns:
-        Deviant exception with user-friendly message
+        Retinue exception with user-friendly message
     """
 
     error_str = str(error)
@@ -180,8 +180,8 @@ class DatabaseErrorHandler:
 
         # Check if it's a database error
         if issubclass(exc_type, (IntegrityError, DBAPIError, DisconnectionError, OperationalError, DataError, ProgrammingError)):
-            Deviant_error = handle_database_error(exc_val, self.operation)
-            raise Deviant_error from exc_val
+            retinue_error = handle_database_error(exc_val, self.operation)
+            raise retinue_error from exc_val
 
         # Let other exceptions propagate
         return False
@@ -202,12 +202,12 @@ async def handle_async_database_error(
         Result from coroutine
 
     Raises:
-        Deviant exception with user-friendly message
+        Retinue exception with user-friendly message
     """
     try:
         return await coro
     except Exception as e:
         if isinstance(e, (IntegrityError, DBAPIError, DisconnectionError, OperationalError, DataError, ProgrammingError)):
-            Deviant_error = handle_database_error(e, operation)
-            raise Deviant_error from e
+            retinue_error = handle_database_error(e, operation)
+            raise retinue_error from e
         raise

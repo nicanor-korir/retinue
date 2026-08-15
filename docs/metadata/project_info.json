@@ -3,7 +3,7 @@
   "project_id": "proj_abc123",
   "exported_at": "2025-01-28T10:30:00Z",
   "exported_by": "user@example.com",
-  "Deviant_version": "1.0.0",
+  "retinue_version": "1.0.0",
   "tech_stack": {
     "frontend": "React + TypeScript",
     "backend": "Node.js + Express",

@@ -1,4 +1,4 @@
-# Deviant for Agencies: Scale Delivery Without Scaling Headcount
+# Retinue for Agencies: Scale Delivery Without Scaling Headcount
 
 *How agencies and consultancies can 10x capacity without 10x costs.*
 
@@ -31,7 +31,7 @@ Imagine a different model:
 **Senior strategists and client leads** (humans)
 ↓ Define requirements, manage relationships, make judgment calls
 
-**AI development team** (Deviant)
+**AI development team** (Retinue)
 ↓ Execute standard development work at scale
 
 **Senior reviewers** (humans)
@@ -51,7 +51,7 @@ flowchart TB
     end
 
     subgraph "AI Execution Layer"
-        D[Deviant: 7 AI Agents]
+        D[Retinue: 7 AI Agents]
         D1[Project 1]
         D2[Project 2]
         D3[Project 3]
@@ -96,7 +96,7 @@ This model scales differently. You add capacity without adding headcount proport
 Agency builds 4-5 landing pages per month. Each takes a designer 2-3 days plus developer 2-3 days. Capacity is capped by team size.
 
 **After:**
-Account manager writes brief. Deviant generates complete designs and code in hours. Senior designer reviews and refines. Developer makes final adjustments.
+Account manager writes brief. Retinue generates complete designs and code in hours. Senior designer reviews and refines. Developer makes final adjustments.
 
 **Result:**
 - Same 2-person team produces 15-20 pages per month
@@ -109,7 +109,7 @@ Account manager writes brief. Deviant generates complete designs and code in hou
 Boutique agency builds analytics dashboards. Each project takes 2-4 weeks with a team of 3.
 
 **After:**
-Strategist defines requirements with client. Deviant generates:
+Strategist defines requirements with client. Retinue generates:
 - Database schema
 - API endpoints
 - React dashboard components
@@ -128,7 +128,7 @@ Humans handle: Client customization, data integration, deployment.
 Startup studio takes 6-8 weeks to build client MVPs. Can handle 2-3 concurrent projects.
 
 **After:**
-Brief submitted Monday. Deviant generates comprehensive specifications and code structure by Tuesday. Team spends rest of week refining and deploying.
+Brief submitted Monday. Retinue generates comprehensive specifications and code structure by Tuesday. Team spends rest of week refining and deploying.
 
 **Result:**
 - MVP timeline drops to 2 weeks
@@ -141,7 +141,7 @@ Brief submitted Monday. Deviant generates comprehensive specifications and code 
 
 Let's run the numbers on a typical web development agency:
 
-### Before Deviant
+### Before Retinue
 
 | Metric | Value |
 |--------|-------|
@@ -152,7 +152,7 @@ Let's run the numbers on a typical web development agency:
 | Salaries + overhead | $45,000 |
 | **Profit margin** | **25%** |
 
-### After Deviant
+### After Retinue
 
 | Metric | Value |
 |--------|-------|
@@ -161,7 +161,7 @@ Let's run the numbers on a typical web development agency:
 | Projects per month | 10 |
 | Monthly revenue | $150,000 |
 | Salaries + overhead | $35,000 |
-| Deviant costs | $3,000 |
+| Retinue costs | $3,000 |
 | **Profit margin** | **75%** |
 
 The leverage is dramatic:
@@ -179,7 +179,7 @@ Even if these numbers are optimistic by half, it's still transformational.
 
 Don't start with client work. Start with your own needs.
 
-Use Deviant to build:
+Use Retinue to build:
 - Internal dashboards
 - Project templates
 - Documentation generators
@@ -194,7 +194,7 @@ Select 2-3 low-risk client projects:
 - Standard deliverables (not novel technology)
 - Tolerant client (willing to experiment)
 
-Use Deviant as a first-pass generator. Human team refines and delivers.
+Use Retinue as a first-pass generator. Human team refines and delivers.
 
 Measure:
 - Time to first draft
@@ -208,7 +208,7 @@ Based on pilots, build your AI-augmented workflow:
 ```mermaid
 flowchart LR
     A[Client Brief] --> B[Strategist Review]
-    B --> C[Deviant Project]
+    B --> C[Retinue Project]
     C --> D[AI Generates]
     D --> E[Senior Review]
     E -->|Changes Needed| C
@@ -329,10 +329,10 @@ That's what the review layer is for. Humans catch errors before delivery. This i
 The opposite. Your expertise becomes the differentiator. AI handles the commodity work; you handle the judgment calls.
 
 **"What about complex projects?"**
-Use Deviant for the 80% that's standard. Apply human expertise to the 20% that's unique. Net result: faster overall with better quality where it matters.
+Use Retinue for the 80% that's standard. Apply human expertise to the 20% that's unique. Net result: faster overall with better quality where it matters.
 
 **"What about confidentiality?"**
-Self-host Deviant. Your data stays on your infrastructure. Or use Anthropic's enterprise agreements for API usage.
+Self-host Retinue. Your data stays on your infrastructure. Or use Anthropic's enterprise agreements for API usage.
 
 ---
 
@@ -342,12 +342,12 @@ Agencies are constrained by human capacity. AI removes that constraint—not by 
 
 The winning agencies of the next decade will be small, senior teams leveraging AI for execution while focusing human expertise on strategy, relationships, and quality.
 
-Deviant is one way to build that model.
+Retinue is one way to build that model.
 
 ---
 
-**Next**: [Deviant for Startups: Your AI Development Team →](./03-for-startups.md)
+**Next**: [Retinue for Startups: Your AI Development Team →](./03-for-startups.md)
 
 ---
 
-*Nicanor Korir has consulted for agencies stuck at the capacity ceiling. Deviant is the breakthrough they've been waiting for.*
+*Nicanor Korir has consulted for agencies stuck at the capacity ceiling. Retinue is the breakthrough they've been waiting for.*

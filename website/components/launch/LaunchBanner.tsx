@@ -155,7 +155,7 @@ export function LaunchBanner({ onCTAClick, className = '' }: LaunchBannerProps) 
           </motion.div>
 
           <p className="text-white/90 text-lg sm:text-xl md:text-2xl mb-6">
-            Deviant Is Now Available • Start Building Your AI Company Today
+            Retinue Is Now Available • Start Building Your AI Company Today
           </p>
 
           {onCTAClick && (

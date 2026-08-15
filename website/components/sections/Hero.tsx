@@ -37,7 +37,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-sm font-medium mb-6"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Deviant Built Our Stack Differently</span>
+              <span>Retinue Built Our Stack Differently</span>
             </motion.div>
 
             {/* Main headline */}

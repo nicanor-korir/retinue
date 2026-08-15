@@ -1,4 +1,4 @@
-# Deviant for Healthcare: HIPAA-Aware Appointment Scheduling in Hours
+# Retinue for Healthcare: HIPAA-Aware Appointment Scheduling in Hours
 
 *How healthcare providers are building patient-facing systems without the compliance nightmares or enterprise costs.*
 
@@ -20,9 +20,9 @@ Most practices end up with:
 
 ---
 
-## What Deviant Can Build
+## What Retinue Can Build
 
-**Important caveat:** Deviant generates code, not certified medical software. The output provides a strong foundation but requires proper security review, HIPAA compliance audit, and potentially BAA agreements before production use with real patient data.
+**Important caveat:** Retinue generates code, not certified medical software. The output provides a strong foundation but requires proper security review, HIPAA compliance audit, and potentially BAA agreements before production use with real patient data.
 
 That said, here's what's possible:
 
@@ -60,7 +60,7 @@ flowchart TB
 
 ## Built-In HIPAA Considerations
 
-Deviant generates code with security best practices:
+Retinue generates code with security best practices:
 
 ### Data Encryption
 
@@ -341,7 +341,7 @@ class AppointmentReminders:
 
 **Problem:** Paper forms, data entry, lost information
 
-**Deviant Solution (8 hours, ~$800):**
+**Retinue Solution (8 hours, ~$800):**
 
 ```typescript
 export function IntakeForms({ appointmentId }: Props) {
@@ -370,7 +370,7 @@ export function IntakeForms({ appointmentId }: Props) {
 
 **Problem:** Patients can't access their own information
 
-**Deviant Solution (12 hours, ~$1,200):**
+**Retinue Solution (12 hours, ~$1,200):**
 
 **Features:**
 - Secure login (MFA optional)
@@ -384,7 +384,7 @@ export function IntakeForms({ appointmentId }: Props) {
 
 **Problem:** Cancellations leave empty slots
 
-**Deviant Solution (6 hours, ~$600):**
+**Retinue Solution (6 hours, ~$600):**
 
 ```python
 class WaitlistManager:
@@ -421,7 +421,7 @@ class WaitlistManager:
 
 **Problem:** Need video visits but separate from scheduling
 
-**Deviant Solution (10 hours, ~$1,000):**
+**Retinue Solution (10 hours, ~$1,000):**
 
 **Features:**
 - Video visit scheduling
@@ -516,7 +516,7 @@ Before production use, ensure:
 
 ## The Honest Limitations
 
-Deviant generates excellent starting code, but healthcare software requires additional steps:
+Retinue generates excellent starting code, but healthcare software requires additional steps:
 
 1. **Security audit** by qualified professionals
 2. **HIPAA compliance review** before handling real PHI
@@ -524,7 +524,7 @@ Deviant generates excellent starting code, but healthcare software requires addi
 4. **BAA agreements** with cloud providers
 5. **Ongoing compliance** monitoring
 
-Deviant saves 80% of development time and cost. The remaining 20% (compliance, security, integration) still requires appropriate expertise.
+Retinue saves 80% of development time and cost. The remaining 20% (compliance, security, integration) still requires appropriate expertise.
 
 ---
 
@@ -540,11 +540,11 @@ Deviant saves 80% of development time and cost. The remaining 20% (compliance, s
 | Integration development | $15,000 |
 | **Total** | **$70,000** |
 
-### With Deviant
+### With Retinue
 
 | Component | Cost |
 |-----------|------|
-| Deviant generation | $1,100 |
+| Retinue generation | $1,100 |
 | HIPAA compliance consulting | $10,000 |
 | Security audit | $5,000 |
 | Integration development | $5,000 |
@@ -560,18 +560,18 @@ The compliance and security work is still needed—but the development cost drop
 
 Healthcare software doesn't have to cost $70k and take 6 months.
 
-Deviant delivers:
+Retinue delivers:
 - **HIPAA-aware code** with encryption and audit logging
 - **Patient-friendly interfaces** that match modern expectations
 - **$1,100** in generation costs instead of $40,000
 - **Foundation for compliance** (not a substitute for proper review)
 
-Smaller practices deserve modern software. Deviant makes it accessible.
+Smaller practices deserve modern software. Retinue makes it accessible.
 
 ---
 
-*This completes the industry-specific use case series. Each article demonstrates how Deviant applies to different business contexts with realistic cost/time comparisons.*
+*This completes the industry-specific use case series. Each article demonstrates how Retinue applies to different business contexts with realistic cost/time comparisons.*
 
 ---
 
-*Nicanor Korir believes every practice deserves good software, not just those with enterprise budgets. Deviant is a step toward that vision—with appropriate respect for healthcare's unique requirements.*
+*Nicanor Korir believes every practice deserves good software, not just those with enterprise budgets. Retinue is a step toward that vision—with appropriate respect for healthcare's unique requirements.*

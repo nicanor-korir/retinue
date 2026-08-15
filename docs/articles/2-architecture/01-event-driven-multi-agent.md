@@ -1,4 +1,4 @@
-# Building Event-Driven Multi-Agent Systems: The Architecture Behind Deviant
+# Building Event-Driven Multi-Agent Systems: The Architecture Behind Retinue
 
 *How to make AI agents collaborate in real-time without stepping on each other's toes.*
 
@@ -61,7 +61,7 @@ Same workflow. Sub-second handoffs. The difference is **push vs pull**.
 
 ---
 
-## How Deviant's Event System Works
+## How Retinue's Event System Works
 
 ### The Event Bus
 
@@ -105,7 +105,7 @@ flowchart TB
 
 ### Event Types
 
-Deviant defines 30+ event types. Here are the critical ones:
+Retinue defines 30+ event types. Here are the critical ones:
 
 **Project Events**
 - `PROJECT_CREATED`: Human submits a new project
@@ -295,7 +295,7 @@ That's a **6x speedup** on a single task. Across a project with 15-20 tasks, the
 
 ## Error Handling in Event Systems
 
-Events can fail. Messages can get lost. Agents can crash. How does Deviant handle this?
+Events can fail. Messages can get lost. Agents can crash. How does Retinue handle this?
 
 ### 1. Event Persistence
 
@@ -429,7 +429,7 @@ async def event_consumer(agent):
 
 ### Event Ordering
 
-Some events must be processed in order (task completion before project completion). Deviant uses:
+Some events must be processed in order (task completion before project completion). Retinue uses:
 
 1. **Sequence numbers** per entity
 2. **Causal ordering** for related events
@@ -480,4 +480,4 @@ The result: sub-100ms coordination latency, 6x+ speedup versus polling, and a sy
 
 ---
 
-*Nicanor Korir has debugged more event systems than he'd like to admit. Deviant is what happens when you finally get it right.*
+*Nicanor Korir has debugged more event systems than he'd like to admit. Retinue is what happens when you finally get it right.*

@@ -39,9 +39,11 @@ export function TaskActivityStream({ taskId, taskTitle, className }: TaskActivit
   const scrollEndRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // WebSocket connection using custom hook
+  // WebSocket connection using custom hook.
+  // Built from NEXT_PUBLIC_WS_URL so it works over wss:// in production;
+  // a hardcoded ws://localhost would be blocked as mixed content on HTTPS.
   const { lastMessage, readyState, url } = useWebSocket(
-    `ws://localhost:8000/ws/task/${taskId}`,
+    `${process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000"}/ws/task/${taskId}`,
     {
       onOpen: () => {
         setIsConnected(true);

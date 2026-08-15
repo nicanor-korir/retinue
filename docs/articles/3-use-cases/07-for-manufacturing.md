@@ -1,4 +1,4 @@
-# Deviant for Manufacturing: Real-Time Inventory Tracking Without the $80k Price Tag
+# Retinue for Manufacturing: Real-Time Inventory Tracking Without the $80k Price Tag
 
 *How manufacturers are building warehouse systems, barcode scanning, and production tracking in hours—not months.*
 
@@ -12,7 +12,7 @@ Enterprise solutions like SAP or Oracle cost hundreds of thousands. They take 6-
 
 Small and mid-sized manufacturers can't afford that. So they run on spreadsheets, whiteboards, and tribal knowledge. They lose track of inventory. They can't trace production issues. They're flying blind.
 
-Deviant changes that equation.
+Retinue changes that equation.
 
 ---
 
@@ -22,7 +22,7 @@ A manufacturing client came to me with this situation:
 
 > "We have 3 warehouses. Nobody knows what's actually in stock. We're either overstocking (capital tied up) or understocking (production delays). SAP quoted us $80k just for the software."
 
-### What They Got with Deviant
+### What They Got with Retinue
 
 **Timeline:** 18 hours of AI generation + 6 hours of review
 **Cost:** ~$1,800 in API costs
@@ -59,7 +59,7 @@ flowchart TB
 
 ---
 
-## What Deviant Generates
+## What Retinue Generates
 
 ### Mobile Barcode Scanner App
 
@@ -223,7 +223,7 @@ async def record_scan(
 
 **Problem:** Don't know where jobs are or when they'll finish
 
-**Deviant Solution (14 hours, ~$1,400):**
+**Retinue Solution (14 hours, ~$1,400):**
 
 ```mermaid
 flowchart LR
@@ -267,7 +267,7 @@ flowchart LR
 
 **Problem:** Paper-based QC, lost records, can't trace issues
 
-**Deviant Solution (12 hours, ~$1,200):**
+**Retinue Solution (12 hours, ~$1,200):**
 
 **Features:**
 - Digital QC checklists
@@ -280,7 +280,7 @@ flowchart LR
 
 **Problem:** Reactive maintenance, unexpected downtime
 
-**Deviant Solution (10 hours, ~$1,000):**
+**Retinue Solution (10 hours, ~$1,000):**
 
 **Features:**
 - Equipment registry with maintenance schedules
@@ -293,7 +293,7 @@ flowchart LR
 
 **Problem:** Manual paperwork, data entry errors
 
-**Deviant Solution (8 hours, ~$800):**
+**Retinue Solution (8 hours, ~$800):**
 
 **Features:**
 - PO receiving with barcode scanning
@@ -344,7 +344,7 @@ At $25/hour: **$56,000/year savings**
 
 ### Offline Capability
 
-Warehouses don't always have great WiFi. Deviant generates apps with offline support:
+Warehouses don't always have great WiFi. Retinue generates apps with offline support:
 
 ```typescript
 // Offline-first architecture
@@ -400,7 +400,7 @@ Works with common hardware:
 - Define requirements
 
 ### Week 2: Generation
-- Create Deviant project
+- Create Retinue project
 - Generate system
 - Initial testing
 
@@ -429,7 +429,7 @@ Works with common hardware:
 | Oracle NetSuite | $40-80k | 4-8 months | Limited | Vendor |
 | Fishbowl | $15-40k | 2-4 months | Moderate | Vendor |
 | Custom Development | $80-200k | 6-12 months | Full | You |
-| **Deviant** | **$1-3k** | **2-4 weeks** | **Full** | **You** |
+| **Retinue** | **$1-3k** | **2-4 weeks** | **Full** | **You** |
 
 ---
 
@@ -437,7 +437,7 @@ Works with common hardware:
 
 Manufacturing software doesn't have to cost $80k and take 6 months.
 
-Deviant delivers:
+Retinue delivers:
 - **Real-time inventory** across all locations
 - **Barcode scanning** with mobile and handheld support
 - **Production tracking** with full visibility
@@ -449,8 +449,8 @@ The technology that big manufacturers take for granted is now accessible to ever
 
 ---
 
-**Next**: [Deviant for E-Commerce →](./08-for-ecommerce.md)
+**Next**: [Retinue for E-Commerce →](./08-for-ecommerce.md)
 
 ---
 
-*Nicanor Korir has seen manufacturers struggle with tools built for enterprises 10x their size. Deviant levels the playing field.*
+*Nicanor Korir has seen manufacturers struggle with tools built for enterprises 10x their size. Retinue levels the playing field.*

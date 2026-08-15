@@ -1,7 +1,7 @@
 # AI Agent Company: Business Plan
 ## Executive Summary
 
-**Project Name:** Deviant Company Platform  
+**Project Name:** Retinue Company Platform  
 **Version:** 1.0  
 **Date:** October 2025  
 **Status:** Phase 1 - Development & Testing
