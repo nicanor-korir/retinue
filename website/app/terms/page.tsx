@@ -101,7 +101,7 @@ export default function TermsOfService() {
 
               <h3 className="text-xl font-semibold mb-3">1.1 Binding Agreement</h3>
               <p className="mb-4 text-[var(--body)]">
-                By accessing or using Retinue (retinue.team), you agree to be bound by these Terms. If you don't agree, don't use our services.
+                By accessing or using Retinue (retinue.nicanor.xyz), you agree to be bound by these Terms. If you don't agree, don't use our services.
               </p>
 
               <h3 className="text-xl font-semibold mb-3">1.2 Age Requirement</h3>

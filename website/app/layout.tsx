@@ -5,6 +5,17 @@ import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
+  // Resolves relative Open Graph and Twitter image paths to absolute URLs.
+  // Without it, link previews on social platforms point at localhost and break.
+  // Falls back to the Vercel-assigned URL on preview deployments.
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ||
+      (process.env.VERCEL_ENV === "production"
+        ? "https://retinue.nicanor.xyz"
+        : process.env.VERCEL_PROJECT_PRODUCTION_URL
+          ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+          : "https://retinue.nicanor.xyz")
+  ),
   title: "Retinue - Build Business Solutions with a reliable team as Fast as You Can Describe It",
   description:
     "Autonomous AI agents team that develop software automatically. From idea to deployed product in hours, not months. Minutes, not weeks. Hundreds, not thousands. Retinue built our stack differently.",
@@ -37,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://retinue.team/",
+    url: "https://retinue.nicanor.xyz/",
     title: "Retinue - Build Software as Fast as You Can Describe It",
     description:
       "Autonomous AI agents that develop software automatically. Hours, not months. Hundreds, not thousands.",
@@ -117,8 +128,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Retinue",
-              url: "https://retinue.team",
-              logo: "https://retinue.team/favicon.png",
+              url: "https://retinue.nicanor.xyz",
+              logo: "https://retinue.nicanor.xyz/favicon.png",
               description: "Autonomous AI agents that develop software automatically. Build software as fast as you can describe it.",
               foundingDate: "2025-10-01",
               founders: [

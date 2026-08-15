@@ -228,7 +228,7 @@ export default function PressKit() {
                     <strong>Stage:</strong> Pre-Seed MVP
                   </li>
                   <li>
-                    <strong>Website:</strong> retinue.team
+                    <strong>Website:</strong> retinue.nicanor.xyz
                   </li>
                 </ul>
               </CardContent>
@@ -473,10 +473,10 @@ export default function PressKit() {
                   <p>
                     <strong>Website:</strong>{" "}
                     <a
-                      href="https://retinue.team"
+                      href="https://retinue.nicanor.xyz"
                       className="text-[var(--primary)] hover:underline"
                     >
-                      retinue.team
+                      retinue.nicanor.xyz
                     </a>
                   </p>
                   <p>
