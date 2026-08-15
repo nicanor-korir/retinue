@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/ui/navbar";
@@ -59,12 +59,6 @@ export const metadata: Metadata = {
     images: ["/about.png"],
     creator: "@retinueteam",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: "#0066FF",
   icons: {
     icon: [
       { url: '/favicon.png', sizes: 'any', type: 'image/png' },
@@ -76,6 +70,16 @@ export const metadata: Metadata = {
       { rel: 'mask-icon', url: '/favicon.png', color: '#FF6B35' },
     ],
   },
+};
+
+// Next.js 14+ requires viewport and themeColor in their own `viewport` export
+// rather than in `metadata`. Keeping them in metadata warns on every route and
+// is removed in a future major version.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#0066FF",
 };
 
 export default function RootLayout({
